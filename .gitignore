@@ -1,2 +1,4 @@
 .directory
-index.html
+.hugo_build.lock
+themes/even
+themes/jane
