@@ -5,9 +5,8 @@ set -e
 
 echo 'prepare'
 
-git branch -D build
-git branch build
 git checkout build
+git reset --hard master
 
 hugo
 cp CNAME docs/CNAME

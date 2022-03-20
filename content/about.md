@@ -22,6 +22,8 @@ mathjax: false
 
 
 
+
+
 <table>
 <tr>
     <td>2019.9 - 现在</td>
@@ -36,4 +38,5 @@ mathjax: false
 
 + 操作系统：Kubuntu 20.04
 + 编辑器：VSCode、Kate
++ 编程语言：Python、Mathematica、C++
 
