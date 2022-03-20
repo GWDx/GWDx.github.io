@@ -1,15 +1,18 @@
 #!/bin/bash
 set -e
 
-[[ $(git status -s) ]] && exit 1
-
-echo 'prepare'
+if [[ $(git status -s) ]]
+then
+    echo 'dirty'
+    exit 1;
+fi
 
 git checkout build
-git reset --hard master
+git reset --hard origin/build
+git merge master --no-edit
 
 hugo
 cp CNAME docs/CNAME
 
 git add .
-git commit -m "build"
+git commit --amend -m "build"
