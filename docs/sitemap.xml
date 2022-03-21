@@ -1,27 +1,65 @@
-<?xml-stylesheet type="text/xsl" href="http://gwdx.github.io/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="http://gwdx.me/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://gwdx.github.io/about/</loc>
+    <loc>http://gwdx.me/categories/</loc>
+    <lastmod>2022-03-20T17:25:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.me/</loc>
+    <lastmod>2022-03-20T17:25:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.me/tags/javascript/</loc>
+    <lastmod>2022-03-20T17:25:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.me/post/</loc>
+    <lastmod>2022-03-20T17:25:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.me/tags/</loc>
+    <lastmod>2022-03-20T17:25:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.me/categories/web/</loc>
+    <lastmod>2022-03-20T17:25:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.me/post/web-tour/</loc>
+    <lastmod>2022-03-20T17:25:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.me/tags/%E5%9F%9F%E5%90%8D/</loc>
+    <lastmod>2022-03-20T17:25:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.me/about/</loc>
     <lastmod>2022-03-19T23:12:22+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gwdx.github.io/categories/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gwdx.github.io/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gwdx.github.io/tags/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
