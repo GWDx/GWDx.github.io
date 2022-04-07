@@ -1,7 +1,7 @@
 ---
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
-date: {{ .Date }}
-lastmod: {{ .Date }}
+date: {{ now.Format "2006-01-02" }}
+lastmod: {{ now.Format "2006-01-02" }}
 draft: true
 keywords: []
 description: ""
@@ -14,6 +14,8 @@ toc: false
 autoCollapseToc: false
 contentCopyright: false
 reward: false
-mathjax: false
+katex: false
 ---
+
+<!--more-->
 

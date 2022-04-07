@@ -25,5 +25,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>CTF</title>
+      <link>http://gwdx.me/tags/ctf/</link>
+      <pubDate>Sun, 31 Oct 2021 00:00:28 +0800</pubDate>
+      
+      <guid>http://gwdx.me/tags/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hackergame</title>
+      <link>http://gwdx.me/tags/hackergame/</link>
+      <pubDate>Sun, 31 Oct 2021 00:00:28 +0800</pubDate>
+      
+      <guid>http://gwdx.me/tags/hackergame/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

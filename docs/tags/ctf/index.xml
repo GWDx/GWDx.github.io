@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CTF on GWDx</title>
+    <link>http://gwdx.me/tags/ctf/</link>
+    <description>Recent content in CTF on GWDx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 31 Oct 2021 00:00:28 +0800</lastBuildDate><atom:link href="http://gwdx.me/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hackergame 2021 题解</title>
+      <link>http://gwdx.me/post/hackergame2021/</link>
+      <pubDate>Sun, 31 Oct 2021 00:00:28 +0800</pubDate>
+      
+      <guid>http://gwdx.me/post/hackergame2021/</guid>
+      <description>&lt;p&gt;Hackergame 2021（中科大第八届信息安全大赛）个人题解&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://gwdx.me/post/hackergame2021/image/board.png&#34; alt=&#34;board&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

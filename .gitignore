@@ -1,4 +1,3 @@
 .directory
 .hugo_build.lock
-themes/even
-themes/jane
+themes
