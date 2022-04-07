@@ -11,6 +11,7 @@ git checkout build
 git reset --hard origin/build
 git merge master --no-edit
 
+rm -r docs
 hugo
 cp CNAME docs/CNAME
 
