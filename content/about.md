@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "关于"
 date: 2022-03-19T23:12:22+08:00
 lastmod: 2022-03-19T23:12:22+08:00
 keywords: []
@@ -28,19 +28,18 @@ mathjax: false
 
 
 
-<table>
-<tr>
-    <td>2019.9 - 现在</td>
-    <td>中国科学技术大学，计算机科学与技术学院</td>
-</tr>
-<tr>
-    <td>2016.9 - 2019.6</td>
-    <td>浙江海盐元济高级中学</td>
-</tr>
-</table>
+<style type="text/css">
+    tab {
+        width: 9em;
+        float: left;
+    }
+</style>
 
++ <tab> 2019.9 - 现在 </tab> 中国科学技术大学，计算机科学与技术学院
++ <tab> 2016.9 - 2019.6 </tab> 浙江海盐元济高级中学
+
+<br/>
 
 + 操作系统：Kubuntu 20.04
 + 编辑器：VSCode、Kate
 + 编程语言：Python、Mathematica、C++
-
