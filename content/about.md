@@ -19,14 +19,7 @@ reward: false
 mathjax: false
 ---
 
-
-
-
-
 甘文迪
-
-
-
 
 <style type="text/css">
     tab {
@@ -40,6 +33,6 @@ mathjax: false
 
 <br/>
 
-+ 操作系统：Kubuntu 20.04
++ 操作系统：Debian
 + 编辑器：VSCode、Kate
 + 编程语言：Python、Mathematica、C++
