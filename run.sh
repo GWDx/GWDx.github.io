@@ -4,11 +4,11 @@ set -e
 if [[ $(git status -s) ]]
 then
     echo 'dirty'
-    exit 1;
+    exit 1
 fi
 
 git checkout build
-git reset --hard origin/build
+git reset origin/build
 git merge master --no-edit
 
 rm -r docs
