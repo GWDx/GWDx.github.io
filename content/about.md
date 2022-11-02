@@ -35,4 +35,4 @@ mathjax: false
 
 + 操作系统：Debian
 + 编辑器：VSCode、Kate
-+ 编程语言：Python、Mathematica、C++
++ 编程语言：Python、C++、Mathematica

@@ -5,8 +5,8 @@ title = "GWDx"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
 enableEmoji = true
-theme = "jane"
-enableGitInfo = false # use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。
+theme = "even"
+enableGitInfo = true # use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。
 
 # Syntax highlighting by Chroma. NOTE: Don't enable `highlightInClient` and `chroma` at the same time!
 pygmentsOptions = "linenos=table"
@@ -32,6 +32,7 @@ publishDir = 'docs'
     changefreq = "weekly"
     priority = 0.5
     filename = "sitemap.xml"
+
 [[menu.main]]             # config your menu              # 配置目录
     name = "主页"
     weight = 10
@@ -60,13 +61,13 @@ publishDir = 'docs'
 
 
 [params]
-    # version = "4.x"           # Used to give a friendly message when you have an incompatible update
+    version = "4.x"           # Used to give a friendly message when you have an incompatible update
     debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
 
     since = "2022"            # Site creation time          # 站点建立时间
     # use public git repo url to link lastmod git commit, enableGitInfo should be true.
     # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
-    # gitRepo = ""
+    gitRepo = "https://github.com/GWDx/GWDx.github.io"
 
     # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
     logoTitle = "GWDx"        # default: the title value    # 默认值: 上面设置的title值
