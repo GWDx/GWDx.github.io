@@ -21,10 +21,7 @@ int main() {
         srand((unsigned)time0 + clock0);
 
         int games = 5;
-        int win = 0;
-        int lose = 0;
         char target[20];
-        char guess[2000];
         for (int i = games; i > 0; i--) {
             int M = 0;
             int N = 400000;

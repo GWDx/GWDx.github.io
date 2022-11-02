@@ -12,7 +12,6 @@ def replaceWithDataset():
         import base64
 
         import torch
-        import matplotlib
         import matplotlib.image
 
         predictions = torch.load("dataset/pixels_10.pt", map_location="cpu")

@@ -457,28 +457,22 @@ extern const __attribute__((aligned(16))) char gdynamic4OutData[];
 extern const __attribute__((aligned(16))) char* const gdynamic4OutEnd;
 extern const unsigned int gdynamic4OutSize;
 
-int main(int argc, char* argv[]) {
+char* indexToOut[] = {gstaticOutData,   gdynamic0OutData, gdynamic1OutData,
+                      gdynamic2OutData, gdynamic3OutData, gdynamic4OutData};
+
+int main() {
+    // read currentFile from currentFile
+    // if not exist, create it, currentFile = 0
     FILE* fp = fopen("./temp/currentFile", "r");
     int currentFile = 0;
-    if (fp != ((void*)0)) {
+    if (fp != NULL) {
         fscanf(fp, "%d", &currentFile);
         fclose(fp);
     }
-
+    // write currentFile + 1 to currentFile
     fp = fopen("./temp/currentFile", "w");
     fprintf(fp, "%d", currentFile + 1);
     fclose(fp);
 
-    if (currentFile == 0)
-        printf("%s", gstaticOutData);
-    else if (currentFile == 1)
-        printf("%s", gdynamic0OutData);
-    else if (currentFile == 2)
-        printf("%s", gdynamic1OutData);
-    else if (currentFile == 3)
-        printf("%s", gdynamic2OutData);
-    else if (currentFile == 4)
-        printf("%s", gdynamic3OutData);
-    else if (currentFile == 5)
-        printf("%s", gdynamic4OutData);
+    printf("%s", indexToOut[currentFile]);
 }

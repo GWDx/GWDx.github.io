@@ -41,22 +41,19 @@
 
 
 <meta property="og:title" content="Hackergame 2022 题解" />
-<meta property="og:description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解
-" />
+<meta property="og:description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://gwdx.me/post/hackergame2022/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-10-31T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-11-02T20:01:25+08:00" />
+<meta property="article:modified_time" content="2022-11-02T20:07:54+08:00" />
 
 <meta itemprop="name" content="Hackergame 2022 题解">
-<meta itemprop="description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解
-"><meta itemprop="datePublished" content="2022-10-31T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-11-02T20:01:25+08:00" />
-<meta itemprop="wordCount" content="5326">
+<meta itemprop="description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解"><meta itemprop="datePublished" content="2022-10-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-11-02T20:07:54+08:00" />
+<meta itemprop="wordCount" content="6267">
 <meta itemprop="keywords" content="Hackergame,CTF," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hackergame 2022 题解"/>
-<meta name="twitter:description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解
-"/>
+<meta name="twitter:description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -142,29 +139,74 @@
       </div>
     </header>
 
-    
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#环境">环境</a></li>
+    <li><a href="#完成的题目">完成的题目</a>
+      <ul>
+        <li><a href="#16-二次元神经网络">16. 二次元神经网络</a></li>
+        <li><a href="#1-签到">1. 签到</a></li>
+        <li><a href="#2-猫咪问答喵">2. 猫咪问答喵</a></li>
+        <li><a href="#3-家目录里的秘密">3. 家目录里的秘密</a></li>
+        <li><a href="#4-heilang">4. HeiLang</a></li>
+        <li><a href="#5-xcaptcha">5. Xcaptcha</a></li>
+        <li><a href="#6-旅行照片-20">6. 旅行照片 2.0</a></li>
+        <li><a href="#7-猜数字">7. 猜数字</a></li>
+        <li><a href="#8-latex-机器人">8. LaTeX 机器人</a></li>
+        <li><a href="#9-flag-的痕迹">9. Flag 的痕迹</a></li>
+        <li><a href="#10-安全的在线测评">10. 安全的在线测评</a></li>
+        <li><a href="#11-线路板">11. 线路板</a></li>
+        <li><a href="#12-flag-自动机">12. Flag 自动机</a></li>
+        <li><a href="#13-微积分计算小练习">13. 微积分计算小练习</a></li>
+        <li><a href="#14-杯窗鹅影">14. 杯窗鹅影</a></li>
+        <li><a href="#15-蒙特卡罗轮盘赌">15. 蒙特卡罗轮盘赌</a></li>
+        <li><a href="#17-惜字如金">17. 惜字如金</a></li>
+        <li><a href="#18-不可加密的异世界">18. 不可加密的异世界</a></li>
+        <li><a href="#19-置换魔群">19. 置换魔群</a></li>
+        <li><a href="#20-光与影">20. 光与影</a></li>
+        <li><a href="#23-链上记忆大师">23. 链上记忆大师</a></li>
+        <li><a href="#24-片上系统">24. 片上系统</a></li>
+        <li><a href="#25-传达不到的文件">25. 传达不到的文件</a></li>
+        <li><a href="#26-看不见的彼方">26. 看不见的彼方</a></li>
+        <li><a href="#27-量子藏宝图">27. 量子藏宝图</a></li>
+        <li><a href="#28-关于-robogame-的轮子永远调不准速度这件事">28. 《关于 RoboGame 的轮子永远调不准速度这件事》</a></li>
+        <li><a href="#30-企鹅拼盘">30. 企鹅拼盘</a></li>
+        <li><a href="#32-火眼金睛的小-e">32. 火眼金睛的小 E</a></li>
+      </ul>
+    </li>
+    <li><a href="#未完成">未完成</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-content">
       <p>Hackergame 2022（中科大第九届信息安全大赛）个人题解</p>
+<p>今年得分 7350，总榜 15。</p>
 <p><img src="/post/hackergame2022/image/board.png" alt="board"></p>
+<p>题目及其余题解可以在 <a href="https://github.com/USTC-Hackergame/hackergame2022-writeups">hackergame2022-writeups</a> 中查看</p>
 <h2 id="环境">环境</h2>
 <ul>
 <li>Debian Bookworm</li>
 <li>Python 3.10</li>
 </ul>
 <h2 id="完成的题目">完成的题目</h2>
-<h3 id="16-二次元神经网络">16 二次元神经网络</h3>
+<h3 id="16-二次元神经网络">16. 二次元神经网络</h3>
 <blockquote>
 <p>2022 年 10 月 22 日 12 时，Hackergame 2022 正式开始</p>
-</blockquote>
 <p>签到、Xcaptcha、Latex 机器人各做了十几分钟，然而都没做出来</p>
+</blockquote>
 <blockquote>
 <p>12:40 - 13:30</p>
-</blockquote>
 <p>开始炼这题的丹。感觉参数量有点小，Loss 不太能降的下来</p>
+</blockquote>
 <blockquote>
 <p>14:20</p>
-</blockquote>
 <p>发现这题是 web 类型的题目，感觉并不是让我们训练网络或者解不等式。</p>
+</blockquote>
 <p>我对 AI 绘画很感兴趣，之前 bilibili 上 NovelAI 相关的视频看了不少。其中有一个 <a href="https://www.bilibili.com/video/BV1BN4y1c7KX/">你的NovelAI模型，极有可能被恶意攻击</a> 提到了 pickle 模块可能存在安全问题。但是里面的代码只展示了 pkl 文件的读取和写入，没有 pt 文件的读取和写入。</p>
 <p>把 pt 文件解压缩可以得到一个 pkl 文件，然而直接用 packle 载入会报错。把 PyTorch 版本换成题目中的 1.9 也不行。尝试调试库代码，以失败告终。</p>
 <blockquote>
@@ -173,16 +215,85 @@
 <p>Google 了好久，终于用 <code>pickle Serialization danger pytorch</code> 找到了一个示例 <a href="https://www.youtube.com/watch?v=2ethDz9KnLk">The hidden dangers of loading open-source AI models (ARBITRARY CODE EXPLOIT!)</a>，作者写了一个库 <a href="https://github.com/yk/patch-torch-save">yk/patch-torch-save</a>，这个函数可以替换 <code>torch.save</code> 实现代码注入。</p>
 <p>试了一下在要上传的模型中注入 <code>exit</code> 进去，发现确实可以让后台崩掉。</p>
 <p>实现时需要阻止在执行注入的代码后按照 pt 文件后面的数据保存结果。于是重写 <code>json.dump</code> 函数，让服务器在调用这个函数时把数据集的前十张图片导出到 <code>/tmp/result.json</code></p>
-<blockquote>
-<p>完整代码见 <a href="22/patch.py">patch.py</a></p>
-</blockquote>
-<p>感谢 Stable Diffusion，感谢 NovelAI，我拿到了第一个 flag，获得了这一题的一血，守护了科大这片二次元的土地。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">patch_torch_save</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">SimpleGenerativeModel</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">replaceWithDataset</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">import</span> <span class="nn">io</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">import</span> <span class="nn">matplotlib.image</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">predictions</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&#34;dataset/pixels_10.pt&#34;</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="s2">&#34;cpu&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">gen_imgs</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">out_io</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">matplotlib</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">imsave</span><span class="p">(</span><span class="n">out_io</span><span class="p">,</span> <span class="n">predictions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&#34;png&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">png_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">out_io</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">gen_imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">png_b64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">jsondump</span><span class="p">({</span><span class="s2">&#34;gen_imgs_b64&#34;</span><span class="p">:</span> <span class="n">gen_imgs</span><span class="p">},</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;/tmp/result.json&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">jsondump</span>
+</span></span><span class="line"><span class="cl">    <span class="n">jsondump</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dump</span>
+</span></span><span class="line"><span class="cl">    <span class="n">json</span><span class="o">.</span><span class="n">dump</span> <span class="o">=</span> <span class="n">fun</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">patched_save_function</span> <span class="o">=</span> <span class="n">patch_torch_save</span><span class="o">.</span><span class="n">patch_save_function</span><span class="p">(</span><span class="n">replaceWithDataset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">SimpleGenerativeModel</span><span class="p">(</span><span class="n">n_tags</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">img_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&#34;checkpoint/model.pt&#34;</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="s2">&#34;cpu&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">patched_save_function</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s2">&#34;checkpoint/model2.pt&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>感谢 Stable Diffusion，感谢 NovelAI，我拿到了第一个 flag，获得了这一题的一血，守护了科大这片二次元的土地。</p>
 <br>
-<h3 id="1-签到">1 签到</h3>
+<h3 id="1-签到">1. 签到</h3>
 <p>一开始点开签到，画了一下没画出来，开始把网页下载下来看代码。</p>
 <p>后来感觉分析 JavaScript 代码不是签到题该有的难度。忽然发现点击提交后 URL 会变，把请求内容改成 2022 就可以了。</p>
 <br>
-<h3 id="2-猫咪问答喵">2 猫咪问答喵</h3>
+<h3 id="2-猫咪问答喵">2. 猫咪问答喵</h3>
 <ol>
 <li>百度 <code>USTC NEBULA 成立时间</code>，<a href="https://www.cas.cn/djcx/wm/201706/t20170616_4605231.shtml">中国科大“星云战队”获信息安全铁人三项赛华东区企业赛冠军</a> 中提到成立时间是 2017-03</li>
 <li>找到 <a href="https://ftp.lug.ustc.edu.cn/%E6%B4%BB%E5%8A%A8/2022.9.20_%E8%BD%AF%E4%BB%B6%E8%87%AA%E7%94%B1%E6%97%A5/slides/gnome-wayland-user-perspective.pdf">gnome-wayland-user-perspective.pdf</a>，里面的是 Kdenlive 的界面</li>
@@ -195,7 +306,7 @@
 用脚本枚举出来是 2003-03-01</li>
 </ol>
 <br>
-<h3 id="3-家目录里的秘密">3 家目录里的秘密</h3>
+<h3 id="3-家目录里的秘密">3. 家目录里的秘密</h3>
 <h4 id="vs-code-里的-flag">VS Code 里的 flag</h4>
 <p>第一问 VSCode 一开，查 <code>flag</code> 就行</p>
 <h4 id="rclone-里的-flag">Rclone 里的 flag</h4>
@@ -209,7 +320,7 @@
 <p>感觉 MISC 题在考智商，能不能领会到出题人的想法</p>
 </blockquote>
 <br>
-<h3 id="4-heilang">4 HeiLang</h3>
+<h3 id="4-heilang">4. HeiLang</h3>
 <p>正则表达式替换</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -254,11 +365,72 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><br>
-<h3 id="5-xcaptcha">5 Xcaptcha</h3>
+<h3 id="5-xcaptcha">5. Xcaptcha</h3>
 <p>使用 Python 的 Selenium 库，模拟人工操作。一开始代码写错了，用 Kazam 录屏后才发现错误</p>
-<p>代码见 <a href="5/run.py">run.py</a></p>
-<br>
-<h3 id="6-旅行照片-20">6 旅行照片 2.0</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># firefox</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://202.38.93.111:10047&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># input type=&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">inputBox</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s1">&#39;input[type=&#34;text&#34;]&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">inputBox</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;1:MEUCIQC24dB6B24/LDr2O+4cifbzOEFDbkXg3hJIqTXuuvpa1QIgbzMM/F0uUmYIudtM6qEDvOpEHbtTZjSjTWMcA5zhnos= &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># input type=&#34;submit&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># click img-fluid</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s1">&#39;input[type=&#34;submit&#34;]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s1">&#39;img-fluid&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># &lt;label for=&#34;captcha1&#34;&gt;160092426831461187501631690638141489463+53014117698106737620695077701380624357 的结果是？&lt;/label&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &lt;input type=&#34;text&#34; class=&#34;form-control&#34; id=&#34;captcha1&#34; name=&#34;captcha1&#34; placeholder=&#34;请输入结果&#34;&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">captcha</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s1">&#39;label[for=&#34;captcha&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&#34;]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(.+) 的结果是&#39;</span><span class="p">,</span> <span class="n">captcha</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ans</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s1">&#39;input[name=&#34;captcha&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&#34;]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># &lt;button type=&#34;submit&#34; class=&#34;btn btn-primary&#34; id=&#34;submit&#34;&gt;提交&lt;/button&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">&#39;submit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="6-旅行照片-20">6. 旅行照片 2.0</h3>
 <h4 id="照片分析">照片分析</h4>
 <p>KDE 自带的图片管理器可以显示图片的 EXIF 信息。</p>
 <blockquote>
@@ -271,7 +443,7 @@
 <li>用 <a href="https://www.flightradar24.com/">flightradar24</a> 查航班。根据飞机方向判断起飞机场是东京机场或者南面的一个机场。然后用脚本枚举</li>
 </ul>
 <br>
-<h3 id="7-猜数字">7 猜数字</h3>
+<h3 id="7-猜数字">7. 猜数字</h3>
 <p>每次有 10^-6 次方的概率一下子猜对，就算每次交互 1s，也要 11 天。所以不可能暴力。</p>
 <p>观察了一下随机数，没有发现问题。</p>
 <p>后来看到这段代码，估计是 <code>NaN</code></p>
@@ -299,7 +471,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><br>
-<h3 id="8-latex-机器人">8 LaTeX 机器人</h3>
+<h3 id="8-latex-机器人">8. LaTeX 机器人</h3>
 <h4 id="纯文本">纯文本</h4>
 <p>Copilot 教会我用 <code>\input</code></p>
 <div class="highlight"><div class="chroma">
@@ -328,7 +500,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><br>
-<h3 id="9-flag-的痕迹">9 Flag 的痕迹</h3>
+<h3 id="9-flag-的痕迹">9. Flag 的痕迹</h3>
 <p>一开始以为要找出用户名和密码。</p>
 <p>后来点着点着发现 URL 里有 <code>do=</code>。源码里见过，根据源码改成 <code>do=diff</code></p>
 <p>http://202.38.93.111:15004/doku.php?id=start&amp;do=diff</p>
@@ -337,7 +509,7 @@
 <p>我也花了挺久的</p>
 </blockquote>
 <br>
-<h3 id="10-安全的在线测评">10 安全的在线测评</h3>
+<h3 id="10-安全的在线测评">10. 安全的在线测评</h3>
 <h4 id="无法-ac-的题目">无法 AC 的题目</h4>
 <blockquote>
 <p>这题让我想起了 <a href="https://www.zhihu.com/question/433907534">如何看待 NOIP2020 某选手通过修改输入文件获得了第三题的满分？</a></p>
@@ -374,26 +546,91 @@
 <p><code>fopen</code> 不行了，没有读权限。</p>
 <p>上一小问的 flag 提示在编译时 <code>include</code> 目标文件。但直接 include 不行，因为两个数字间有换行。</p>
 <p><a href="https://stackoverflow.com/questions/4158900/embedding-resources-in-executable-using-gcc">Embedding resources in executable using GCC</a> 中提到了 <a href="https://github.com/graphitemaster/incbin">incbin</a> 这个库，可以包含数据文件</p>
-<p>代码见 <a href="10/raw.c">raw.c</a></p>
-<p>为了避免包含这个库，可以用 <code>gcc -E</code> 预处理一下，然后把没用的代码删掉，提交的文件见 <a href="10/submit.c">submit.c</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;incbin.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">staticOut</span><span class="p">,</span> <span class="s">&#34;./data/static.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">dynamic0Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic0.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">dynamic1Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic1.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">dynamic2Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic2.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">dynamic3Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic3.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">dynamic4Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic4.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">char</span><span class="o">*</span> <span class="n">indexToOut</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">staticOut_data</span><span class="p">,</span> <span class="n">dynamic0Out_data</span><span class="p">,</span> <span class="n">dynamic1Out_data</span><span class="p">,</span> <span class="n">dynamic2Out_data</span><span class="p">,</span> <span class="n">dynamic3Out_data</span><span class="p">,</span> <span class="n">dynamic4Out_data</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// read currentFile from currentFile
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if not exist, create it, currentFile = 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;./temp/currentFile&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">currentFile</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">fp</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fscanf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">currentFile</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// write currentFile + 1 to currentFile
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;./temp/currentFile&#34;</span><span class="p">,</span> <span class="s">&#34;w&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">currentFile</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">indexToOut</span><span class="p">[</span><span class="n">currentFile</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为了避免包含这个库，可以用 <code>gcc -E</code> 预处理一下，然后把没用的代码删掉，提交的文件见 <a href="10/submit.c">submit.c</a></p>
 <blockquote>
 <p>暑假时查过编译时 include 文件的资料，但当时没找到，这次学到了。</p>
 </blockquote>
 <br>
-<h3 id="11-线路板">11 线路板</h3>
+<h3 id="11-线路板">11. 线路板</h3>
 <p>安装 Gerbv</p>
 <p>加载所有 <code>*.gbr</code> 文件，然后发现 <code>fla</code> 字样，把所有挡住的圆盘删掉，获得 flag。</p>
 <blockquote>
-<p>一开始装了个免费版的 Altium Designer，没用</p>
+<p>一开始装了个免费版的 Altium Designer，一点用都没有</p>
 </blockquote>
 <br>
-<h3 id="12-flag-自动机">12 Flag 自动机</h3>
+<h3 id="12-flag-自动机">12. Flag 自动机</h3>
 <p>直接打开有两个按钮，鼠标左键 + Alt + Space 乱按有概率颠倒按钮，但还是会显示没有管理员权限。</p>
 <p>使用 Detect_it_Easy，没有发现壳。</p>
 <p>用文本编辑器打开文件会显示一些文字，比如 <code>flag_machine.txt</code></p>
 <p>学习了一下 IDA 的使用。找到了 <code>fwrite</code> 的位置。根据反汇编的代码，将判断语句 <code>jnz</code> 更改为 <code>jz</code></p>
 <br>
-<h3 id="13-微积分计算小练习">13 微积分计算小练习</h3>
+<h3 id="13-微积分计算小练习">13. 微积分计算小练习</h3>
 <p><code>bot.py</code> 调用 selenium 打开网页。需要更改 URL 的参数获得 cookie</p>
 <p>查看 http://202.38.93.111:10056/share?result=MTAwOkdXRHg%3D 的页面源代码</p>
 <p>微积分网站中的 URL 是经过 base64 和 URL 编码的</p>
@@ -442,7 +679,7 @@
 </div>
 </div><p>填入提交网站即可获得 flag</p>
 <br>
-<h3 id="14-杯窗鹅影">14 杯窗鹅影</h3>
+<h3 id="14-杯窗鹅影">14. 杯窗鹅影</h3>
 <h4 id="flag1">flag1</h4>
 <p><code>fopen</code> 直接读</p>
 <div class="highlight"><div class="chroma">
@@ -534,13 +771,114 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><br>
-<h3 id="15-蒙特卡罗轮盘赌">15 蒙特卡罗轮盘赌</h3>
+<h3 id="15-蒙特卡罗轮盘赌">15. 蒙特卡罗轮盘赌</h3>
 <p>随机数种子取决于 <code>time(0) + clock()</code>。其中 <code>clock()</code> 表示程序运行的 CPU 时钟数，本地运行大概在 500-1500 之间。</p>
 <p>一开始假设其为某个值和服务器枚举，结果试了 1000 次都不行。</p>
 <p>后来想到可以先随便输两个数字，把前两题的答案套出来，然后再枚举。</p>
-<p>代码见 <a href="15/solve.c">solve.c</a></p>
-<br>
-<h3 id="17-惜字如金">17 惜字如金</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="nf">rand01</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">rand</span><span class="p">()</span> <span class="o">/</span> <span class="n">RAND_MAX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setvbuf</span><span class="p">(</span><span class="n">stdin</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">_IONBF</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setvbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">_IONBF</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setvbuf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">_IONBF</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">time0</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">buf1</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;3.13801&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">buf2</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;3.14753&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">clock0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">clock0</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">;</span> <span class="n">clock0</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span><span class="p">)</span><span class="n">time0</span> <span class="o">+</span> <span class="n">clock0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">games</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">char</span> <span class="n">target</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">games</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">400000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rand01</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rand01</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">M</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">M</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sprintf</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s">&#34;%1.5f&#34;</span><span class="p">,</span> <span class="n">pi</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">buf1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">buf2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;clock0 = %d, i = %d, target = %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">clock0</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">target</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="17-惜字如金">17. 惜字如金</h3>
 <h4 id="hs384">HS384</h4>
 <p>手动还原一些字符</p>
 <p>密钥部分写个扩写程序，暴力枚举，求出密钥的 LCS 与目标匹配度最高的字符串</p>
@@ -550,7 +888,7 @@
 <p>做第二问 RS384 时忘记 a e i o u 不做处理的了</p>
 </blockquote>
 <br>
-<h3 id="18-不可加密的异世界">18 不可加密的异世界</h3>
+<h3 id="18-不可加密的异世界">18. 不可加密的异世界</h3>
 <h4 id="疏忽的神">疏忽的神</h4>
 <p>这题要求输入 <code>name</code> <code>IV</code> <code>key</code> 加密算法 分组模式，使得 <code>pass = name + &quot;Open the door!&quot;</code> 加密后的结果为其自身。</p>
 <p>学习了一下块加密的算法、填充方式等信息</p>
@@ -584,7 +922,7 @@ $$</p>
 <p>第三问推出 CBC 的公式了，但没想到逆 CRC128，以为是碰撞</p>
 </blockquote>
 <br>
-<h3 id="19-置换魔群">19 置换魔群</h3>
+<h3 id="19-置换魔群">19. 置换魔群</h3>
 <h4 id="置换群上的-rsa">置换群上的 RSA</h4>
 <p>secret 和 public 的 tuple 数估计是相等的</p>
 <p>$$
@@ -595,7 +933,7 @@ $$</p>
 <p>$$
 public ^ d = secret
 $$</p>
-<p>代码见 <a href="19/RSA.py">RSA.py</a></p>
+<p>完整代码见 <a href="19/RSA.py">RSA.py</a></p>
 <h4 id="置换群上的-dh">置换群上的 DH</h4>
 <p>观察以下群 1-7 次方的变化</p>
 <div class="highlight"><div class="chroma">
@@ -641,7 +979,7 @@ $$</p>
 </blockquote>
 <p>代码见 <a href="19/DH+.py">DH+.py</a></p>
 <br>
-<h3 id="20-光与影">20 光与影</h3>
+<h3 id="20-光与影">20. 光与影</h3>
 <p>一开始以为改代码以后网页显示不出来是因为程序限制了 Hash，后来发现仅仅是还没编译出来而已</p>
 <p>发现 fragment-shader.js 的 t1SDF 里有很多点</p>
 <p>在脑袋里模拟了一下，第一个字母的上面部分有点像 <code>f</code>
@@ -685,7 +1023,7 @@ Python 画了一下，发现 <code>t1SDF</code> 里的点是 <code>flag</code></
 </span></span></code></pre></td></tr></table>
 </div>
 </div><br>
-<h3 id="23-链上记忆大师">23 链上记忆大师</h3>
+<h3 id="23-链上记忆大师">23. 链上记忆大师</h3>
 <h4 id="记忆练习">记忆练习</h4>
 <p>配置一下 solidity，然后“照猫画虎”</p>
 <div class="highlight"><div class="chroma">
@@ -717,18 +1055,18 @@ Python 画了一下，发现 <code>t1SDF</code> 里的点是 <code>flag</code></
 <p>在想第三问能不能通过 view 函数调用 library function（<code>contract</code> 外的函数）来改变状态，<a href="https://docs.soliditylang.org/en/latest/contracts.html#view-functions">Solidity 文档</a> 里说 <code>library function</code> 没有 view 的运行时检查</p>
 </blockquote>
 <br>
-<h3 id="24-片上系统">24 片上系统</h3>
+<h3 id="24-片上系统">24. 片上系统</h3>
 <h4 id="引导扇区">引导扇区</h4>
 <p>metadata 里提到了 Sigrok。首先，安装 Sigrok 和 PulseView。</p>
 <p>参考 <a href="https://www.youtube.com/watch?v=z8Tdz7eQ8n4">Getting Started with a $10 Logic Analyzer using Sigrok and PulseView</a> 学习使用，尝试采样并保存</p>
 <p>将保存的 sr 文件中的三个文件替换为给定的文件，重新用 PulseView 打开。</p>
 <p>添加 SPI 解码器，设置变化最频繁的信号为 CLK，最不频繁的信号为 CS，其他两个随意。然后导出 txt，某个信号的最后一行 ASCII 解码后就是 flag</p>
 <blockquote>
-<p>第二问：
-没配好 RISC-V 的反汇编环境。看到 <code>Video outputed</code> 以为前面的代码已经把字符输出到屏幕上了。</p>
+<p>第二问：</p>
+<p>没配好 RISC-V 的反汇编环境。看到 <code>Video outputed</code> 以为前面的代码已经把字符输出到屏幕上了。</p>
 </blockquote>
 <br>
-<h3 id="25-传达不到的文件">25 传达不到的文件</h3>
+<h3 id="25-传达不到的文件">25. 传达不到的文件</h3>
 <p><code>ps</code> 发现父进程是 <code>/etc/init.d/rcS</code>，这个文件设置了权限，它的最后几行是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -788,33 +1126,126 @@ Python 画了一下，发现 <code>t1SDF</code> 里的点是 <code>flag</code></
 </span></span></code></pre></td></tr></table>
 </div>
 </div><br>
-<h3 id="26-看不见的彼方">26 看不见的彼方</h3>
+<h3 id="26-看不见的彼方">26. 看不见的彼方</h3>
 <p><code>seccomp</code> 限制了网络的使用</p>
 <p>创建管道似乎需要能访问相同路径的文件，行不通。</p>
 <p>找了个共享内存的代码 <a href="https://zhuanlan.zhihu.com/p/37808566">进程间的通信方式（一）：共享内存</a>。但是由于不能访问相同目录，把 <code>ftok</code> 改成特定值即可（百度百科偶尔还是有用处的）</p>
-<blockquote>
-<p>完整代码见 <a href="26/alice.c">alice.c</a> 和 <a href="26/bob.c">bob.c</a></p>
-</blockquote>
-<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;sys/ipc.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;sys/shm.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define BUFSZ 512
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">key_t</span> <span class="n">key</span> <span class="o">=</span> <span class="mh">0x1234</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">secret</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// open file /secret and read
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;/secret&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fgets</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">BUFSZ</span><span class="p">,</span> <span class="n">IPC_CREAT</span> <span class="o">|</span> <span class="mo">0666</span><span class="p">);</span>  <span class="c1">// 创建共享内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span><span class="o">*</span> <span class="n">shmadd</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>              <span class="c1">// 映射
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">bzero</span><span class="p">(</span><span class="n">shmadd</span><span class="p">,</span> <span class="n">BUFSZ</span><span class="p">);</span>                              <span class="c1">// 共享内存清空
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">strcpy</span><span class="p">(</span><span class="n">shmadd</span><span class="p">,</span> <span class="n">secret</span><span class="p">);</span>                            <span class="c1">// 写入共享内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;sys/ipc.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;sys/shm.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define BUFSZ 512
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">key_t</span> <span class="n">key</span> <span class="o">=</span> <span class="mh">0x1234</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">BUFSZ</span><span class="p">,</span> <span class="n">IPC_CREAT</span> <span class="o">|</span> <span class="mo">0666</span><span class="p">);</span>  <span class="c1">// 打开共享内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span><span class="o">*</span> <span class="n">shmadd</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>              <span class="c1">// 映射
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">shmadd</span><span class="p">);</span>                              <span class="c1">// 读共享内存区数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">shmdt</span><span class="p">(</span><span class="n">shmadd</span><span class="p">);</span>                           <span class="c1">// 分离共享内存和当前进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">shmctl</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="n">IPC_RMID</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>                     <span class="c1">// 删除共享内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>如果上传提示 glibc 版本不兼容，在编译时加上 <code>-static</code></p>
 </blockquote>
 <br>
-<h3 id="27-量子藏宝图">27 量子藏宝图</h3>
+<h3 id="27-量子藏宝图">27. 量子藏宝图</h3>
 <blockquote>
 <p>我看到数学公式就犯困</p>
 </blockquote>
 <p>第一问，找到一份代码，改改运行</p>
 <p>第二问，也找一份代码，把元件都标上，运行</p>
 <blockquote>
-<p>代码见 <a href="27/qkd.py">qkd.py</a> 和 <a href="27/BernsteinVaziraniAlgorithmSimple.ipynb">BernsteinVaziraniAlgorithmSimple.ipynb</a>，
-分别参考了 <a href="https://github.com/videlanicolas/QKD">videlanicolas/QKD</a> 和 <a href="https://github.com/atilsamancioglu/QX05-BernsteinVaziraniAlgorithmSimple/">atilsamancioglu/QX05-BernsteinVaziraniAlgorithmSimple</a></p>
+<p>代码见 <a href="27/qkd.py">qkd.py</a> 和 <a href="27/BernsteinVaziraniAlgorithmSimple.ipynb">BernsteinVaziraniAlgorithmSimple.ipynb</a></p>
+<p>分别参考了 <a href="https://github.com/videlanicolas/QKD">videlanicolas/QKD</a> 和 <a href="https://github.com/atilsamancioglu/QX05-BernsteinVaziraniAlgorithmSimple/">atilsamancioglu/QX05-BernsteinVaziraniAlgorithmSimple</a></p>
 </blockquote>
 <br>
-<h3 id="28-关于-robogame-的轮子永远调不准速度这件事">28 《关于 RoboGame 的轮子永远调不准速度这件事》</h3>
+<h3 id="28-关于-robogame-的轮子永远调不准速度这件事">28. 《关于 RoboGame 的轮子永远调不准速度这件事》</h3>
 <p>原来以为是要找漏洞。后来发现 <code>r T</code> 可以读数据</p>
 <p>写个脚本把 EEPROM 的程序全读出来</p>
 <p>一开始想把随机数的值改掉，结果没有作用</p>
-<p>后来想把 + 9 改掉。结果把 3 号页的 9 抹掉以后，发现程序开始以奇怪的方式跑起来了，经过一段时间的观察，发现此时这个程序会按顺序分别将两边的数字设置为 1,0,1,2,0,0,0，而这道题目只需要出现连续 3 次相同的数字就可以过了。</p>
+<p>后来想把 <code>+ 9</code> 改掉。结果把 3 号页的 9 抹掉以后，发现程序开始以奇怪的方式跑起来了，经过一段时间的观察，发现此时这个程序会按顺序分别将两边的数字设置为 1,0,1,2,0,0,0，而这道题目只需要出现连续 3 次相同的数字就可以过了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -841,9 +1272,9 @@ Python 画了一下，发现 <code>t1SDF</code> 里的点是 <code>flag</code></
 <p>好像第一行改成 <code>w T 3 3 0 9</code> 就不行，推测是把寻址的基址给改到奇奇怪怪的地方了。</p>
 </blockquote>
 <p>然后把所有轮子的速度读出来，十六进制转 ASCII 就过了</p>
-<p>代码见 <a href="28/script.py">script.py</a></p>
+<p>发送信息及读取的代码见 <a href="28/script.py">script.py</a></p>
 <br>
-<h3 id="30-企鹅拼盘">30 企鹅拼盘</h3>
+<h3 id="30-企鹅拼盘">30. 企鹅拼盘</h3>
 <h4 id="这么简单我闭眼都可以">这么简单我闭眼都可以！</h4>
 <p>手动枚举</p>
 <h4 id="大力当然出奇迹啦">大力当然出奇迹啦~</h4>
@@ -853,7 +1284,7 @@ Python 画了一下，发现 <code>t1SDF</code> 里的点是 <code>flag</code></
 <p>第三问不会</p>
 </blockquote>
 <br>
-<h3 id="32-火眼金睛的小-e">32 火眼金睛的小 E</h3>
+<h3 id="32-火眼金睛的小-e">32. 火眼金睛的小 E</h3>
 <h4 id="有手就行">有手就行</h4>
 <p>用 <code>objdump</code> 转成汇编，分析代码间的行数、LCS 的匹配程度。
 按照这两个特征排序，枚举所有函数</p>
@@ -893,6 +1324,12 @@ Python 画了一下，发现 <code>t1SDF</code> 里的点是 <code>flag</code></
 </tr>
 </tbody>
 </table>
+<h2 id="总结">总结</h2>
+<ul>
+<li>最后一天起得不够早，虽然起得早也最多多做一道题</li>
+<li>勉强在比赛期间把 <a href="https://ctf-wiki.org/">CTF Wiki</a> 翻了一遍，了解了 CTF 的常见题型</li>
+<li>从比赛的题目中也学到许多，比如从 <a href="#16-%E4%BA%8C%E6%AC%A1%E5%85%83%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">二次元神经网络</a> 中知道了确实存在代码注入的漏洞，从 <a href="#25-%E4%BC%A0%E8%BE%BE%E4%B8%8D%E5%88%B0%E7%9A%84%E6%96%87%E4%BB%B6">传达不到的文件</a> 中了解了通过劫持程序来实现越权</li>
+</ul>
     </div>
 
     <div class="post-copyright">
@@ -904,7 +1341,7 @@ Python 画了一下，发现 <code>t1SDF</code> 里的点是 <code>flag</code></
     <span class="item-title">LastMod</span>
     <span class="item-content">
         2022-11-02
-        <a href="https://github.com/GWDx/GWDx.github.io/commit/4c5778f79c8aa81fc2871332b751cf51876f5e19" title="Hackergame 2022">(4c5778f)</a>
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/c0e4607ea70c738ae95a9e6334ba10ffc9e57265" title="update Hackergame2022">(c0e4607)</a>
     </span>
   </p>
   
@@ -970,6 +1407,14 @@ Python 画了一下，发现 <code>t1SDF</code> 里的点是 <code>flag</code></
 
 
 <script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 <script type="application/javascript">
