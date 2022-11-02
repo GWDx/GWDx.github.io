@@ -8,7 +8,7 @@ then
 fi
 
 git checkout build
-git reset origin/build
+git reset origin/build --hard
 git merge master --no-edit
 
 rm -r docs

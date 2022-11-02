@@ -6,7 +6,17 @@
     <description>Recent content on GWDx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 20 Mar 2022 17:25:19 +0800</lastBuildDate><atom:link href="http://gwdx.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hackergame 2022 题解</title>
+      <link>http://gwdx.me/post/hackergame2022/</link>
+      <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://gwdx.me/post/hackergame2022/</guid>
+      <description>&lt;p&gt;Hackergame 2022（中科大第九届信息安全大赛）个人题解&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://gwdx.me/post/hackergame2022/image/board.png&#34; alt=&#34;board&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Web 之旅</title>
       <link>http://gwdx.me/post/web-tour/</link>
