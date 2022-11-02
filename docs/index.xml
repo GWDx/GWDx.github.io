@@ -6,20 +6,14 @@
     <description>Recent content on GWDx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 20 Mar 2022 17:25:19 +0800</lastBuildDate>
-    
-        <atom:link href="http://gwdx.me/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 20 Mar 2022 17:25:19 +0800</lastBuildDate><atom:link href="http://gwdx.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Web 之旅</title>
       <link>http://gwdx.me/post/web-tour/</link>
       <pubDate>Sun, 20 Mar 2022 17:25:19 +0800</pubDate>
       
       <guid>http://gwdx.me/post/web-tour/</guid>
-      
-        <description>1 月的某一天晚上，忽然兴起想了解一下 JavaScript，感觉风格上和 C 语言挺像的。 2 月初，因为做 slides 接触了 CSS。 3 月，想尝试用 JS 做点东西，</description>
-      
+      <description>1 月的某一天晚上，忽然兴起想了解一下 JavaScript，感觉风格上和 C 语言挺像的。 2 月初，因为做 slides 接触了 CSS。 3 月，想尝试用 JS 做点东西，</description>
     </item>
     
     <item>
@@ -28,9 +22,7 @@
       <pubDate>Sat, 19 Mar 2022 23:12:22 +0800</pubDate>
       
       <guid>http://gwdx.me/about/</guid>
-      
-        <description>甘文迪 2019.9 - 现在 中国科学技术大学，计算机科学与技术学院 2016.9 - 2019.6 浙江海盐元济高级中学 操作系统：Debian 编辑器：VSCode、Kate 编程语言：</description>
-      
+      <description>甘文迪 2019.9 - 现在 中国科学技术大学，计算机科学与技术学院 2016.9 - 2019.6 浙江海盐元济高级中学 操作系统：Debian 编辑器：VSCode、Kate 编程语言：</description>
     </item>
     
     <item>
@@ -39,10 +31,8 @@
       <pubDate>Sun, 31 Oct 2021 00:00:28 +0800</pubDate>
       
       <guid>http://gwdx.me/post/hackergame2021/</guid>
-      
-        <description>&lt;p&gt;Hackergame 2021（中科大第八届信息安全大赛）个人题解&lt;/p&gt;
+      <description>&lt;p&gt;Hackergame 2021（中科大第八届信息安全大赛）个人题解&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://gwdx.me/post/hackergame2021/image/board.png&#34; alt=&#34;board&#34;&gt;&lt;/p&gt;</description>
-      
     </item>
     
   </channel>

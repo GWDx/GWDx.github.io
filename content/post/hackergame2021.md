@@ -10,11 +10,11 @@ categories: []
 author: ""
 
 comment: false
-toc: false
+toc: true
 autoCollapseToc: false
 contentCopyright: false
 reward: false
-katex: true
+mathjax: true
 ---
 
 
@@ -43,10 +43,10 @@ Hackergame 2021（中科大第八届信息安全大赛）个人题解
 
 <!--more-->
 
-| 年份 |  id  | 分数 | 总排名 | 组内排名 |
-| :--: | :--: | :--: | :----: | :------: |
-| 2020 | 3223 | 1300 |  297   |    46    |
-| 2021 | 450  | 3100 |   45   |    7     |
+| 年份  |  id   | 分数  | 总排名 | 组内排名 |
+| :---: | :---: | :---: | :----: | :------: |
+| 2020  | 3223  | 1300  |  297   |    46    |
+| 2021  |  450  | 3100  |   45   |    7     |
 
 题目及其余题解见 [hackergame2021-writeups](https://github.com/USTC-Hackergame/hackergame2021-writeups)
 
@@ -163,7 +163,7 @@ for i in range(256):
 
 #### (1) 轻度失忆
 
-经过尝试，`printf` 不能用，而 `putchar` 可以使用。主要代码如下，完整程序见 [9.cpp](code/9.cpp) 
+经过尝试，`printf` 不能用，而 `putchar` 可以使用。主要代码如下，完整程序见 [9.cpp](code/9.cpp)
 
 ```c
 #include <stdio.h>
@@ -176,10 +176,10 @@ int main() {
 
     H = c16 + c16 + c16 + c16 + c4 + c4;    // 72
     e = c96 + c4 + c1;                      // 101
-    
+
     putchar(H);
     putchar(e);
-    
+
     return z;
 }
 ```
@@ -192,7 +192,7 @@ int main() {
 
 发现登录时 POST 请求了 graphql 文件
 
-在了解 GraphQL 的语法，一开始以为和 SQL 注入有关，用“sql注入 graphql” 查到了 [渗透测试之 graphQL](https://blog.csdn.net/wy_97/article/details/110522150) 
+在了解 GraphQL 的语法，一开始以为和 SQL 注入有关，用“sql注入 graphql” 查到了 [渗透测试之 graphQL](https://blog.csdn.net/wy_97/article/details/110522150)
 
 其中提到了内省查询 `__schema`。发送下面的 POST 请求可以查询到结构信息
 
@@ -210,7 +210,7 @@ int main() {
 
 ### 11. Easy RSA
 
-> 完整代码见 [11.wl](code/11/11.wl)	[11.py](code/11/11.py) 
+> 完整代码见 [11.wl](code/11/11.wl)	[11.py](code/11/11.py)
 
 首先计算 `p` 。x 与 y 都是素数，可以使用 [威尔逊定理](https://baike.baidu.com/item/%E5%A8%81%E5%B0%94%E9%80%8A%E5%AE%9A%E7%90%86/1881444) $(p-1)! \equiv -1 \pmod{p}$
 
@@ -293,12 +293,12 @@ file.write(bytes)
 
 #### (1) LEVEL 0
 
-> 完整代码见 [14.wl](code/14.wl) 
+> 完整代码见 [14.wl](code/14.wl)
 
 从网页的 js 文件中获得 `target` 矩阵
 
 ```mathematica
-g[x_, y_] := 3 t[x, y] + 2 (t[x - 1, y] + t[x, y - 1] + t[x + 1, y] + t[x, y + 1]) + 
+g[x_, y_] := 3 t[x, y] + 2 (t[x - 1, y] + t[x, y - 1] + t[x + 1, y] + t[x, y + 1]) +
     t[x - 2, y] + t[x, y - 2] + t[x + 2, y] + t[x, y + 2]
 t[x_, y_] := If[1 <= x <= n && 1 <= y <= n, c[x, y], 0];
 allC = Flatten@Table[c[i, j], {i, n}, {j, n}];
@@ -357,12 +357,12 @@ for i in range(len(data)):
 
 ### 23. 马赛克
 
-> 完整代码见 [23.wl](code/23.wl) 
+> 完整代码见 [23.wl](code/23.wl)
 
 将二维码的每个模糊的格子视为一个变量。按每个马赛克方块的灰度值列方程
 
 ```mathematica
-eqns[1] = Simplify@Flatten@Floor[Flatten[expectValue], 1/255] == 
+eqns[1] = Simplify@Flatten@Floor[Flatten[expectValue], 1/255] ==
   Flatten@mosaicValue // Thread
 ```
 
@@ -371,7 +371,7 @@ eqns[1] = Simplify@Flatten@Floor[Flatten[expectValue], 1/255] ==
 > 经试验，单纯地只取有单个解的方程的解，不能做出此题
 
 ```mathematica
-inferSolve[eqn_] := Module[{vars = Cases[eqn, t[a_, b_], Infinity], possible}, 
+inferSolve[eqn_] := Module[{vars = Cases[eqn, t[a_, b_], Infinity], possible},
   possible = #1 & @@@ Select[#[[2]] &]@Table[values -> eqn /. Thread[vars -> values],
     {values, Tuples[{0, 1}, Length@vars]}];
   First /@ Select[AssociationThread[vars -> Transpose@possible], Equal @@ # &] // Normal]
@@ -380,7 +380,7 @@ inferSolve[eqn_] := Module[{vars = Cases[eqn, t[a_, b_], Infinity], possible},
 将每次确定的解代入方程，进行**迭代**计算。
 
 ```mathematica
-Table[ans[i] = inferSolve /@ eqns[i] // Flatten // Union; 
+Table[ans[i] = inferSolve /@ eqns[i] // Flatten // Union;
   eqns[i + 1] = eqns[i] /. Union@Flatten@ans[i] /. True -> Nothing, {i, 10}];
 ```
 
@@ -394,9 +394,9 @@ Table[ans[i] = inferSolve /@ eqns[i] // Flatten // Union;
 
 注意到密码生成器没有提供任何输入，且每次运行都有较长的延迟，更奇怪的是，题目中每句话都不离时间：
 
-> 网页显示时间的时区改到了 Asia/Shanghai，我说怎么打印出来总是差 8 个小时。  
-> 【由用户 admin 于 2021-09-22 23:40 发布】  
-> 【由用户 admin 于 2021-09-22 23:39 发布】  
+> 网页显示时间的时区改到了 Asia/Shanghai，我说怎么打印出来总是差 8 个小时。
+> 【由用户 admin 于 2021-09-22 23:40 发布】
+> 【由用户 admin 于 2021-09-22 23:39 发布】
 > 于 2021-09-22 23:11 注册
 
 怀疑生成的密码和**系统时间**有关。经测试，在相同的秒数会显示相同的密码。
@@ -436,14 +436,13 @@ for i in range(60):
 
 ### 27. JUST BE FUN
 
-+ 解题过程：读代码，写代码（建议将 python 文件中的背景字符换成空格，合理使用 Insert 键），调代码（条件断点）。  
-+ 此题要求：写一个三维空间的程序，读入 9 以下的数字和 6 种运算符，计算结果。  
++ 解题过程：读代码，写代码（建议将 python 文件中的背景字符换成空格，合理使用 Insert 键），调代码（条件断点）。
++ 此题要求：写一个三维空间的程序，读入 9 以下的数字和 6 种运算符，计算结果。
 + 主要思路：先读一个操作数，读入运算符，按运算符进行分类读入操作数并计算，再读下一个运算符……
 
-调试结果为 [1++](code/27/1++) 
+调试结果为 [1++](code/27/1++)
 
-由于看了使用说明后仍然不知道如何发送超过 4096 字节的数据，我使用两层的结构把它优化到了 4096 字节以下。两层分别为 [2-1](code/27/2-1)	[2-2](code/27/2-2) 
+由于看了使用说明后仍然不知道如何发送超过 4096 字节的数据，我使用两层的结构把它优化到了 4096 字节以下。两层分别为 [2-1](code/27/2-1)	[2-2](code/27/2-2)
 
-修改后的 python 文件为 [be_fun+.py](code/27/be_fun+.py)  
+修改后的 python 文件为 [be_fun+.py](code/27/be_fun+.py)
 由“三维代码”生成 python 输入的文件为  [generate.wl](code/27/generate.wl)
-

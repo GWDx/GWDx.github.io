@@ -1,3 +1,4 @@
 .directory
 .hugo_build.lock
 themes
+resources/_gen/assets/scss
