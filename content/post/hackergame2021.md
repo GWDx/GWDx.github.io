@@ -1,7 +1,6 @@
 ---
 title: "Hackergame 2021 题解"
-date: 2021-10-31T00:00:28+08:00
-lastmod: 2022-04-01T00:00:28+08:00
+date: 2021-04-01
 draft: false
 keywords: ["Hackergame"]
 description: ""
