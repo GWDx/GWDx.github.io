@@ -1,7 +1,6 @@
 ---
 title: "关于"
-date: 2022-03-19T23:12:22+08:00
-lastmod: 2022-03-19T23:12:22+08:00
+date: 2022-03-19
 keywords: []
 description: ""
 tags: []
