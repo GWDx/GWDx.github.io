@@ -1,7 +1,6 @@
 ---
 title: "Web 之旅"
-date: 2022-03-20T17:25:19+08:00
-lastmod: 2022-03-20T17:25:19+08:00
+date: 2022-03-20
 keywords: ["网站"]
 description: ""
 tags: ["JavaScript", "域名"]
@@ -33,4 +32,3 @@ mathjax: false
 
 
 之后，忽然想起 GitHub 学生包里有送域名，于是注册了域名 [gwdx.me](http://gwdx.me)。并搭建网站，用的是 [Hugo](https://gohugo.io/) 框架、[Jane](https://github.com/xianmin/hugo-theme-jane) 主题（改了些样式），网站由 GitHub Pages 提供静态网页。
-
