@@ -131,8 +131,7 @@ patched_save_function(model.state_dict(), "checkpoint/model2.pt")
 
 #### Rclone 里的 flag
 
-第二问找到 `~/.bash_history`
-以及 `~/.config/rclone/rclone.conf`，但里面的 FTP 连不上。在家目录里找域名或 IP 填进去都不行。
+第二问找到 `~/.bash_history` 以及 `~/.config/rclone/rclone.conf`，但里面的 FTP 连不上。在家目录里找域名或 IP 填进去都不行。
 
 后来照着 `~/.bash_history` 打了一遍命令，发现 Rclone 存储的 `pass` 比输入的长，猜测进行了加密。
 
@@ -1059,8 +1058,7 @@ selectPrimesGen(primeList, n, True, [64, 49, 27, 25]),
 
 发现 fragment-shader.js 的 t1SDF 里有很多点
 
-在脑袋里模拟了一下，第一个字母的上面部分有点像 `f`
-Python 画了一下，发现 `t1SDF` 里的点是 `flag`
+在脑袋里模拟了一下，第一个字母的上面部分有点像 `f`。用 Python 画了一下，发现 `t1SDF` 里的点是 `flag`
 
 但其他几个函数里的点似乎都是经过变换的，不可能用 Python 再画一遍。
 

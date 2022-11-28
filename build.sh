@@ -1,9 +1,16 @@
 #!/bin/bash
 set -e
 
-if [[ $(git status -s) ]]
+# assert git status is clean
+if [[ -n $(git status --porcelain) ]]; then
+    echo "git status is not clean"
+    exit 1
+fi
+
+# assert that we are on master
+if [[ $(git rev-parse --abbrev-ref HEAD) != 'master' ]]
 then
-    echo 'dirty'
+    echo 'not on master'
     exit 1
 fi
 
