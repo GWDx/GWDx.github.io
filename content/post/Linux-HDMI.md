@@ -26,7 +26,7 @@ katex: false
 
 `xrandr` 会显示
 
-```bash
+```
 HDMI-1 disconnected
 ```
 
@@ -36,7 +36,7 @@ HDMI-1 disconnected
 
 ## 更多信息
 
-后来，想起 taoky 的博客里有一篇提到因为 i915 无法使用 HDMI 的问题 [调试一则：让 i915 在 ThinkPad T14 Gen3 上正常工作](https://blog.taoky.moe/2022-07-21/i915-debug-on-tpt14gen3.html)
+后来，想起 taoky 的博客里有一篇提到因为 i915 无法使用 HDMI 的问题：[调试一则：让 i915 在 ThinkPad T14 Gen3 上正常工作](https://blog.taoky.moe/2022-07-21/i915-debug-on-tpt14gen3.html)
 
 尝试关闭 i915 内核模块，发现和 Debian 11 一样可以输出 HDMI 但不能调亮度。可以肯定是 i915 的问题。
 
