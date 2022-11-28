@@ -554,7 +554,77 @@ int main() {
 
 注意原来的字符串后面有些地方可以省略 `e`
 
-代码见 [solve-HS384.py](17/solve-HS384.py)
+<details open>
+<summary>代码</summary>
+
+```python
+from hashlib import sha384
+import pylcs
+
+
+def check_equals(left, right):
+    if left != right:
+        print(left)
+        print(right)
+
+
+secret = b'ustc.edu.cn'
+allConsonant = 'bcdfghjklmnpqrstvwxyz'
+
+
+# split N into M parts, each part is at least 1
+# return all possible ways
+# for example, split(4, 2) returns [[1, 3], [2, 2], [3, 1]]
+def split(N, M):
+    if M == 1:
+        return [[N]]
+    else:
+        return [[i] + j for i in range(1, N) for j in split(N - i, M - 1)]
+
+
+# given a string and length, return all possible ways to repeat consonant letters
+# for example, repeat('abc', 4) returns ['abbc', 'abcc']
+# repeat('abc', 5) returns ['abccc', 'abbcc', 'abbbc']
+def repeat(string, length):
+    consonantChar = [i for i in string if i in allConsonant]
+    vowelChar = [i for i in string if i not in consonantChar]
+    consonantCount = len(consonantChar)
+    vowelCount = len(vowelChar)
+    consonantTarget = length - vowelCount
+
+    allPossible = split(consonantTarget, consonantCount)
+
+    result = []
+    for allRepeatTime in allPossible:
+        temp = ''
+        consonantCharIndex = 0
+        for char in string:
+            if char in consonantChar:
+                temp += char * allRepeatTime[consonantCharIndex]
+                consonantCharIndex += 1
+            else:
+                temp += char
+        result.append(temp)
+    return result
+
+
+allPossibleSecret = repeat('ustce.edu.cn', 39)
+
+for possibleSecret in allPossibleSecret:
+    possibleSecret = possibleSecret.encode()
+    check_equals(len(possibleSecret), 39)
+    secret_sha384 = 'ec18f9dbc4aba825c7d4f9c726db1cb0d0babf47fa170f33d53bc62074271866a4e4d1325dc27f644fdad'
+    fullSHA = sha384(possibleSecret).hexdigest()
+
+    if pylcs.lcs(fullSHA, secret_sha384) > 48:
+        print(fullSHA)
+        print(secret_sha384)
+        print(possibleSecret)
+```
+
+</details>
+
+可以得到密钥为 `usssttttttce.edddddu.ccccccnnnnnnnnnnnn`
 
 > 做第二问 RS384 时忘记 a e i o u 不做处理的了
 
@@ -587,8 +657,78 @@ $$
 
 $C_1 = P_1 = pass$，K 可以随意设置，利用上述公式可以求出 IV
 
-代码见 [1.py](18/1.py)
+<details open>
+<summary>代码</summary>
 
+```python
+from Crypto.Util.number import long_to_bytes, bytes_to_long
+from Crypto.Util.Padding import pad, unpad
+from magic_box import *
+from icecream import ic
+import binascii
+
+
+def calc(your_name):
+    your_pass = your_name + b"Open the door!"
+
+    algo = 'AES'
+    mode = 'CBC'
+
+    if algo == "AES":
+        blocksize = 16
+    else:
+        blocksize = 8
+
+    keys = bytes.fromhex('8765432187654321876543218765432187654321876543218765432187654321')
+
+    padPass = pad(your_pass, blocksize)
+    times = len(padPass) // blocksize
+
+    cipher = padPass
+
+    magic_box = Magic_box(algo, mode, keys)
+    plain = magic_box.auto_dec(cipher)
+    iv = magic_box.api.iv
+
+    allPartP = [iv] + [plain[j * blocksize:(j + 1) * blocksize] for j in range(times)]
+    allPartC = [iv] + [cipher[j * blocksize:(j + 1) * blocksize] for j in range(times)]
+
+    assert len(allPartP) == len(allPartC) == times + 1
+
+    for i in reversed(range(times)):
+        allResultPartP = allPartC.copy()
+        allResultPartC = allPartC.copy()
+        # cA2 = [cA1[i] ^ pB1[i] ^ pB2[i] for i in range(16)]
+        allResultPartC[i] = bytes(
+            [allPartC[i][j] ^ allPartP[i + 1][j] ^ allResultPartP[i + 1][j] for j in range(blocksize)])
+
+        cipher = b''.join(allResultPartC[1:])
+        iv = allResultPartC[0]
+        keys = keys[:blocksize] + iv
+
+        magic_box = Magic_box(algo, mode, keys)
+
+        plain = magic_box.auto_dec(cipher)
+        allPartP = [iv] + [plain[j * blocksize:(j + 1) * blocksize] for j in range(times)]
+        allPartC = [iv] + [cipher[j * blocksize:(j + 1) * blocksize] for j in range(times)]
+
+        assert allPartP[i + 1] == allPartC[i + 1]
+
+    assert plain == cipher
+    ic(plain)
+
+    ansYourNameRaw = plain[:len(your_name)]
+    ansYourPassHex = binascii.hexlify(keys)
+    ic(ansYourNameRaw)
+    ic(ansYourPassHex)
+
+    return ansYourNameRaw, ansYourPassHex
+
+
+ansYourNameRaw, ansYourPassHex = calc(b'A')
+```
+
+</details>
 
 #### 心软的神
 
@@ -610,7 +750,66 @@ $$
 
 $P_n = C_n$，为给定字符串的一个块，K 可以随意设置，利用上述公式可以求出各个 IV
 
-代码见 [2.py](18/2.py)
+<details open>
+<summary>代码</summary>
+
+```python
+from Crypto.Util.number import long_to_bytes, bytes_to_long
+from Crypto.Util.Padding import pad, unpad
+from magic_box import *
+from icecream import ic
+import binascii
+
+
+def calc(targetString, index):
+    algo = 'DES'
+    mode = 'CBC'
+
+    blocksize = 8
+
+    padPass = targetString[:(index + 1) * blocksize]
+    times = len(padPass) // blocksize
+
+    key = iv = bytes.fromhex('1234567812345678')
+
+    # init
+    # P = padPass
+    # C[index] = padPass[index]
+    P = [iv] + [padPass[j * blocksize:(j + 1) * blocksize] for j in range(times)]
+    C = [iv] + [padPass[j * blocksize:(j + 1) * blocksize] for j in range(times)]
+
+    # c[i] = P[i+1] ^ f-1(c[i+1])
+    for i in reversed(range(times)):
+        magicBoxECB = Magic_box(algo, 'ECB', key)
+        reverseF = magicBoxECB.auto_dec(C[i + 1])
+        C[i] = bytes([P[i + 1][j] ^ reverseF[j] for j in range(blocksize)])
+
+    iv = C[0]
+    keys = key + iv
+
+    magic_box = Magic_box(algo, mode, keys)
+    encrypt = magic_box.auto_enc(padPass)
+    # ic(binascii.hexlify(encrypt))
+    # ic(binascii.hexlify(padPass))
+    assert encrypt[index * blocksize:(index + 1) * blocksize] == targetString[index * blocksize:(index + 1) * blocksize]
+
+    passHex = binascii.hexlify(keys)
+    return passHex
+
+
+blocksize = 8
+blockNum = 10
+
+targetHex = 'd09297eecd6da9e2dec6b1e0ed29eaf2801c6128b92cdd7b9700c5da77fd22b5e2b556ebec6596d8de1bf9c14a9031bf25e149a2f513d32191b24cbbdb018a47e9658fc7ac503f3067ae929fc40e667d'
+targetString = binascii.unhexlify(targetHex)
+
+for i in range(blockNum):
+    partTargetString = targetString
+    keys = calc(partTargetString, i).decode()
+    print(keys)
+```
+
+</details>
 
 > 第三问推出 CBC 的公式了，但没想到逆 CRC128，以为是碰撞
 
@@ -635,7 +834,60 @@ $$
 public ^ d = secret
 $$
 
-完整代码见 [RSA.py](19/RSA.py)
+<details open>
+<summary>代码</summary>
+
+```python
+from permutation_group import permutation_element, permutation_group
+from math import factorial
+import re
+from icecream import ic
+from pwn import *
+import gmpy2
+
+
+def s2n(x):
+    return [int(x) for x in re.findall(r"\-?\d+\.?\d*", x)]
+
+
+r = remote('202.38.93.111', 10114)
+r.sendlineafter('Please input your token: ',
+                '1:MEUCIQC24dB6B24/LDr2O+4cifbzOEFDbkXg3hJIqTXuuvpa1QIgbzMM/F0uUmYIudtM6qEDvOpEHbtTZjSjTWMcA5zhnos= ')
+
+# send 1
+r.sendlineafter('> your choice:', '1')
+r.recvlines(2)
+for i in range(15):
+    ic(i)
+    receive1 = r.recvline().decode()
+    receive2 = r.recvline().decode()
+    receive3 = r.recvline().decode()
+    receive4 = r.recvline().decode()
+    print(receive1 + receive2 + receive3 + receive4, end='')
+    # print(receive)
+    n = int(re.findall(r'n = (\d+)', receive1)[0])
+    e = 65537
+    # ic(n)
+    rawPublic = re.findall(r'\[(?:\d|\s|,)+\]', receive3)[0]
+    publicList = s2n(rawPublic)
+    assert len(publicList) == n
+
+    public = permutation_element(n, publicList)
+    # ic(totalPermutation)
+    # evaluate mod-1
+    ans = gmpy2.invert(e, public.order())
+    secret = public**ans
+
+    # ic(secret.permutation_list)
+    r.sendline(str(secret.permutation_list))
+
+    receive5 = r.recvline().decode()
+    print(receive5, end='')
+
+r.interactive()
+```
+
+</details>
 
 
 #### 置换群上的 DH
@@ -654,7 +906,129 @@ ic| (raw**7).standard_tuple: [(1, 2, 9, 5, 8, 4), (3,), (6, 7, 10)]
 
 如果知道 raw 和 raw^n，可以根据 raw^n 的每个 tuple 中第一个和第二个元素在 raw 中的位置差，列出同余方程组，然后用中国剩余定理求解
 
-代码见 [DH.py](19/DH.py)
+<details open>
+<summary>代码</summary>
+
+```python
+from permutation_group import permutation_element, permutation_group
+from random import SystemRandom
+import re
+from icecream import ic
+from sympy.ntheory.modular import crt
+from pwn import *
+
+
+def s2n(x):
+    return [int(x) for x in re.findall(r"\-?\d+\.?\d*", x)]
+
+
+secure_prng = SystemRandom()
+sample = secure_prng.sample
+randint = secure_prng.randint
+
+# solve Congruence equation
+
+
+def solve(n, raw, ans):
+    eqns = set()
+    # for each tuple in result
+    # find it in raw
+    # add an equation
+    # x mod rawTupleOrder = position[1] - position[0] in resultTuple
+    for i in range(len(ans.standard_tuple)):
+        resultTuple = ans.standard_tuple[i]
+        element0 = resultTuple[0]
+        if len(resultTuple) > 1:
+            element1 = resultTuple[1]
+        else:
+            element1 = element0
+        for j in range(len(raw.standard_tuple)):
+            rawTuple = raw.standard_tuple[j]
+            if element0 in rawTuple:
+                position0 = rawTuple.index(element0)
+                position1 = rawTuple.index(element1)
+                eqns.add((len(rawTuple), (position1 - position0) % len(rawTuple)))
+                break
+        else:
+            raise Exception("Not found")
+
+    ic(eqns)
+    # solve eqns, use CRT
+    allMod = []
+    allRem = []
+    for mod, rem in eqns:
+        allMod.append(mod)
+        allRem.append(rem)
+    ans = crt(allMod, allRem)[0]
+    ic(ans)
+
+    return ans
+
+
+def test():
+    n = 10
+    An = permutation_group(n)
+    raw = An.random_element()
+    ic(raw.standard_tuple)
+
+    secret = randint(1, raw.order())
+    ic(raw.order())
+    ic(secret)
+    for i in range(2, 10):
+        ic((raw**i).standard_tuple)
+
+    result = raw**secret
+    ans = solve(n, raw, result)
+    assert ans == secret
+
+    ic(result.standard_tuple)
+    print(f"[+] DH public key: n = {n}, g = {raw}")
+    print(f"[+] my public key = {result} ")
+    print(f"[+] Prove that you own the secret: ")
+    ans = int(input("> your answer: "))
+    if ans == secret:
+        print("Good job")
+    else:
+        print("Bad")
+
+
+def communicate():
+    r = remote('202.38.93.111', 10114)
+    r.sendlineafter(
+        'Please input your token: ',
+        '1:MEUCIQC24dB6B24/LDr2O+4cifbzOEFDbkXg3hJIqTXuuvpa1QIgbzMM/F0uUmYIudtM6qEDvOpEHbtTZjSjTWMcA5zhnos= ')
+
+    r.sendlineafter('> your choice:', '2')
+    r.recvlines(2)
+    for i in range(15):
+        ic(i)
+        allRecv = b''.join(r.recvlines(3)).decode()
+        print(allRecv)
+        g = re.findall(r"g = \[.*?\]", allRecv)[0]
+        pub = re.findall(r"my public key = \[.*?\]", allRecv)[0]
+        g = s2n(g)
+        pub = s2n(pub)
+        n = len(g)
+
+        ic(n)
+
+        raw = permutation_element(n, g)
+        result = permutation_element(n, pub)
+
+        ans = solve(n, raw, result)
+        r.sendline(str(ans))
+
+        receive5 = r.recvline().decode()
+        print(receive5, end='')
+
+    r.interactive()
+
+
+test()
+```
+
+</details>
+
 
 
 #### 置换群上的超大离散对数
@@ -672,7 +1046,7 @@ ic| (raw**7).standard_tuple: [(1, 2, 9, 5, 8, 4), (3,), (6, 7, 10)]
 selectPrimesGen(primeList, n, True, [64, 49, 27, 25]),
 ```
 
-> 这好像就是背包问题的变种，当时没想
+> 这好像就是背包问题的变种，当时没想到
 
 代码见 [DH+.py](19/DH+.py)
 
@@ -899,7 +1273,7 @@ w 5 1 0     # 两边写 0    4 5 6 为 0
 
 然后把所有轮子的速度读出来，十六进制转 ASCII 就过了
 
-发送信息及读取的代码见 [script.py](28/script.py)
+发送信息及读取的代码见 [script.py](28/script.py) [communicate.py](28/communicate.py)
 
 <br>
 
@@ -914,7 +1288,92 @@ w 5 1 0     # 两边写 0    4 5 6 为 0
 
 改改程序，暴力
 
-代码见 [solve-16.py](30/solve-16.py)
+<details open>
+<summary>代码</summary>
+
+```python
+import json
+import itertools
+from icecream import ic
+import time
+
+
+class Board:
+    def __init__(self):
+        self.b = [[i * 4 + j for j in range(4)] for i in range(4)]
+
+    def _blkpos(self):
+        for i in range(4):
+            for j in range(4):
+                if self.b[i][j] == 15:
+                    return (i, j)
+
+    def reset(self):
+        for i in range(4):
+            for j in range(4):
+                self.b[i][j] = i * 4 + j
+
+    def move(self, moves):
+        for m in moves:
+            i, j = self._blkpos()
+            if m == 'L':
+                self.b[i][j] = self.b[i][j - 1]
+                self.b[i][j - 1] = 15
+            elif m == 'R':
+                self.b[i][j] = self.b[i][j + 1]
+                self.b[i][j + 1] = 15
+            elif m == 'U':
+                self.b[i][j] = self.b[i - 1][j]
+                self.b[i - 1][j] = 15
+            else:
+                self.b[i][j] = self.b[i + 1][j]
+                self.b[i + 1][j] = 15
+
+    def __bool__(self):
+        for i in range(4):
+            for j in range(4):
+                if self.b[i][j] != i * 4 + j:
+                    return True
+        return False
+
+
+def run(bitlength, inputString):
+    board = Board()
+    filename = f'chals/b{bitlength}.json'
+    with open(filename) as f:
+        branches = json.load(f)
+    assert len(branches) == bitlength**2
+
+    for i in range(len(branches)):
+        if inputString[branches[i][0]] == '1':
+            board.move(branches[i][1])
+        else:
+            board.move(branches[i][2])
+    return board
+
+
+startTime = time.time()
+
+
+def main():
+    bitlength = 16
+    # generate 0000, ..., 1111
+    allPossibleInputs = [''.join(x) for x in itertools.product('01', repeat=bitlength)]
+    count = 0
+    for inputString in allPossibleInputs:
+        board = run(bitlength, inputString)
+        if board:
+            ic(inputString)
+        count += 1
+        duration = time.time() - startTime
+        if count % 1000 == 0:
+            ic(count, duration)
+
+
+main()
+```
+
+</details>
 
 > 第三问不会
 
