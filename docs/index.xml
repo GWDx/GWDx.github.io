@@ -6,7 +6,16 @@
     <description>Recent content on GWDx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 19 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI 绘画是艺术吗？</title>
+      <link>http://gwdx.me/post/ai-art/</link>
+      <pubDate>Wed, 07 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://gwdx.me/post/ai-art/</guid>
+      <description>&lt;p&gt;探讨艺术的定义，以及 AI 绘画是否是艺术。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>解决 Linux 上 HDMI 无法使用的问题</title>
       <link>http://gwdx.me/post/linux-hdmi/</link>
