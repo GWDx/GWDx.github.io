@@ -1,10 +1,10 @@
 ---
-title: "AI 绘画是艺术吗？"
+title: "AI 绘画与艺术"
 date: 2022-12-07
-keywords: []
+keywords: ["AI", "绘画", "艺术"]
 description: ""
 tags: []
-categories: []
+categories: ["艺术"]
 author: ""
 summary: ""
 
@@ -26,7 +26,7 @@ katex: false
 
 最近 AI 绘画也开始流行了。
 
-这篇文章大约 10 月 20 日就开始写了，但最近拖延症比较严重，12 月初才完成。
+这篇文章 10 月下旬就开始写了，但最近拖延症比较严重，直到 12 月初才完成。
 
 
 ## 图像生成的一些事件
@@ -105,18 +105,24 @@ katex: false
 而且 AI 能很快地产生作品，比传统艺术家更能使观众感受到。
 
 > 不过这也可能造成通货膨胀，人们获得的艺术作品太多了，觉得感受不到了。
-> 另外 AI 艺术也存在一些争议问题，比如版权问题。
 
 ## 总结
 
 关于艺术确实没有一个公认的定义，这涉及艺术哲学。本文尝试将艺术定义为表达方式，如果认为表达方式包括观众感受到的，那么 AI 就可以被认为是艺术。
 
-如果需要交流，请发送邮件。
+如果需要交流，请发送邮件或者在 [GitHub](https://github.com/GWDx/GWDx.github.io/issues) 上提 issue。
 
 ## 后记
 
 因为 DALL·E 2 的出现，我开始了解文学、绘画，开始思考艺术的定义；也是因为这个，我打算研究生学习人工智能。AI 对我有较大的影响。
 
-另外，我现在的头像
+另外，我 GitHub 当前的头像是 [Portrait of Irène Cahen d'Anvers](https://en.wikipedia.org/wiki/Portrait_of_Ir%C3%A8ne_Cahen_d'Anvers)，是印象派画家雷诺阿的作品。在未来，或许不再会有仅凭借人类创造的艺术作品了，或许这些作品会成为最后一批人类艺术作品。我的这个表达按照本文的定义也算是艺术吧。（选择此特定作品的原因就不在此赘述了）
 
-![Portrait of Irène Cahen d'Anvers](https://en.wikipedia.org/wiki/Portrait_of_Ir%C3%A8ne_Cahen_d%27Anvers)
+<!-- ![board](/post/hackergame2022/image/board.png) -->
+
+<!-- center -->
+<center>
+<img src="/post/AI-art/Irene.jpg" alt="Irene" width="300"/>
+</center>
+
+AI 会使艺术发生怎样的转向呢？我们拭目以待。
