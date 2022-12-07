@@ -8,7 +8,7 @@
     <language>zh-cn</language>
     <lastBuildDate>Wed, 07 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.me/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AI 绘画是艺术吗？</title>
+      <title>AI 绘画与艺术</title>
       <link>http://gwdx.me/post/ai-art/</link>
       <pubDate>Wed, 07 Dec 2022 00:00:00 +0000</pubDate>
       
@@ -35,22 +35,22 @@
     </item>
     
     <item>
+      <title>Hackergame 2021 题解</title>
+      <link>http://gwdx.me/post/hackergame2021/</link>
+      <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://gwdx.me/post/hackergame2021/</guid>
+      <description>&lt;p&gt;Hackergame 2021（中科大第八届信息安全大赛）个人题解&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://gwdx.me/post/hackergame2021/image/board.png&#34; alt=&#34;board&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Web 之旅</title>
       <link>http://gwdx.me/post/web-tour/</link>
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>http://gwdx.me/post/web-tour/</guid>
       <description>1 月的某一天晚上，忽然兴起想了解一下 JavaScript，感觉风格上和 C 语言挺像的。 2 月初，因为做 slides 接触了 CSS。 3 月，想尝试用 JS 做点东西，</description>
-    </item>
-    
-    <item>
-      <title>Hackergame 2021 题解</title>
-      <link>http://gwdx.me/post/hackergame2021/</link>
-      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://gwdx.me/post/hackergame2021/</guid>
-      <description>&lt;p&gt;Hackergame 2021（中科大第八届信息安全大赛）个人题解&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://gwdx.me/post/hackergame2021/image/board.png&#34; alt=&#34;board&#34;&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
