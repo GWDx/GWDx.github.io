@@ -110,7 +110,7 @@ katex: false
 
 关于艺术确实没有一个公认的定义，这涉及艺术哲学。本文尝试将艺术定义为表达方式，如果认为表达方式包括观众感受到的，那么 AI 就可以被认为是艺术。
 
-如果想要交流，请发送邮件或者在 [GitHub](https://github.com/GWDx/GWDx.github.io/issues) 上提 issue。
+如果想要交流，请[发送邮件](mailto:gwdx@mail.ustc.edu.cn)或者在 [GitHub](https://github.com/GWDx/GWDx.github.io/issues) 上提 issue。
 
 ## 后记
 
