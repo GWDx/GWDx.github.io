@@ -2,36 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://gwdx.me/post/ai-art/</loc>
-    <lastmod>2022-12-07T14:43:15+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gwdx.me/categories/</loc>
-    <lastmod>2022-12-07T14:43:15+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://gwdx.me/</loc>
-    <lastmod>2022-12-07T14:43:15+08:00</lastmod>
+    <lastmod>2022-12-27T01:00:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gwdx.me/post/</loc>
-    <lastmod>2022-12-07T14:43:15+08:00</lastmod>
+    <lastmod>2022-12-27T01:00:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.me/post/nucleoside-analogue/</loc>
+    <lastmod>2022-12-27T01:00:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.me/post/ai-art/</loc>
+    <lastmod>2022-12-27T01:00:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.me/categories/</loc>
+    <lastmod>2022-12-27T01:00:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gwdx.me/categories/%E8%89%BA%E6%9C%AF/</loc>
-    <lastmod>2022-12-07T14:43:15+08:00</lastmod>
+    <lastmod>2022-12-27T01:00:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
