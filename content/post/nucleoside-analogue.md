@@ -136,6 +136,10 @@ katex: false
 
 这篇文章问卷调查服用拉米夫定的乙肝患者及不服用的患者家属（共计数百人），前者阳性率 2%，后者 48%，感觉有点离谱。不知道结果准不准，并且这个期刊一般，我也不太懂这方面
 
+另一篇还没怎么看
+
+[Putative Repurposing of Lamivudine, a Nucleoside/Nucleotide Analogue and Antiretroviral to Improve the Outcome of Cancer and COVID-19 Patients](https://www.frontiersin.org/articles/10.3389/fonc.2021.664794/full)
+
 ## 个人经历
 
 + 12 月 16 日，我回家，路上看到 [李鸿政的一篇文章](https://zhuanlan.zhihu.com/p/592229863)，意识到事情的严重性。另外，发现家里几乎没有有效的药。
