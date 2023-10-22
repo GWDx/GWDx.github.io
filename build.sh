@@ -20,7 +20,7 @@ git merge master --no-edit
 
 rm -r docs
 hugo
-cp CNAME docs/CNAME
+# cp CNAME docs/CNAME
 
 git add .
 git commit --amend -m "build"
