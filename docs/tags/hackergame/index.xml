@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hackergame on GWDx</title>
-    <link>http://gwdx.me/tags/hackergame/</link>
+    <link>http://gwdx.github.io/tags/hackergame/</link>
     <description>Recent content in Hackergame on GWDx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 31 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.me/tags/hackergame/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.github.io/tags/hackergame/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hackergame 2022 题解</title>
-      <link>http://gwdx.me/post/hackergame2022/</link>
+      <link>http://gwdx.github.io/post/hackergame2022/</link>
       <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://gwdx.me/post/hackergame2022/</guid>
+      <guid>http://gwdx.github.io/post/hackergame2022/</guid>
       <description>&lt;p&gt;Hackergame 2022（中科大第九届信息安全大赛）个人题解&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hackergame 2021 题解</title>
-      <link>http://gwdx.me/post/hackergame2021/</link>
+      <link>http://gwdx.github.io/post/hackergame2021/</link>
       <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://gwdx.me/post/hackergame2021/</guid>
+      <guid>http://gwdx.github.io/post/hackergame2021/</guid>
       <description>&lt;p&gt;Hackergame 2021（中科大第八届信息安全大赛）个人题解&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://gwdx.me/post/hackergame2021/image/board.png&#34; alt=&#34;board&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://gwdx.github.io/post/hackergame2021/image/board.png&#34; alt=&#34;board&#34;&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

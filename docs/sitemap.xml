@@ -1,141 +1,141 @@
-<?xml-stylesheet type="text/xsl" href="http://gwdx.me/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="http://gwdx.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://gwdx.me/</loc>
+    <loc>http://gwdx.github.io/</loc>
     <lastmod>2022-12-27T14:44:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/post/</loc>
+    <loc>http://gwdx.github.io/post/</loc>
     <lastmod>2022-12-27T14:44:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/post/nucleoside-analogue/</loc>
+    <loc>http://gwdx.github.io/post/nucleoside-analogue/</loc>
     <lastmod>2022-12-27T14:44:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/post/ai-art/</loc>
+    <loc>http://gwdx.github.io/post/ai-art/</loc>
     <lastmod>2022-12-27T01:00:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/categories/</loc>
+    <loc>http://gwdx.github.io/categories/</loc>
     <lastmod>2022-12-27T01:00:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/categories/%E8%89%BA%E6%9C%AF/</loc>
+    <loc>http://gwdx.github.io/categories/%E8%89%BA%E6%9C%AF/</loc>
     <lastmod>2022-12-27T01:00:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/tags/hdmi/</loc>
+    <loc>http://gwdx.github.io/tags/hdmi/</loc>
     <lastmod>2022-11-28T13:31:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/tags/i915/</loc>
+    <loc>http://gwdx.github.io/tags/i915/</loc>
     <lastmod>2022-11-28T13:31:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/tags/linux/</loc>
+    <loc>http://gwdx.github.io/tags/linux/</loc>
     <lastmod>2022-11-28T13:31:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/tags/</loc>
+    <loc>http://gwdx.github.io/tags/</loc>
     <lastmod>2022-12-07T14:10:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/post/linux-hdmi/</loc>
+    <loc>http://gwdx.github.io/post/linux-hdmi/</loc>
     <lastmod>2022-11-28T13:31:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/tags/ctf/</loc>
+    <loc>http://gwdx.github.io/tags/ctf/</loc>
     <lastmod>2022-12-07T14:10:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/tags/hackergame/</loc>
+    <loc>http://gwdx.github.io/tags/hackergame/</loc>
     <lastmod>2022-12-07T14:10:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/post/hackergame2022/</loc>
+    <loc>http://gwdx.github.io/post/hackergame2022/</loc>
     <lastmod>2022-11-28T15:12:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/post/hackergame2021/</loc>
+    <loc>http://gwdx.github.io/post/hackergame2021/</loc>
     <lastmod>2022-12-07T14:10:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/tags/javascript/</loc>
+    <loc>http://gwdx.github.io/tags/javascript/</loc>
     <lastmod>2022-11-27T21:24:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/categories/web/</loc>
+    <loc>http://gwdx.github.io/categories/web/</loc>
     <lastmod>2022-11-27T21:24:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/post/web-tour/</loc>
+    <loc>http://gwdx.github.io/post/web-tour/</loc>
     <lastmod>2022-11-27T21:24:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/tags/%E5%9F%9F%E5%90%8D/</loc>
+    <loc>http://gwdx.github.io/tags/%E5%9F%9F%E5%90%8D/</loc>
     <lastmod>2022-11-27T21:24:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gwdx.me/about/</loc>
+    <loc>http://gwdx.github.io/about/</loc>
     <lastmod>2022-11-27T23:09:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

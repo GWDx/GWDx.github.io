@@ -1,4 +1,4 @@
-baseURL = 'http://gwdx.me/'
+baseURL = 'http://gwdx.github.io/'
 languageCode = 'zh-cn'
 
 title = "GWDx"

@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://gwdx.me/sitemap.xml
+Sitemap: http://gwdx.github.io/sitemap.xml

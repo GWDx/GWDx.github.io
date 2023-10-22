@@ -2,64 +2,64 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on GWDx</title>
-    <link>http://gwdx.me/post/</link>
+    <link>http://gwdx.github.io/post/</link>
     <description>Recent content in Posts on GWDx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 26 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.me/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>核苷类似物资料整合</title>
-      <link>http://gwdx.me/post/nucleoside-analogue/</link>
+      <link>http://gwdx.github.io/post/nucleoside-analogue/</link>
       <pubDate>Mon, 26 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://gwdx.me/post/nucleoside-analogue/</guid>
+      <guid>http://gwdx.github.io/post/nucleoside-analogue/</guid>
       <description>&lt;p&gt;最近放开了，父母和我都感染了新冠。我提前了解了一些药物的知识，主要是 NSAID 和核苷类似物，虽然没有起到太大作用，但还是想记录一下。&lt;/p&gt;
 &lt;p&gt;本文整合了一些抗病毒药物、核苷类似物的知识，并介绍我使用拉米夫定的经历。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AI 绘画与艺术</title>
-      <link>http://gwdx.me/post/ai-art/</link>
+      <link>http://gwdx.github.io/post/ai-art/</link>
       <pubDate>Wed, 07 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://gwdx.me/post/ai-art/</guid>
+      <guid>http://gwdx.github.io/post/ai-art/</guid>
       <description>&lt;p&gt;探讨艺术的定义，以及 AI 绘画是否是艺术。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>解决 Linux 上 HDMI 无法使用的问题</title>
-      <link>http://gwdx.me/post/linux-hdmi/</link>
+      <link>http://gwdx.github.io/post/linux-hdmi/</link>
       <pubDate>Sat, 19 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://gwdx.me/post/linux-hdmi/</guid>
+      <guid>http://gwdx.github.io/post/linux-hdmi/</guid>
       <description>&lt;p&gt;前段时间整了个显示器，Windows, grub 时是正常的，但进 Linux 后就无法使用了。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hackergame 2022 题解</title>
-      <link>http://gwdx.me/post/hackergame2022/</link>
+      <link>http://gwdx.github.io/post/hackergame2022/</link>
       <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://gwdx.me/post/hackergame2022/</guid>
+      <guid>http://gwdx.github.io/post/hackergame2022/</guid>
       <description>&lt;p&gt;Hackergame 2022（中科大第九届信息安全大赛）个人题解&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hackergame 2021 题解</title>
-      <link>http://gwdx.me/post/hackergame2021/</link>
+      <link>http://gwdx.github.io/post/hackergame2021/</link>
       <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://gwdx.me/post/hackergame2021/</guid>
+      <guid>http://gwdx.github.io/post/hackergame2021/</guid>
       <description>&lt;p&gt;Hackergame 2021（中科大第八届信息安全大赛）个人题解&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://gwdx.me/post/hackergame2021/image/board.png&#34; alt=&#34;board&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://gwdx.github.io/post/hackergame2021/image/board.png&#34; alt=&#34;board&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Web 之旅</title>
-      <link>http://gwdx.me/post/web-tour/</link>
+      <link>http://gwdx.github.io/post/web-tour/</link>
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://gwdx.me/post/web-tour/</guid>
+      <guid>http://gwdx.github.io/post/web-tour/</guid>
       <description>1 月的某一天晚上，忽然兴起想了解一下 JavaScript，感觉风格上和 C 语言挺像的。 2 月初，因为做 slides 接触了 CSS。 3 月，想尝试用 JS 做点东西，</description>
     </item>
     

@@ -24,10 +24,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.105.0 with theme even" />
+<meta name="generator" content="Hugo 0.111.3 with theme even" />
 
 
-<link rel="canonical" href="http://gwdx.me/post/hackergame2022/" />
+<link rel="canonical" href="http://gwdx.github.io/post/hackergame2022/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -43,10 +43,9 @@
 <meta property="og:title" content="Hackergame 2022 题解" />
 <meta property="og:description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://gwdx.me/post/hackergame2022/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="http://gwdx.github.io/post/hackergame2022/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-10-31T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-11-28T15:12:09+08:00" />
-
 <meta itemprop="name" content="Hackergame 2022 题解">
 <meta itemprop="description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解"><meta itemprop="datePublished" content="2022-10-31T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-11-28T15:12:09+08:00" />
@@ -532,10 +531,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// read ./data/static.out and print
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;./data/static.out&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">fp</span> <span class="o">=</span> <span class="nf">fopen</span><span class="p">(</span><span class="s">&#34;./data/static.out&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="nf">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -582,12 +581,12 @@
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;incbin.h&#34;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">staticOut</span><span class="p">,</span> <span class="s">&#34;./data/static.out&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">dynamic0Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic0.out&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">dynamic1Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic1.out&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">dynamic2Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic2.out&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">dynamic3Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic3.out&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">INCTXT</span><span class="p">(</span><span class="n">dynamic4Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic4.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nf">INCTXT</span><span class="p">(</span><span class="n">staticOut</span><span class="p">,</span> <span class="s">&#34;./data/static.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nf">INCTXT</span><span class="p">(</span><span class="n">dynamic0Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic0.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nf">INCTXT</span><span class="p">(</span><span class="n">dynamic1Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic1.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nf">INCTXT</span><span class="p">(</span><span class="n">dynamic2Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic2.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nf">INCTXT</span><span class="p">(</span><span class="n">dynamic3Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic3.out&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nf">INCTXT</span><span class="p">(</span><span class="n">dynamic4Out</span><span class="p">,</span> <span class="s">&#34;./data/dynamic4.out&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">char</span><span class="o">*</span> <span class="n">indexToOut</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">staticOut_data</span><span class="p">,</span> <span class="n">dynamic0Out_data</span><span class="p">,</span> <span class="n">dynamic1Out_data</span><span class="p">,</span> <span class="n">dynamic2Out_data</span><span class="p">,</span> <span class="n">dynamic3Out_data</span><span class="p">,</span> <span class="n">dynamic4Out_data</span><span class="p">,</span>
@@ -596,18 +595,18 @@
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// read currentFile from currentFile
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if not exist, create it, currentFile = 0
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;./temp/currentFile&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">fp</span> <span class="o">=</span> <span class="nf">fopen</span><span class="p">(</span><span class="s">&#34;./temp/currentFile&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">currentFile</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">fp</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">fscanf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">currentFile</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">fscanf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">currentFile</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// write currentFile + 1 to currentFile
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;./temp/currentFile&#34;</span><span class="p">,</span> <span class="s">&#34;w&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">currentFile</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">fp</span> <span class="o">=</span> <span class="nf">fopen</span><span class="p">(</span><span class="s">&#34;./temp/currentFile&#34;</span><span class="p">,</span> <span class="s">&#34;w&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">currentFile</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">indexToOut</span><span class="p">[</span><span class="n">currentFile</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">indexToOut</span><span class="p">[</span><span class="n">currentFile</span><span class="p">]);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -702,11 +701,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// open /flag1 and print it
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">f</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;/flag1&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">f</span> <span class="o">=</span> <span class="nf">fopen</span><span class="p">(</span><span class="s">&#34;/flag1&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -752,20 +751,20 @@
 </span></span><span class="line"><span class="cl">    <span class="n">PROCESS_INFORMATION</span> <span class="n">pi</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl">    <span class="n">si</span><span class="p">.</span><span class="n">cb</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">si</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">CreateProcess</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\\\\</span><span class="s">?</span><span class="se">\\</span><span class="s">unix</span><span class="se">\\</span><span class="s">readflag&#34;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">si</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pi</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;CreateProcess failed (%d)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">GetLastError</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">CreateProcess</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\\\\</span><span class="s">?</span><span class="se">\\</span><span class="s">unix</span><span class="se">\\</span><span class="s">readflag&#34;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">si</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pi</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;CreateProcess failed (%d)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">GetLastError</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hProcess</span><span class="p">,</span> <span class="n">INFINITE</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">CloseHandle</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hProcess</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">CloseHandle</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hThread</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">WaitForSingleObject</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hProcess</span><span class="p">,</span> <span class="n">INFINITE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">CloseHandle</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hProcess</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">CloseHandle</span><span class="p">(</span><span class="n">pi</span><span class="p">.</span><span class="n">hThread</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;argv[%i]: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">executeFile</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;argv[%i]: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">executeFile</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -832,21 +831,21 @@
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="nf">rand01</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">rand</span><span class="p">()</span> <span class="o">/</span> <span class="n">RAND_MAX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="nf">rand</span><span class="p">()</span> <span class="o">/</span> <span class="n">RAND_MAX</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">setvbuf</span><span class="p">(</span><span class="n">stdin</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">_IONBF</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">setvbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">_IONBF</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">setvbuf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">_IONBF</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">setvbuf</span><span class="p">(</span><span class="n">stdin</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">_IONBF</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">setvbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">_IONBF</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">setvbuf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">_IONBF</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">time0</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">time0</span> <span class="o">=</span> <span class="nf">time</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">buf1</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;3.13801&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">buf2</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;3.14753&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">clock0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">clock0</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">;</span> <span class="n">clock0</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span><span class="p">)</span><span class="n">time0</span> <span class="o">+</span> <span class="n">clock0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">srand</span><span class="p">((</span><span class="kt">unsigned</span><span class="p">)</span><span class="n">time0</span> <span class="o">+</span> <span class="n">clock0</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">games</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="kt">char</span> <span class="n">target</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
@@ -854,22 +853,22 @@
 </span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">400000</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rand01</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">                <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rand01</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="nf">rand01</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nf">rand01</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">M</span><span class="o">++</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">            <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">M</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">sprintf</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s">&#34;%1.5f&#34;</span><span class="p">,</span> <span class="n">pi</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">sprintf</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s">&#34;%1.5f&#34;</span><span class="p">,</span> <span class="n">pi</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">buf1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">buf1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">buf2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">buf2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span>
-</span></span><span class="line"><span class="cl">                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;clock0 = %d, i = %d, target = %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">clock0</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">target</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;clock0 = %d, i = %d, target = %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">clock0</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">target</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -1891,16 +1890,16 @@ $$</p>
 </span></span><span class="line"><span class="cl"><span class="cp">#define BUFSZ 512
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">key_t</span> <span class="n">key</span> <span class="o">=</span> <span class="mh">0x1234</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">key_t</span> <span class="n">key</span> <span class="o">=</span> <span class="mh">0x1234</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">secret</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// open file /secret and read
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;/secret&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fgets</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">FILE</span><span class="o">*</span> <span class="n">fp</span> <span class="o">=</span> <span class="nf">fopen</span><span class="p">(</span><span class="s">&#34;/secret&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fgets</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">BUFSZ</span><span class="p">,</span> <span class="n">IPC_CREAT</span> <span class="o">|</span> <span class="mo">0666</span><span class="p">);</span>  <span class="c1">// 创建共享内存
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span><span class="o">*</span> <span class="n">shmadd</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>              <span class="c1">// 映射
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">bzero</span><span class="p">(</span><span class="n">shmadd</span><span class="p">,</span> <span class="n">BUFSZ</span><span class="p">);</span>                              <span class="c1">// 共享内存清空
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">strcpy</span><span class="p">(</span><span class="n">shmadd</span><span class="p">,</span> <span class="n">secret</span><span class="p">);</span>                            <span class="c1">// 写入共享内存
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">shmid</span> <span class="o">=</span> <span class="nf">shmget</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">BUFSZ</span><span class="p">,</span> <span class="n">IPC_CREAT</span> <span class="o">|</span> <span class="mo">0666</span><span class="p">);</span>  <span class="c1">// 创建共享内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span><span class="o">*</span> <span class="n">shmadd</span> <span class="o">=</span> <span class="nf">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>              <span class="c1">// 映射
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">bzero</span><span class="p">(</span><span class="n">shmadd</span><span class="p">,</span> <span class="n">BUFSZ</span><span class="p">);</span>                              <span class="c1">// 共享内存清空
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">strcpy</span><span class="p">(</span><span class="n">shmadd</span><span class="p">,</span> <span class="n">secret</span><span class="p">);</span>                            <span class="c1">// 写入共享内存
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -1939,12 +1938,12 @@ $$</p>
 </span></span><span class="line"><span class="cl"><span class="cp">#define BUFSZ 512
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">key_t</span> <span class="n">key</span> <span class="o">=</span> <span class="mh">0x1234</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">shmid</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">BUFSZ</span><span class="p">,</span> <span class="n">IPC_CREAT</span> <span class="o">|</span> <span class="mo">0666</span><span class="p">);</span>  <span class="c1">// 打开共享内存
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span><span class="o">*</span> <span class="n">shmadd</span> <span class="o">=</span> <span class="n">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>              <span class="c1">// 映射
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">shmadd</span><span class="p">);</span>                              <span class="c1">// 读共享内存区数据
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">shmdt</span><span class="p">(</span><span class="n">shmadd</span><span class="p">);</span>                           <span class="c1">// 分离共享内存和当前进程
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">shmctl</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="n">IPC_RMID</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>                     <span class="c1">// 删除共享内存
+</span></span><span class="line"><span class="cl">    <span class="kt">key_t</span> <span class="n">key</span> <span class="o">=</span> <span class="mh">0x1234</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">shmid</span> <span class="o">=</span> <span class="nf">shmget</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">BUFSZ</span><span class="p">,</span> <span class="n">IPC_CREAT</span> <span class="o">|</span> <span class="mo">0666</span><span class="p">);</span>  <span class="c1">// 打开共享内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span><span class="o">*</span> <span class="n">shmadd</span> <span class="o">=</span> <span class="nf">shmat</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>              <span class="c1">// 映射
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">shmadd</span><span class="p">);</span>                              <span class="c1">// 读共享内存区数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="nf">shmdt</span><span class="p">(</span><span class="n">shmadd</span><span class="p">);</span>                           <span class="c1">// 分离共享内存和当前进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">shmctl</span><span class="p">(</span><span class="n">shmid</span><span class="p">,</span> <span class="n">IPC_RMID</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>                     <span class="c1">// 删除共享内存
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -2266,7 +2265,7 @@ $$</p>
       <a href="mailto:gwdx@mail.ustc.edu.cn" class="iconfont icon-email" title="email"></a>
       <a href="https://github.com/GWDx" class="iconfont icon-github" title="github"></a>
       <a href="https://space.bilibili.com/442365922" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://gwdx.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="http://gwdx.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -2283,7 +2282,8 @@ $$</p>
 
   <span class="copyright-year">
     &copy; 
-    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>GWDx</span>
+    2022 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>GWDx</span>
   </span>
 </div>
 

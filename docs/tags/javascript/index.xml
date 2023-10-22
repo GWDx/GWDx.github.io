@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on GWDx</title>
-    <link>http://gwdx.me/tags/javascript/</link>
+    <link>http://gwdx.github.io/tags/javascript/</link>
     <description>Recent content in JavaScript on GWDx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.me/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Web 之旅</title>
-      <link>http://gwdx.me/post/web-tour/</link>
+      <link>http://gwdx.github.io/post/web-tour/</link>
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://gwdx.me/post/web-tour/</guid>
+      <guid>http://gwdx.github.io/post/web-tour/</guid>
       <description>1 月的某一天晚上，忽然兴起想了解一下 JavaScript，感觉风格上和 C 语言挺像的。 2 月初，因为做 slides 接触了 CSS。 3 月，想尝试用 JS 做点东西，</description>
     </item>
     
