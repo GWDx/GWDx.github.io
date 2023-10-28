@@ -20,11 +20,13 @@ katex: false
 
 <!--more-->
 
+> 题目及其余题解可以在 [PKU-GeekGame/geekgame-3rd](https://github.com/PKU-GeekGame/geekgame-3rd) 中查看
+
 去年参加过 GeekGame，但后来摆烂了。今年得分 4218，总排名第 9
 
-因为在 Pwn 上耗费了一些时间，有些 Misc 来不及做了。
+这次因为在 Pwn 上耗费了一些时间，有些 Misc 来不及做了。
 
-> 最近事情有点多，所以题解写得比较随意……
+最近事情有点多，所以题解写得比较随意……
 
 ## 环境
 
@@ -2171,6 +2173,6 @@ r.interactive()
 
 ## 后记
 
-去年做了编译助教，为了调试汇编被迫使用 pwndbg，学了点二进制。虽然这次剩了一些 Misc 题，但第一次在比赛中做出 Pwn 题，第一次拿 shell，很高兴。
+去年做了编译助教，为了调试汇编被迫使用 pwndbg，于是学了点二进制。虽然这次剩了一些 Misc 题没有做，但这是我第一次在比赛中做出 Pwn 题，第一次拿到 shell，值得纪念。
 
 今年 GPT4 已经会做小北问答和 TypeScript 的第一问了。恐怕我明年就要被 GPT5 取代了……
