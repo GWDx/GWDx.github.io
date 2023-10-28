@@ -27,11 +27,12 @@ mathjax: false
     }
 </style>
 
-+ <tab> 2019.9 - 现在 </tab> 中国科学技术大学，计算机科学与技术学院
++ <tab> 2023.9 - 现在 </tab> 中国科学技术大学，信息科学技术学院
++ <tab> 2019.9 - 2023.6 </tab> 中国科学技术大学，计算机科学与技术学院
 + <tab> 2016.9 - 2019.6 </tab> 浙江海盐元济高级中学
 
 <br/>
 
-+ 操作系统：Debian
-+ 编辑器：VSCode、Kate
-+ 编程语言：Python、C++、Mathematica
++ Linux 发行版：Debian 12
++ 编辑器：VSCode
++ 编程语言：Python、C++、Mathematica、Rust
