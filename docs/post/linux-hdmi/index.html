@@ -45,11 +45,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://gwdx.github.io/post/linux-hdmi/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-11-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-11-28T13:31:57+08:00" />
+<meta property="article:modified_time" content="2023-12-05T21:31:46+08:00" />
 <meta itemprop="name" content="解决 Linux 上 HDMI 无法使用的问题">
 <meta itemprop="description" content="前段时间整了个显示器，Windows, grub 时是正常的，但进 Linux 后就无法使用了。"><meta itemprop="datePublished" content="2022-11-19T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-11-28T13:31:57+08:00" />
-<meta itemprop="wordCount" content="2215">
+<meta itemprop="dateModified" content="2023-12-05T21:31:46+08:00" />
+<meta itemprop="wordCount" content="2424">
 <meta itemprop="keywords" content="Linux,HDMI,i915," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="解决 Linux 上 HDMI 无法使用的问题"/>
 <meta name="twitter:description" content="前段时间整了个显示器，Windows, grub 时是正常的，但进 Linux 后就无法使用了。"/>
@@ -562,7 +562,7 @@
 </div></details>
 <h2 id="解决方案">解决方案</h2>
 <p>找到了 <a href="https://gitlab.freedesktop.org/drm/intel/-/issues/6454">No HDMI signal i915 0000:00:02.0: [drm] ERROR crtc 131: Can&rsquo;t calculate constants, dotclock = 0!</a>。</p>
-<p>按照其中的 patch 文件更改 <code>drivers/gpu/drm/i915/display/intel_ddi.c</code> 文件中的 <code>intel_ddi_init</code> 函数。重新编译内核，可以暂时性地解决问题。</p>
+<p>按照其中的 patch 文件更改 <code>drivers/gpu/drm/i915/display/intel_ddi.c</code> 文件中的 <code>intel_ddi_init</code> 函数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -592,8 +592,71 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>似乎是 BIOS 对 VBT 初始化的问题</p>
+<p>然后重新编译内核。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp /boot/config-<span class="k">$(</span>uname -r<span class="k">)</span> .config
+</span></span><span class="line"><span class="cl">make oldconfig
+</span></span><span class="line"><span class="cl">make localmodconfig
+</span></span><span class="line"><span class="cl">make -j <span class="k">$(</span>nproc<span class="k">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装并更新 grub。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo make modules_install
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span><span class="line"><span class="cl">sudo update-initramfs -u -k all
+</span></span><span class="line"><span class="cl">sudo update-grub
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样可以暂时性地解决问题。只是，内核有些东西不太能用，比如显卡驱动、docker（也可能是我编译选项设置得有问题）。</p>
 <br>
-<p>只是，新版本的内核有些东西不太能用，比如显卡驱动、docker（也可能是我编译选项设置得有问题）。</p>
+<h2 id="2023-12-5-更新仅替换-i915-内核模块">2023-12-5 更新：仅替换 i915 内核模块</h2>
+<p>下载 <code>apt</code> 打包时的源码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt <span class="nb">source</span> linux-image-6.1.0-13-amd64-unsigned
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 <code>drivers/gpu/drm/i915/display/intel_ddi.c</code> 中找到 <code>intel_ddi_init</code> 函数，修改此文件。</p>
+<p>commit 完。打包编译，大概需要编译一个小时</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dpkg-source --commit
+</span></span><span class="line"><span class="cl">dpkg-buildpackage -us -uc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后提取其中的 <code>i915.ko</code>，替换掉 <code>/lib/modules/$(uname -r)/kernel/drivers/gpu/drm/i915/i915.ko</code>。</p>
+<p>更新 initramfs：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo update-initramfs -u -k all
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样就可以只替换 i915 内核模块，解决 HDMI 输出的问题了。</p>
     </div>
 
     <div class="post-copyright">
@@ -604,8 +667,8 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2022-11-28
-        <a href="https://github.com/GWDx/GWDx.github.io/commit/33fefdb5f4d40b52e608fc5119a7f0fd5d49c0d9" title="update hackergame2022">(33fefdb)</a>
+        2023-12-05
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/88ddf9b35af925f81936bbd80532e0c104530e9e" title="Update Linux-HDMI.md">(88ddf9b)</a>
     </span>
   </p>
   

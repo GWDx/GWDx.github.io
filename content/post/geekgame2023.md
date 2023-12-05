@@ -1198,8 +1198,8 @@ import binascii
 from icecream import ic
 
 # sh = process('./pwn')
-
 sh = remote('prob09.geekgame.pku.edu.cn', 10009)
+
 sh.sendlineafter(
     'Please input your token: ',
     '419:MEUCIAJK6pgIYBAyoFwq0WANA1qSkViRLHOVsB2NajlbxhH9AiEAzmCTUCGKE9DnSt61ANO8cw2GpWE6Zj-1iFuTRm8E4Vg=')
@@ -1337,8 +1337,8 @@ from pwn import *
 from icecream import ic
 
 # sh = process('./pwn')
-
 sh = remote('prob09.geekgame.pku.edu.cn', 10009)
+
 sh.sendlineafter(
     'Please input your token: ',
     '419:MEUCIAJK6pgIYBAyoFwq0WANA1qSkViRLHOVsB2NajlbxhH9AiEAzmCTUCGKE9DnSt61ANO8cw2GpWE6Zj-1iFuTRm8E4Vg=')
@@ -1656,7 +1656,6 @@ from icecream import ic
 
 # sh = process('./challenge2')
 file = ELF('./challenge2')
-
 sh = remote('prob09.geekgame.pku.edu.cn', 10011)
 
 sh.sendlineafter(
