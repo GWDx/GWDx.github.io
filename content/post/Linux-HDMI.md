@@ -252,7 +252,7 @@ HDMI-1 disconnected
 
 找到了 [No HDMI signal i915 0000:00:02.0: [drm] ERROR crtc 131: Can't calculate constants, dotclock = 0!](https://gitlab.freedesktop.org/drm/intel/-/issues/6454)。
 
-按照其中的 patch 文件更改 `drivers/gpu/drm/i915/display/intel_ddi.c` 文件中的 `intel_ddi_init` 函数。重新编译内核，可以暂时性地解决问题。
+按照其中的 patch 文件更改 `drivers/gpu/drm/i915/display/intel_ddi.c` 文件中的 `intel_ddi_init` 函数。
 
 
 ```c
@@ -271,6 +271,51 @@ HDMI-1 disconnected
 
 似乎是 BIOS 对 VBT 初始化的问题
 
+然后重新编译内核。
+
+```bash
+cp /boot/config-$(uname -r) .config
+make oldconfig
+make localmodconfig
+make -j $(nproc)
+```
+
+安装并更新 grub。
+
+```bash
+sudo make modules_install
+sudo make install
+sudo update-initramfs -u -k all
+sudo update-grub
+```
+
+这样可以暂时性地解决问题。只是，内核有些东西不太能用，比如显卡驱动、docker（也可能是我编译选项设置得有问题）。
+
 <br>
 
-只是，新版本的内核有些东西不太能用，比如显卡驱动、docker（也可能是我编译选项设置得有问题）。
+## 2023-12-5 更新：仅替换 i915 内核模块
+
+下载 `apt` 打包时的源码：
+
+```bash
+apt source linux-image-6.1.0-13-amd64-unsigned
+```
+
+在 `drivers/gpu/drm/i915/display/intel_ddi.c` 中找到 `intel_ddi_init` 函数，修改此文件。
+
+commit 完。打包编译，大概需要编译一个小时
+
+```bash
+dpkg-source --commit
+dpkg-buildpackage -us -uc
+```
+
+然后提取其中的 `i915.ko`，替换掉 `/lib/modules/$(uname -r)/kernel/drivers/gpu/drm/i915/i915.ko`。
+
+更新 initramfs：
+
+```bash
+sudo update-initramfs -u -k all
+```
+
+这样就可以只替换 i915 内核模块，解决 HDMI 输出的问题了。
