@@ -36,3 +36,4 @@ mathjax: false
 + Linux 发行版：Debian 12
 + 编辑器：VSCode
 + 编程语言：Python、C++、Mathematica、Rust
++ 业余无线电呼号：BG6HJI
