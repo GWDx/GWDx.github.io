@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>陶哲轩系鞋带 - GWDx</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GWDx" /><meta name="description" content="陶哲轩（Terence Tao）因为要在赶飞机时系鞋带，想到一个简单的数学题——应该在电动步道上系鞋带，还是在普通路段上系鞋带？
+本文对此问题及其衍生问题进行了代数推导（虽然凭感觉就能得到答案）。
+" /><meta name="keywords" content="数学" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.111.3 with theme even" />
+
+
+<link rel="canonical" href="http://gwdx.github.io/post/airport-puzzle/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c29ea812462215a64664d7cc3441ba352b84557e1a6a570ffaf5d74e70242a4.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="陶哲轩系鞋带" />
+<meta property="og:description" content="陶哲轩（Terence Tao）因为要在赶飞机时系鞋带，想到一个简单的数学题——应该在电动步道上系鞋带，还是在普通路段上系鞋带？
+本文对此问题及其衍生问题进行了代数推导（虽然凭感觉就能得到答案）。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwdx.github.io/post/airport-puzzle/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-02-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-26T00:22:52+08:00" />
+<meta itemprop="name" content="陶哲轩系鞋带">
+<meta itemprop="description" content="陶哲轩（Terence Tao）因为要在赶飞机时系鞋带，想到一个简单的数学题——应该在电动步道上系鞋带，还是在普通路段上系鞋带？
+本文对此问题及其衍生问题进行了代数推导（虽然凭感觉就能得到答案）。"><meta itemprop="datePublished" content="2024-02-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-02-26T00:22:52+08:00" />
+<meta itemprop="wordCount" content="1464">
+<meta itemprop="keywords" content="数学," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="陶哲轩系鞋带"/>
+<meta name="twitter:description" content="陶哲轩（Terence Tao）因为要在赶飞机时系鞋带，想到一个简单的数学题——应该在电动步道上系鞋带，还是在普通路段上系鞋带？
+本文对此问题及其衍生问题进行了代数推导（虽然凭感觉就能得到答案）。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">GWDx</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">GWDx</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">陶哲轩系鞋带</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-02-02 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题描述">问题描述</a></li>
+    <li><a href="#解答">解答</a>
+      <ul>
+        <li><a href="#1-在哪里系鞋带">1. 在哪里系鞋带</a></li>
+        <li><a href="#2-在哪里跑步">2. 在哪里跑步</a></li>
+        <li><a href="#3-考虑狭义相对论重新计算上述问题">3. 考虑狭义相对论，重新计算上述问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#后记">后记</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>陶哲轩（Terence Tao）因为要在赶飞机时系鞋带，想到一个简单的数学题——应该在电动步道上系鞋带，还是在普通路段上系鞋带？</p>
+<p>本文对此问题及其衍生问题进行了代数推导（虽然凭感觉就能得到答案）。</p>
+<blockquote>
+<p>陶哲轩是当代著名的数学家，在 31 岁时就获得了菲尔兹奖</p>
+</blockquote>
+<h2 id="问题描述">问题描述</h2>
+<p>原问题于 2008 年发布在他的<a href="https://terrytao.wordpress.com/2008/12/09/an-airport-inspired-puzzle/">博客</a>上：</p>
+<blockquote>
+<p>前几天我在一个机场，要从航站楼的一端到另一端。想到了下面这个简单的数学问题：</p>
+<p>假设你试图从一个端点 A 到另一个端点 B。（为简单起见，假设路径是一条线段）。航站楼的某些部分有电动步道；其他部分没有。你的步行速度是一个常数 v，但在电动步道上，它会被人行道的速度 u 提升，从而得到净速度 v+u。你的目标是以最短的时间从 A 到 B。</p>
+<ol>
+<li>假设你需要<strong>暂停一段时间</strong>，比如系鞋带。在电动步道上暂停，还是在电动步道上暂停，哪个更有效率？假设两种情况下所需的时间是相同的。</li>
+<li>假设你<strong>有一定量的能量可以跑步</strong>，从而提高你的速度到一个更高的速度 v&rsquo;（或者 v&rsquo;+u，如果你在电动步道上）。在电动步道上跑步，还是在电动步道上跑步，哪个更有效率？假设两种情况下的能量消耗是相同的。</li>
+<li>如果考虑到<strong>狭义相对论</strong>的各种影响，上述问题的答案会改变吗？（这当然是一个学术问题，而不是一个实际问题。应该最小化的是机场框架中的时间）</li>
+</ol>
+</blockquote>
+<p>在 <a href="https://www.bilibili.com/video/BV1wa41187Wf?p=7">MasterClass</a> 中，陶哲轩说当时他做了一些代数运算，解出了第一个问题，并赶上了飞机。本文就是<strong>对这三个问题做代数计算</strong>。</p>
+<h2 id="解答">解答</h2>
+<h3 id="1-在哪里系鞋带">1. 在哪里系鞋带</h3>
+<p>设 $s_1$ 表示普通路段的长度，$s_2$ 表示电动步道路段的长度，$u$ 表示电动步道的速度，$v$ 表示行人的速度，$\Delta{t}$ 表示暂停的时间。</p>
+<p>$$
+\begin{aligned}
+t_A&amp;=\frac{s_1}{v}+\Delta{t}+\frac{s_2}{u+v} \\
+t_B&amp;=\frac{s_1}{v}+\frac{s_2-u\Delta{t}}{u+v}+\Delta{t} \\
+t_A-t_B &amp;=\frac{u,\Delta{t}}{u+v} &gt; 0
+\end{aligned}
+$$</p>
+<p>$t_A&gt;t_B$，所以在电动步道上停下来系鞋带会花费更少的时间。</p>
+<h3 id="2-在哪里跑步">2. 在哪里跑步</h3>
+<p>主要受到路面阻力的影响，只和相对速度有关。花费相同的能量，跑步的时间是相同的。</p>
+<p>设 $\Delta{t}$ 表示跑步的时间，$v_2$ 表示跑步后的速度（$v_2&gt;v$）</p>
+<p>$$
+\begin{aligned}
+t_A &amp;=\frac{s_1-v_2,\Delta{t}}{v}+\Delta{t}+\frac{s_2}{u+v} \\
+t_B &amp;=\frac{s_1}{v}+\frac{s_2-u,\Delta{t}}{u+v}+\Delta{t} \\
+t_A-t_B&amp;=\frac{u,\Delta{t},(v-v_2)}{v(u+v)} &lt; 0
+\end{aligned}
+$$</p>
+<p>$t_A&lt;t_B$，所以在普通路段跑步会花费更少的时间。</p>
+<h3 id="3-考虑狭义相对论重新计算上述问题">3. 考虑狭义相对论，重新计算上述问题</h3>
+<h4 id="31-系鞋带">3.1 系鞋带</h4>
+<p>设 $s_1$ 表示普通路段的长度，$s_2$ 表示电动步道路段的长度，$u$ 表示电动步道的速度，$v$ 表示行人的速度，$\Delta{t}$ 表示对于人而言暂停的时间。</p>
+<p>$\gamma(u)$ 表示相对论因子：</p>
+<p>$$
+\gamma(u)=\frac{1}{\sqrt{1-\frac{u^2}{c^2}}}
+$$</p>
+<p>速度合成公式：</p>
+<p>$$
+u \oplus v =\frac{u+v}{1+\frac{u,v}{c^2}}
+$$</p>
+<p>两种选择的时间：</p>
+<p>$$
+\begin{aligned}
+t_A &amp;=\frac{s_1}{v}+\Delta{t}+\frac{s_2}{u\oplus v} \\
+t_B&amp;=\frac{s_1}{v}+\frac{s_2-u,\Delta{t},\gamma(u)}{u\oplus v}+\Delta{t},\gamma(u) \\
+t_A-t_B&amp;=\frac{\left(u+v-\sqrt{1-\frac{u^2}{c^2}},v\right),\Delta{t}}{u+v} &gt; 0
+\end{aligned}
+$$</p>
+<p>注意到 $\sqrt{1-\frac{u^2}{c^2}} &lt; 1$，所以 $v &gt; \sqrt{1-\frac{u^2}{c^2}},v$，所以 $t_A&gt;t_B$</p>
+<p>在电动步道上停下来系鞋带会花费更少的时间。</p>
+<h4 id="32-跑步">3.2 跑步</h4>
+<p>同样，消耗相同的能量，认为跑步的时间是相同</p>
+<p>$$
+\begin{aligned}
+t_A&amp;=\frac{s_1-v_2,\Delta{t}}{v}+\Delta{t}+\frac{s_2}{u\oplus v} \\
+t_B&amp;=\frac{s_1}{v}+\frac{s_2-(u\oplus v_2),\Delta{t},\gamma(u)}{u\oplus v}+\Delta{t},\gamma(u) \\
+t_A-t_B&amp;=\frac{\left(v-v_2\right) \left(c^2 (u+v-v \sqrt{1-\frac{u^2}{c^2}})+u , v_2 (u+v)\right)}{v (u+v) \left(c^2+u ,v_2\right)} &lt; 0
+\end{aligned}
+$$</p>
+<p>由于 $v&lt;v_2$，所以 $t_A&lt;t_B$。</p>
+<p>在普通路段跑步会花费更少的时间。</p>
+<p>综上所述，两个结论均在狭义相对论下成立。</p>
+<h2 id="总结">总结</h2>
+<p>经过无聊的代数运算，我们得到了两个结论：</p>
+<ol>
+<li>在电动步道上停下来系鞋带会花费更少的时间。</li>
+<li>在普通路段跑步会花费更少的时间。</li>
+</ol>
+<p>并且在狭义相对论下也成立。</p>
+<p>这两个结论是符合直觉的。对于第一个问题，A 在电动步道上停下来系鞋带，B 在普通路段上停下来系鞋带，在系鞋带的时间里，A 多移动了一段距离，所以应该在电动步道上停下来系鞋带。</p>
+<p>在第三个问题中，我们假设加速度是无穷大，而如果在相对论下考虑加速过程的时间，就很复杂了。</p>
+<h2 id="后记">后记</h2>
+<p>数学，存在于生活的各个角落。
+生物的遗传、博弈的策略，由概率描述；
+弦的振动、天线的接收，背后是相似的微分方程。</p>
+<p>数学不只是解决问题，也是关于获得洞察力的学问，看到这两件事以一种以前没有人认为可能的方式联系在一起。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">GWDx</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2024-02-26
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/e2d8468759ed613d083642b0d93aff1dc0d0f668" title="Create airport-puzzle.md">(e2d8468)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/geekgame2023/">
+            <span class="next-text nav-default">GeekGame 2023 题解</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:gwdx@mail.ustc.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/GWDx" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/442365922" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://gwdx.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>GWDx</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.5c93b1d90d4bc05350a680cf34fca805c5c13041075057bc584fe6d549c6186a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-HBL65Q7HB4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

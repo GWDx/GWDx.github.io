@@ -6,7 +6,17 @@
     <description>Recent content on GWDx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 21 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>陶哲轩系鞋带</title>
+      <link>http://gwdx.github.io/post/airport-puzzle/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://gwdx.github.io/post/airport-puzzle/</guid>
+      <description>&lt;p&gt;陶哲轩（Terence Tao）因为要在赶飞机时系鞋带，想到一个简单的数学题——应该在电动步道上系鞋带，还是在普通路段上系鞋带？&lt;/p&gt;
+&lt;p&gt;本文对此问题及其衍生问题进行了代数推导（虽然凭感觉就能得到答案）。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>GeekGame 2023 题解</title>
       <link>http://gwdx.github.io/post/geekgame2023/</link>
