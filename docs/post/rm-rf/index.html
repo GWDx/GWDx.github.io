@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>rm -rf 的教训 - GWDx</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GWDx" /><meta name="description" content="11 月的时候，我在不清醒的情况下，不小心 rm -rf 了，ctrl&#43;c 中断后，发现删掉了 300GB 的文件。
+另外，rsync --delete 也是个危险的命令。
+" /><meta name="keywords" content="linux, 文件系统" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.111.3 with theme even" />
+
+
+<link rel="canonical" href="http://gwdx.github.io/post/rm-rf/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c29ea812462215a64664d7cc3441ba352b84557e1a6a570ffaf5d74e70242a4.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="rm -rf 的教训" />
+<meta property="og:description" content="11 月的时候，我在不清醒的情况下，不小心 rm -rf 了，ctrl&#43;c 中断后，发现删掉了 300GB 的文件。
+另外，rsync --delete 也是个危险的命令。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwdx.github.io/post/rm-rf/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-12-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-17T14:45:45+08:00" />
+<meta itemprop="name" content="rm -rf 的教训">
+<meta itemprop="description" content="11 月的时候，我在不清醒的情况下，不小心 rm -rf 了，ctrl&#43;c 中断后，发现删掉了 300GB 的文件。
+另外，rsync --delete 也是个危险的命令。"><meta itemprop="datePublished" content="2023-12-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-03-17T14:45:45+08:00" />
+<meta itemprop="wordCount" content="2848">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="rm -rf 的教训"/>
+<meta name="twitter:description" content="11 月的时候，我在不清醒的情况下，不小心 rm -rf 了，ctrl&#43;c 中断后，发现删掉了 300GB 的文件。
+另外，rsync --delete 也是个危险的命令。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">GWDx</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">GWDx</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">rm -rf 的教训</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-12-19 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#起因">起因</a></li>
+    <li><a href="#试图恢复">试图恢复</a>
+      <ul>
+        <li><a href="#准备工作">准备工作</a></li>
+        <li><a href="#导出日志">导出日志</a></li>
+        <li><a href="#详细分析">详细分析</a></li>
+        <li><a href="#通过读取磁盘恢复一些文件">通过读取磁盘恢复一些文件</a></li>
+        <li><a href="#丢失的文件">丢失的文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#其他可能丢失文件的操作">其他可能丢失文件的操作</a>
+      <ul>
+        <li><a href="#图形界面的删除">图形界面的删除</a></li>
+        <li><a href="#命令行下-rsync---delete">命令行下 <code>rsync --delete</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#教训">教训</a>
+      <ul>
+        <li><a href="#1-不要在不清醒的情况下操作">1. 不要在不清醒的情况下操作</a></li>
+        <li><a href="#2-做好备份">2. 做好备份</a></li>
+        <li><a href="#3-通过设置避免误删文件">3. 通过设置避免误删文件</a></li>
+        <li><a href="#4-如果误删了一个文件">4. 如果误删了一个文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#结论">结论</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>11 月的时候，我在不清醒的情况下，不小心 <code>rm -rf</code> 了，ctrl+c 中断后，发现删掉了 300GB 的文件。</p>
+<p>另外，<code>rsync --delete</code> 也是个危险的命令。</p>
+<h2 id="起因">起因</h2>
+<p>GeekGame 2023 中有一道名为<a href="https://github.com/PKU-GeekGame/geekgame-3rd/tree/master/official_writeup/prob21-gzip">“未来磁盘”</a>的题目，需要解压 7TB 的文件。
+有<a href="https://blog.taoky.moe/2023-10-22/geekgame-v3-wp-outline.html">题解</a>说使用 btrfs 文件系统的透明压缩功能，可以解出“未来磁盘”一题的 flag。我试了一下，对于这题的文件，压缩率可以达到 4%。</p>
+<p>我的电脑里面有很多文本文件很占空间，于是打算把文件系统从 ext4 换成 btrfs，但是直接用启动 U 盘安装 btrfs 的 debian 系统后无法正常开机（后来发现需要关闭 <code>/etc/fstab</code> 中的一些选项）。</p>
+<p>我使用启动 U 盘，创建了 btrfs 的分区，在 <code>/media/</code> 下挂载两个文件系统。然后 <code>cp -rv /mnt/ext /mnt/btrfs</code>，发现这样不能复制隐藏文件，于是打算删除已经复制过去的文件，重新复制。但是没看清当前目录，直接 <code>rm -rf *</code>，当发现提示 <code>Device or resource busy</code> 时，已经删除了将近 300GB 的文件。</p>
+<h2 id="试图恢复">试图恢复</h2>
+<blockquote>
+<p>感谢 <a href="https://github.com/RTXUX">RTXUX</a> 和 <a href="https://github.com/taoky">taoky</a> 在数据恢复过程中提供的建议</p>
+</blockquote>
+<p><a href="https://wiki.archlinux.org/title/file_recovery">File recovery - ArchWiki</a> 中提到了几种恢复文件的方法。</p>
+<ul>
+<li>Ext4Magic 可以获取 ext4 文件系统的日志等信息</li>
+<li>Photorec 可以通过读取磁盘的方式恢复文件</li>
+</ul>
+<h3 id="准备工作">准备工作</h3>
+<p>使用 U 盘启动系统，以<strong>只读</strong>方式挂载磁盘</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mount -r /dev/nvme0n1p5 /mnt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>制作磁盘镜像，以避免数据损坏</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dd <span class="k">if</span><span class="o">=</span>/dev/nvme0n1p5 <span class="nv">of</span><span class="o">=</span>~/nvme0n1p5.img
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>debian 软件源中的 ext4magic 有 bug，需要打 patch。使用 <a href="https://aur.archlinux.org/packages/ext4magic-patch-extent-free">ext4magic-patch-extent-free</a> 中的代码及 patch，然后编译</p>
+<h3 id="导出日志">导出日志</h3>
+<blockquote>
+<p><code>debugfs</code> 是 linux 内核中的一个文件系统调试工具，可以用来查看 ext 文件系统的信息。默认是只读的，不会对文件系统产生影响</p>
+</blockquote>
+<p>使用 debugfs 导出文件系统日志</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo debugfs -R <span class="s2">&#34;dump &lt;8&gt; ~/nvme.journal&#34;</span> /dev/nvme0n1p5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>其中 8 是文件系统日志所在的 inode</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ext4magic /dev/nvme0n1p5 -a <span class="s2">&#34;</span><span class="k">$(</span>date -d <span class="s2">&#34;-10hours&#34;</span> +%s<span class="k">)</span><span class="s2">&#34;</span> -f deleted/folders/root -j nvme.journal -l
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然而使用这个命令，只恢复了 22MB 的文件。</p>
+<h3 id="详细分析">详细分析</h3>
+<p>查看分区的统计信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">debugfs nvme0n1p5.img
+</span></span><span class="line"><span class="cl">stats
+</span></span><span class="line"><span class="cl">stat &lt;8&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>得到文件系统的元信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">debugfs 1.47.0 (5-Feb-2023)
+</span></span><span class="line"><span class="cl">debugfs:  stats
+</span></span><span class="line"><span class="cl">Filesystem volume name:   Linux
+</span></span><span class="line"><span class="cl">Last mounted on:          /media/user/Linux
+</span></span><span class="line"><span class="cl">Filesystem UUID:          79965035-286b-4ffe-964a-c7adb579bae3
+</span></span><span class="line"><span class="cl">Filesystem magic number:  0xEF53
+</span></span><span class="line"><span class="cl">Filesystem revision #:    1 (dynamic)
+</span></span><span class="line"><span class="cl">Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent 64bit flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+</span></span><span class="line"><span class="cl">Filesystem flags:         signed_directory_hash
+</span></span><span class="line"><span class="cl">Default mount options:    user_xattr acl
+</span></span><span class="line"><span class="cl">Filesystem state:         clean
+</span></span><span class="line"><span class="cl">Errors behavior:          Continue
+</span></span><span class="line"><span class="cl">Filesystem OS type:       Linux
+</span></span><span class="line"><span class="cl">Inode count:              38084608
+</span></span><span class="line"><span class="cl">Block count:              152308224
+</span></span><span class="line"><span class="cl">Reserved block count:     7611432
+</span></span><span class="line"><span class="cl">Overhead clusters:        2671494
+</span></span><span class="line"><span class="cl">Free blocks:              87617839
+</span></span><span class="line"><span class="cl">Free inodes:              35252014
+</span></span><span class="line"><span class="cl">First block:              0
+</span></span><span class="line"><span class="cl">Block size:               4096
+</span></span><span class="line"><span class="cl">Fragment size:            4096
+</span></span><span class="line"><span class="cl">Group descriptor size:    64
+</span></span><span class="line"><span class="cl">Reserved GDT blocks:      1024
+</span></span><span class="line"><span class="cl">Blocks per group:         32768
+</span></span><span class="line"><span class="cl">Fragments per group:      32768
+</span></span><span class="line"><span class="cl">Inodes per group:         8192
+</span></span><span class="line"><span class="cl">Inode blocks per group:   512
+</span></span><span class="line"><span class="cl">Flex block group size:    16
+</span></span><span class="line"><span class="cl">Filesystem created:       Wed Aug 24 00:21:21 2022
+</span></span><span class="line"><span class="cl">Last mount time:          Thu Nov 16 23:23:14 2023
+</span></span><span class="line"><span class="cl">Last write time:          Thu Nov 16 23:23:35 2023
+</span></span><span class="line"><span class="cl">Mount count:              7
+</span></span><span class="line"><span class="cl">Maximum mount count:      -1
+</span></span><span class="line"><span class="cl">Last checked:             Thu Nov 16 20:27:44 2023
+</span></span><span class="line"><span class="cl">Check interval:           0 (&lt;none&gt;)
+</span></span><span class="line"><span class="cl">Lifetime writes:          9 TB
+</span></span><span class="line"><span class="cl">Reserved blocks uid:      0 (user root)
+</span></span><span class="line"><span class="cl">Reserved blocks gid:      0 (group root)
+</span></span><span class="line"><span class="cl">First inode:              11
+</span></span><span class="line"><span class="cl">Inode size:               256
+</span></span><span class="line"><span class="cl">Required extra isize:     32
+</span></span><span class="line"><span class="cl">Desired extra isize:      32
+</span></span><span class="line"><span class="cl">Journal inode:            8
+</span></span><span class="line"><span class="cl">Default directory hash:   half_md4
+</span></span><span class="line"><span class="cl">Directory Hash Seed:      0f035771-06dc-43d4-a2f6-043003c31d06
+</span></span><span class="line"><span class="cl">Journal backup:           inode blocks
+</span></span><span class="line"><span class="cl">Checksum type:            crc32c
+</span></span><span class="line"><span class="cl">Checksum:                 0x86c5f28c
+</span></span><span class="line"><span class="cl">Directories:              312477
+</span></span><span class="line"><span class="cl"> Group  0: block bitmap at 1113, inode bitmap at 1129, inode table at 1145
+</span></span><span class="line"><span class="cl">           16543 free blocks, 269 free inodes, 911 used directories, 0 unused inodes
+</span></span><span class="line"><span class="cl">           [Checksum 0xf40f]
+</span></span><span class="line"><span class="cl"> Group  1: block bitmap at 1114, inode bitmap at 1130, inode table at 1657
+</span></span><span class="line"><span class="cl">           20108 free blocks, 31 free inodes, 92 used directories, 0 unused inodes
+</span></span><span class="line"><span class="cl">           [Checksum 0x5d6c]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>得到日志信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Inode: 8   Type: regular    Mode:  0600   Flags: 0x80000
+</span></span><span class="line"><span class="cl">Generation: 0    Version: 0x00000000:00000000
+</span></span><span class="line"><span class="cl">User:     0   Group:     0   Project:     0   Size: 1073741824
+</span></span><span class="line"><span class="cl">File ACL: 0
+</span></span><span class="line"><span class="cl">Links: 1   Blockcount: 2097160
+</span></span><span class="line"><span class="cl">Fragment:  Address: 0    Number: 0    Size: 0
+</span></span><span class="line"><span class="cl"> ctime: 0x6304fe84:00000000 -- Wed Aug 24 00:21:24 2022
+</span></span><span class="line"><span class="cl"> atime: 0x6304fe84:00000000 -- Wed Aug 24 00:21:24 2022
+</span></span><span class="line"><span class="cl"> mtime: 0x6304fe84:00000000 -- Wed Aug 24 00:21:24 2022
+</span></span><span class="line"><span class="cl">crtime: 0x6304fe84:00000000 -- Wed Aug 24 00:21:24 2022
+</span></span><span class="line"><span class="cl">Size of extra inode fields: 32
+</span></span><span class="line"><span class="cl">Inode checksum: 0x9617a9cc
+</span></span><span class="line"><span class="cl">EXTENTS:
+</span></span><span class="line"><span class="cl">(ETB0):91258879, (0-32767):91258880-91291647, (32768-65535):91291648-91324415, (65536-98303):91324416-91357183, (98304-131071):91357184-91389951, (131072-163839):91389952-91422719, (163840-196607):91422720-91455487, (196608-229375):91455488-91488255, (229376-262143):91488256-91521023
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>之前导出的日志 <code>nvme.journal</code> 的大小正是 1GB。</p>
+<p>根据 <a href="https://ext4magic.sourceforge.net/journal_en.html">Ext4magic-Journal</a>，ext4magic 可以导出所有 trasaction 的信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ext4magic /dev/nvme0n1p5 -T -x &gt; block-journal
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Filesystem in use: /dev/nvme0n1p5
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Using  internal Journal at Inode 8
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Found 18493 copy of Filesystemblock in Journal
+</span></span><span class="line"><span class="cl">FS-Block	 Journal	Transact	Time in sec	Time of Transaction
+</span></span><span class="line"><span class="cl">           0	       2	20795182
+</span></span><span class="line"><span class="cl">    87032057	       5	20795183 	1700148205	Thu Nov 16 15:23:25 2023
+</span></span><span class="line"><span class="cl">   104858312	      41	20795045 	1700140243	Thu Nov 16 13:10:43 2023
+</span></span><span class="line"><span class="cl">  8589934592	      42	20795045
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>导出的内容中，每一列分别表示文件系统块、日志块、事务号、时间戳、时间。</p>
+<p>下面是刚开始删除时的日志元信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    26214432	   55211	20795098 	1700141027	Thu Nov 16 13:23:47 2023
+</span></span><span class="line"><span class="cl">     3148592	   55719	20795098 	1700141027	Thu Nov 16 13:23:47 2023
+</span></span><span class="line"><span class="cl">     3148463	   55973	20795098 	1700141027	Thu Nov 16 13:23:47 2023
+</span></span><span class="line"><span class="cl">     3147398	   56227	20795098 	1700141027	Thu Nov 16 13:23:47 2023
+</span></span><span class="line"><span class="cl">     3146488	   56231	20795098 	1700141028	Thu Nov 16 13:23:48 2023
+</span></span><span class="line"><span class="cl">     3146325	   56481	20795098 	1700141028	Thu Nov 16 13:23:48 2023
+</span></span><span class="line"><span class="cl">     3146940	   56735	20795098 	1700141027	Thu Nov 16 13:23:47 2023
+</span></span><span class="line"><span class="cl">     3147016	   56989	20795098 	1700141027	Thu Nov 16 13:23:47 2023
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以 3148592 为例，使用 <code>block_dump</code> 可以查看块中的内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">debugfs /dev/nvme0n1p5
+</span></span><span class="line"><span class="cl">block_dump <span class="m">3148592</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0000  a481 0000 0000 0000 d276 8363 e317 5665  .........v.c..Ve
+</span></span><span class="line"><span class="cl">0020  e317 5665 e317 5665 0000 0000 0000 0000  ..Ve..Ve........
+</span></span><span class="line"><span class="cl">0040  0000 0800 0400 0000 0af3 0000 0400 0000  ................
+</span></span><span class="line"><span class="cl">0060  0000 0000 0000 0000 0000 0000 0000 0000  ................
+</span></span><span class="line"><span class="cl">*
+</span></span><span class="line"><span class="cl">0140  0000 0000 63fa 2df1 0000 0000 0000 0000  ....c.-.........
+</span></span><span class="line"><span class="cl">0160  0000 0000 0000 0000 0000 0000 14c2 0000  ................
+</span></span><span class="line"><span class="cl">0200  2000 db32 5c0d cb7f 5c0d cb7f 0000 0000   ..2\...\.......
+</span></span><span class="line"><span class="cl">0220  d276 8363 dc20 f5b8 0000 0000 0000 0000  .v.c. ..........
+</span></span><span class="line"><span class="cl">0240  0000 0000 0000 0000 0000 0000 0000 0000  ................
+</span></span><span class="line"><span class="cl">*
+</span></span><span class="line"><span class="cl">0400  a481 0000 0000 0000 d276 8363 e317 5665  .........v.c..Ve
+</span></span><span class="line"><span class="cl">0420  e317 5665 e317 5665 0000 0000 0000 0000  ..Ve..Ve........
+</span></span><span class="line"><span class="cl">0440  0000 0800 0400 0000 0af3 0000 0400 0000  ................
+</span></span><span class="line"><span class="cl">0460  0000 0000 0000 0000 0000 0000 0000 0000  ................
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以 4kB 为单位，每一行表示一个块，每一行的前 4 个字节表示块的状态，后面的内容是块的内容。</p>
+<p>而日志存储在 nvme.journal 的 55719 的日志块中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">split -d -a <span class="m">6</span> -b 4K nvme0n1p5.journal
+</span></span><span class="line"><span class="cl">hexdump -C x055719
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">00000000  a4 81 00 00 00 00 00 00  d2 76 83 63 e3 17 56 65  |.........v.c..Ve|
+</span></span><span class="line"><span class="cl">00000010  e3 17 56 65 e3 17 56 65  00 00 00 00 00 00 00 00  |..Ve..Ve........|
+</span></span><span class="line"><span class="cl">00000020  00 00 08 00 04 00 00 00  0a f3 00 00 04 00 00 00  |................|
+</span></span><span class="line"><span class="cl">00000030  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+</span></span><span class="line"><span class="cl">*
+</span></span><span class="line"><span class="cl">00000060  00 00 00 00 63 fa 2d f1  00 00 00 00 00 00 00 00  |....c.-.........|
+</span></span><span class="line"><span class="cl">00000070  00 00 00 00 00 00 00 00  00 00 00 00 14 c2 00 00  |................|
+</span></span><span class="line"><span class="cl">00000080  20 00 db 32 5c 0d cb 7f  5c 0d cb 7f 00 00 00 00  | ..2\...\.......|
+</span></span><span class="line"><span class="cl">00000090  d2 76 83 63 dc 20 f5 b8  00 00 00 00 00 00 00 00  |.v.c. ..........|
+</span></span><span class="line"><span class="cl">000000a0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+</span></span><span class="line"><span class="cl">*
+</span></span><span class="line"><span class="cl">00000100  a4 81 00 00 00 00 00 00  d2 76 83 63 e3 17 56 65  |.........v.c..Ve|
+</span></span><span class="line"><span class="cl">00000110  e3 17 56 65 e3 17 56 65  00 00 00 00 00 00 00 00  |..Ve..Ve........|
+</span></span><span class="line"><span class="cl">00000120  00 00 08 00 04 00 00 00  0a f3 00 00 04 00 00 00  |................|
+</span></span><span class="line"><span class="cl">00000130  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>日志块中的文件与磁盘块中的文件内容一致。</p>
+<p>查阅资料，发现 ext4 文件系统使用的是 <strong>REDO</strong> 日志，即日志中记录的是修改后的块的内容，而不是修改前的内容。这意味着在 commit 之后，几乎不可能恢复出 inode 的原始内容。</p>
+<blockquote>
+<p>在删除操作后还有一些日志，可能是当时没没有读挂载，导致文件访问时间被修改了。不过即使没有这些写入，也很难恢复出原始的目录结构。</p>
+</blockquote>
+<h3 id="通过读取磁盘恢复一些文件">通过读取磁盘恢复一些文件</h3>
+<p>Photorec 是通过读取磁盘的方式恢复文件的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo photorec /dev/nvme0n1p5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ext4magic 也支持这种方式。它将不同类型的文件分开放了，感觉更好用一些</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ext4magic /dev/nvme0n1p5 -f / -r
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不过也只能扫描出一部分文件，而且文件名都是未知的。</p>
+<h3 id="丢失的文件">丢失的文件</h3>
+<p>我平时使用 <a href="https://github.com/cboxdoerfer/fsearch">FSearch</a> 来索引文件，恰好 <code>~/.local/share/fsearch/fsearch.db</code> 没有被删掉，可以通过它来查看丢失了哪些文件。</p>
+<p>丢失的大部分是数据集、文本文件。不过还是丢了一些代码。</p>
+<h2 id="其他可能丢失文件的操作">其他可能丢失文件的操作</h2>
+<blockquote>
+<p>这些都是亲身经历</p>
+</blockquote>
+<h3 id="图形界面的删除">图形界面的删除</h3>
+<p>shift+delete 删除文件时，确认得太快。后来意识到可能还有用</p>
+<h3 id="命令行下-rsync---delete">命令行下 <code>rsync --delete</code></h3>
+<h4 id="情况一没有检查参数">情况一：没有检查参数</h4>
+<p>使用 zsh 的 auto complete 功能，可以快速补全命令，但是如果有 <code>--delete</code> 参数，没仔细看直接 ctrl+f 补全完 enter，那么可能损失一些文件。</p>
+<blockquote>
+<p>平时也要注意一些便捷的功能可能导致误执行命令</p>
+</blockquote>
+<h4 id="情况二目录后面加了-">情况二：目录后面加了 <code>/</code></h4>
+<p>你能分清楚这两条命令的区别吗？如果不能，就不要用 <code>--delete</code> 了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rsync --recursive A/ B
+</span></span><span class="line"><span class="cl">rsync --recursive A B
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>答案：</p>
+<ul>
+<li><code>A/ B/</code> 和 <code>A/ B</code>：将 <code>A</code> 内部的内容同步到 <code>B</code>（如果不存在会创建文件夹）</li>
+<li><code>A B/</code> 和 <code>A B</code>：将整个 A 目录复制到 <code>B</code> 内，形成 <code>B/A</code></li>
+</ul>
+<p><code>A</code> 后面加不加 <code>/</code> 会影响 <code>rsync</code> 的行为，如果不搞清楚这一点，并且选项中含有 <code>--delete</code>，就可能错误地删除文件。</p>
+<h2 id="教训">教训</h2>
+<h3 id="1-不要在不清醒的情况下操作">1. 不要在不清醒的情况下操作</h3>
+<h3 id="2-做好备份">2. 做好备份</h3>
+<h3 id="3-通过设置避免误删文件">3. 通过设置避免误删文件</h3>
+<h4 id="设置-rm">设置 <code>rm</code></h4>
+<p>在 <code>~/.zshrc</code> 中设置禁用 <code>rm</code>，使用 <code>trash</code> 代替，帮助戒掉 <code>rm</code> 的习惯</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">sudo</span><span class="o">=</span><span class="s1">&#39;sudo &#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">rm</span><span class="o">=</span><span class="s1">&#39;echo &#34;rm is disabled, use trash instead&#34;&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>其中，设置 <code>alias sudo='sudo '</code> 是为了让下一个单词也被 alias，否则 <code>sudo rm</code> 的 <code>rm</code> 不会触发 alias。</p>
+</blockquote>
+<p>也要避免 <code>su</code> 模式下使用这些命令。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ln -s ~/.zshrc /root/.zshrc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="设置-rsync">设置 <code>rsync</code></h4>
+<p>设置 <code>rsync</code>，禁用 <code>--delete</code> 参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rsync<span class="o">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># check if --delete is in the arguments</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span> <span class="o">==</span> *--del* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s2">&#34;rsync --delete is not allowed&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># else run rsync</span>
+</span></span><span class="line"><span class="cl">    /bin/rsync <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>另外，为了让 <code>su</code> 切换到 <code>root</code> 用户时也禁用 <code>rm</code>，设置 <code>/root/.zshrc</code> 文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo ln -s ~/.zshrc /root/.zshrc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="设置图形界面">设置图形界面</h4>
+<p>设置 shift+delete 删除文件时，要求确认</p>
+<h3 id="4-如果误删了一个文件">4. 如果误删了一个文件</h3>
+<blockquote>
+<p>对于 <code>ext4</code> 文件系统</p>
+</blockquote>
+<p>立刻停止文件操作，但不要 <code>umount</code> 磁盘。</p>
+<p>用 <code>df -Th</code> 查看文件系统，使用 <code>debugfs</code> 查看磁盘信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo debugfs /dev/nvme0n1p5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查看是否有还未写入日志的记录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">lsdel
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用 <code>undel</code> 恢复文件</p>
+<p>但如果已经写入日志，那就只能通过读取磁盘的方式找文件了（注意这种情况下最好 <code>umount</code> 磁盘，改成只读挂载，避免写入）</p>
+<h2 id="结论">结论</h2>
+<ul>
+<li><code>rm -r</code> 和 <code>rsync --delete</code> 是危险的命令，谨慎使用</li>
+<li>ext4 在 commit 后，几乎不可能恢复出 inode 的原始内容</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">GWDx</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2024-03-17
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/32dc7cd57db5cdd082b409a92714deffef86ddf2" title="Create rm-rf.md">(32dc7cd)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/airport-puzzle/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">陶哲轩系鞋带</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/geekgame2023/">
+            <span class="next-text nav-default">GeekGame 2023 题解</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:gwdx@mail.ustc.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/GWDx" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/442365922" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://gwdx.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>GWDx</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.5c93b1d90d4bc05350a680cf34fca805c5c13041075057bc584fe6d549c6186a.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-HBL65Q7HB4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

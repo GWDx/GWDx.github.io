@@ -18,6 +18,16 @@
     </item>
     
     <item>
+      <title>rm -rf 的教训</title>
+      <link>http://gwdx.github.io/post/rm-rf/</link>
+      <pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://gwdx.github.io/post/rm-rf/</guid>
+      <description>&lt;p&gt;11 月的时候，我在不清醒的情况下，不小心 &lt;code&gt;rm -rf&lt;/code&gt; 了，ctrl+c 中断后，发现删掉了 300GB 的文件。&lt;/p&gt;
+&lt;p&gt;另外，&lt;code&gt;rsync --delete&lt;/code&gt; 也是个危险的命令。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>GeekGame 2023 题解</title>
       <link>http://gwdx.github.io/post/geekgame2023/</link>
       <pubDate>Sat, 21 Oct 2023 00:00:00 +0000</pubDate>
