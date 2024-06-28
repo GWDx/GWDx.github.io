@@ -105,6 +105,16 @@ publishDir = 'docs'
     linkToMarkDown = false    # Only effective when hugo will output .md files.           # 链接到markdown原始文件（仅当允许hugo生成markdown文件时有效）
     contentCopyright = ''     # e.g. '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
 
+[params.valine]
+    enable = true
+    appId = 'eZM94QLAn3n1uIyq9fgV9U3M-MdYXbMMI'
+    appKey = '2l60rnkvKMig2YTvx5OSYETO'
+    notify = false  # mail notifier , https://github.com/xCss/Valine/wiki
+    verify = false # Verification code
+    avatar = 'mm'
+    visitor = false
+    serverURLs = 'https://ezm94qla.api.lncldglobal.com'
+
 [params.social]                                         # 社交链接
     a-email = "mailto:gwdx@mail.ustc.edu.cn"
     g-github = "https://github.com/GWDx"
