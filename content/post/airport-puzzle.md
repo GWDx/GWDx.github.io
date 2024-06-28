@@ -9,7 +9,7 @@ categories: []
 author: ""
 summary: ""
 
-comment: false
+comment: true
 toc: true
 autoCollapseToc: false
 contentCopyright: false

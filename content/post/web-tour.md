@@ -7,7 +7,7 @@ tags: ["JavaScript", "域名"]
 categories: ['web']
 author: ""
 
-comment: false
+comment: true
 toc: false
 autoCollapseToc: false
 contentCopyright: false

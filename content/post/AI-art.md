@@ -8,7 +8,7 @@ categories: ["艺术"]
 author: ""
 summary: ""
 
-comment: false
+comment: true
 toc: true
 autoCollapseToc: false
 contentCopyright: false
