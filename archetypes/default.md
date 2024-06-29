@@ -14,7 +14,7 @@ toc: false
 autoCollapseToc: false
 contentCopyright: false
 reward: false
-katex: false
+mathjax: false
 ---
 
 <!--more-->
