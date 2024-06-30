@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>赌徒输光前最大值的期望 - GWDx</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GWDx" /><meta name="description" content="计算赌徒在输光前最大值的期望，分析各个因素对期望的影响。
+" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.111.3 with theme even" />
+
+
+<link rel="canonical" href="http://gwdx.github.io/post/gambling-max-expectation/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c29ea812462215a64664d7cc3441ba352b84557e1a6a570ffaf5d74e70242a4.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="赌徒输光前最大值的期望" />
+<meta property="og:description" content="计算赌徒在输光前最大值的期望，分析各个因素对期望的影响。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwdx.github.io/post/gambling-max-expectation/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-04-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-30T18:14:46+08:00" />
+<meta itemprop="name" content="赌徒输光前最大值的期望">
+<meta itemprop="description" content="计算赌徒在输光前最大值的期望，分析各个因素对期望的影响。"><meta itemprop="datePublished" content="2024-04-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-06-30T18:14:46+08:00" />
+<meta itemprop="wordCount" content="3164">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="赌徒输光前最大值的期望"/>
+<meta name="twitter:description" content="计算赌徒在输光前最大值的期望，分析各个因素对期望的影响。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">GWDx</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">GWDx</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">赌徒输光前最大值的期望</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-04-11 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#等概率等步长的情况">等概率等步长的情况</a>
+      <ul>
+        <li><a href="#问题描述">问题描述</a></li>
+        <li><a href="#两个吸收壁的随机游走">两个吸收壁的随机游走</a></li>
+        <li><a href="#解答">解答</a></li>
+      </ul>
+    </li>
+    <li><a href="#不均等概率的情况">不均等概率的情况</a>
+      <ul>
+        <li><a href="#问题描述-1">问题描述</a></li>
+        <li><a href="#解答-1">解答</a></li>
+      </ul>
+    </li>
+    <li><a href="#不均等步长的情况">不均等步长的情况</a>
+      <ul>
+        <li><a href="#问题描述-2">问题描述</a></li>
+        <li><a href="#解答-2">解答</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码验证">代码验证</a>
+      <ul>
+        <li><a href="#代码">代码</a></li>
+        <li><a href="#计算公式">计算公式</a></li>
+        <li><a href="#结果分析">结果分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#结论">结论</a></li>
+    <li><a href="#后记">后记</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>计算赌徒在输光前最大值的期望，分析各个因素对期望的影响。</p>
+<h2 id="前言">前言</h2>
+<p>我很喜欢博尔赫斯的《巴比伦彩票》，这个故事描绘了一个随机性主导的世界，人们的命运由神秘的彩票决定。</p>
+<blockquote>
+<p>正如所有的巴比伦人一样，我当过总督；正如所有的人一样，我当过奴隶；我有过至高无上的权力，也受过屈辱，蹲过监狱。瞧：我右手的食指已被剁掉。瞧：从我袍子的裂口可以看到一个橙黄色的刺花：那是第二个符号贝思。在月圆的夜晚，这个字母赋予我支配那些刺有吉梅尔记号的人，但是我得听从有阿莱夫记号的人，而他们在没有月亮的夜晚则听从有吉梅尔记号的人支配。拂晓的时候，我在地窖的一块黑色岩石前面扼杀圣牛。有一个太阴年，我被宣布为无形：我大声呼喊，却无人理睬，我偷面包，却不被抓住砍头。我经历过希腊人所不了解的事情：忧惧。那是一间青铜的秘屋，面对默不作声的披着头巾的绞刑刽子手，希望始终陪伴着我；不过在欢乐的长河中也有惊慌。赫拉克利德斯·本都库斯赞叹不已地说毕达哥拉斯记得他前生是派罗，是欧福尔波，再前生是另一个人；我回忆相似的沧桑变幻时却不需要投生轮回，甚至不需要假冒欺骗。</p>
+</blockquote>
+<p>博尔赫斯笔下的人物在随机的环境中喜欢谈论最值。</p>
+<p>我想算一下赌徒输光前最大值的期望。我不太会组合、鞅，所以只能胡乱分析一通。</p>
+<blockquote>
+<p>需要用到：概率论、Laurent 级数</p>
+</blockquote>
+<h2 id="等概率等步长的情况">等概率等步长的情况</h2>
+<h3 id="问题描述">问题描述</h3>
+<p>一个赌徒有 a 元钱，每次投入 1 元，直到输光为止，输赢的概率都是 $\frac{1}{2}$。求输光前最大值的期望</p>
+<h3 id="两个吸收壁的随机游走">两个吸收壁的随机游走</h3>
+<p>先考虑这个两个吸收壁的随机游走问题：</p>
+<p>有两个吸收壁，分别是 -a 和 b，初始位置是 0。向左和向右的概率都是 $\frac{1}{2}$，到达吸收壁停止。问停在 b 的概率是多少。</p>
+<p>设 $p_n$ 是从 n 出发停在 b 的概率，那么有如下递推关系</p>
+<p>$$
+\begin{aligned}
+p_b &amp;= 1 \\
+p_{-a} &amp;= 0 \\
+p_n &amp;= \frac{p_{n-1} + p_{n+1}}{2}
+\end{aligned}
+$$</p>
+<blockquote>
+<p>这里应该是用了 Markov 链的某个性质</p>
+</blockquote>
+<p>解这个方程，得到</p>
+<p>$$
+p_n = \frac{a+n}{b+a}
+$$</p>
+<p>所以 $p_0 = \frac{a}{b+a}$</p>
+<h3 id="解答">解答</h3>
+<p>设赌徒最大值的随机变量是 M</p>
+<p>上面的问题的结果相当于 $P(M \geq b) = \frac{a}{b+a}$</p>
+<p>$$
+\begin{aligned}
+P(M = b) &amp;= P(M \geq b) - P(M \geq b+1) \\
+&amp;= \frac{b}{b+a} - \frac{b+1}{b+a+1} \\
+&amp; = \frac{a}{(b+a)(b+a+1)}
+\end{aligned}
+$$</p>
+<p>所以期望</p>
+<p>$$
+\begin{aligned}
+E(M) &amp;= \sum_{b=0}^{\infty} b \cdot P(M = b) \\
+&amp;= \sum_{b=0}^{\infty} \frac{a b}{(b+a)(b+a+1)}
+\end{aligned}
+$$</p>
+<p>简单估一下阶，就是 $\displaystyle\sum_{b=1}^{\infty} \frac{1}{b}$，所以是期望是无穷大</p>
+<blockquote>
+<p>我算到这里的时候也很惊讶</p>
+</blockquote>
+<p>计算过程对应这段代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="n">eqns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">result</span><span class="p">[</span><span class="nv">x_</span><span class="p">,</span><span class="w"> </span><span class="nv">a_</span><span class="p">,</span><span class="w"> </span><span class="nv">b_</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="n">First</span><span class="o">@</span><span class="n">RSolve</span><span class="p">[</span><span class="n">eqns</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">P</span><span class="p">[</span><span class="nv">a_</span><span class="p">,</span><span class="w"> </span><span class="nv">b_</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">Simplify</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Sum</span><span class="p">[</span><span class="n">b</span><span class="w"> </span><span class="n">P</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">],</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="err">\</span><span class="p">[</span><span class="n">Infinity</span><span class="p">]}]</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>也可以用生存函数（survival function）来计算期望</p>
+<p>$$
+\begin{aligned}
+\mathrm{SF}(b) &amp;= P(M &gt; b) \\
+&amp;= \frac{a}{b+a+1} \\
+E(M) &amp;= \sum_{b=0}^{\infty} \mathrm{SF}(b)= \infty
+\end{aligned}
+$$</p>
+<h2 id="不均等概率的情况">不均等概率的情况</h2>
+<h3 id="问题描述-1">问题描述</h3>
+<p>一个赌徒有 a 元钱，每次有 t 的概率输一元，剩余的概率赢一元。求输光前最大值的期望</p>
+<h3 id="解答-1">解答</h3>
+<p>设 $p_n$ 是从 n 出发停在 b 的概率，那么有如下递推关系</p>
+<p>$$
+\begin{aligned}
+p_b &amp;= 1 \\
+p_{-a} &amp;= 0 \\
+p_n &amp;= t p_{n-1} + (1-t) p_{n+1}
+\end{aligned}
+$$</p>
+<p>使用 Z 变换，可以解出</p>
+<p>$$
+p_n = \frac{c^{a+n}-1}{c^{a+b}-1}
+$$</p>
+<p>其中</p>
+<p>$$
+c = \frac{t}{1-t}
+$$</p>
+<p>当 $t&gt;\frac{1}{2}$ 时（每局的期望小于 0），$c&gt;1$</p>
+<p>$$
+\begin{aligned}
+\mathrm{SF}(b) &amp;= P(M &gt; b) = \frac{c^a - 1}{c^{a+b+1} - 1} \\
+E(M) &amp;= \sum_{b=0}^{\infty} \mathrm{SF}(b) \\
+&amp;= \sum_{b=1}^{\infty} \frac{c^{a+n}-1}{c^{a+b}-1}\\
+&amp;= \frac{c^a - 1}{2 \ln c} \left( - 2 \ln (c-1) +(2a+1) \ln c - 2 \psi_c(1+a) \right)
+\end{aligned} \tag{1}
+$$</p>
+<blockquote>
+<p>其中 $\psi_q(z)$ 是 <a href="https://mathworld.wolfram.com/q-PolygammaFunction.html">q-Polygamma</a> 函数</p>
+</blockquote>
+<ol>
+<li>当 $c\to 1$ 时。 $E(M)$ 和 $\ln t$ 大致成线性关系</li>
+</ol>
+<p>$$
+E(M) = -a (\ln(c-1) + \psi(1+a)) + O(c-1)
+$$</p>
+<ol start="2">
+<li>当 $c\to \infty$ 时，渐近显然是 0</li>
+</ol>
+<p>$$
+E(M) = \frac{1}{c} + O\left(\frac{1}{c^2}\right)
+$$</p>
+<ol start="3">
+<li>
+<p>当 $a=0$ 时，$E(M) = 0$</p>
+</li>
+<li>
+<p>当 $a\to \infty$ 时，渐近是</p>
+</li>
+</ol>
+<p>$$
+\lim_{a\to \infty} E(M) = \sum_{b=0}^{\infty} \lim_{a\to \infty} \mathrm{SF}(b) =  \sum_{b=1}^{\infty} \frac{1}{c^b} = \frac{1}{c-1}
+$$</p>
+<p>$E(M)$ 在 $c\in(1, \infty)$ 上递减，在 $a\in[0, \infty)$ 上递增</p>
+<h2 id="不均等步长的情况">不均等步长的情况</h2>
+<h3 id="问题描述-2">问题描述</h3>
+<p>一个赌徒有 a 元钱，每次有 t 的概率输一元，剩余的概率赢 m 元。求输光前最大值的期望</p>
+<p>$$
+\begin{aligned}
+p_n &amp;= t p_{n-1} + (1-t) p_{n-m} \\
+p_{-a} &amp;= 0 \\
+p_x &amp;= 1 \quad x \geq b \\
+\end{aligned}
+$$</p>
+<h3 id="解答-2">解答</h3>
+<p>如果还是用 Z 变换的话，要解一个 m 次方程，而且还要代入两边的值。</p>
+<p>可以只考虑 $p_n$ 的<strong>上界</strong>，猜测形式为指数函数的形式</p>
+<p>$$
+p_n = \frac{c^{a+n}-1}{c^{a+b}-1} \tag{2}
+$$</p>
+<p>算期望的过程和前面一样。</p>
+<p>使用 $(2)$ 仍然需要要解一个 m 次方程</p>
+<p>$$
+c + (1-t) c^{m+1} = t
+$$</p>
+<p>不过一般情况下 $\Delta =c-1 \ll 1$</p>
+<blockquote>
+<p>例如 $m=1, t=0.51$ 时，每局的期望 $E=-0.02$，$c=1.041$</p>
+</blockquote>
+<p>所以转换成关于 $t$ 的表达式，然后展开</p>
+<p>$$
+\begin{aligned}
+t &amp;= \frac{c(c^m-1)}{c^{m+1}-1} \\
+&amp;=  \frac{m}{1+m} + \frac{m}{2(1+m)} \Delta + O(\Delta^2) \\
+E &amp;= (1-t)m -t \\
+\Delta &amp;= -\frac{2 E}{m} \\
+\end{aligned}
+$$</p>
+<p>得到估计上界的公式</p>
+<p>$$
+\begin{aligned}
+c &amp;= 1 - \frac{2 E}{m} \\
+E(M)
+&amp;= \frac{c^a - 1}{2 \ln c} \left( - 2 \ln (c-1) +(2a+1) \ln c - 2 \psi_c(1+a) \right)  \\
+\end{aligned}\tag{3}
+$$</p>
+<h2 id="代码验证">代码验证</h2>
+<h3 id="代码">代码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo add rand
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="cp">#![allow(non_snake_case)]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">rand</span>::<span class="n">prelude</span>::<span class="o">*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">simulate</span><span class="p">(</span><span class="n">n</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">initMoney</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">loseProb</span>: <span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="n">winValue</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">loseValue</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">rng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thread_rng</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">winValue</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">f64</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">1.</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">loseProb</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">loseValue</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">f64</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">loseProb</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;expected &gt; 0, expected = </span><span class="si">{}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">expected</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">n</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initMoney</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">maxValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">money</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">randomNum</span>: <span class="kt">f64</span> <span class="o">=</span><span class="w"> </span><span class="n">rng</span><span class="p">.</span><span class="n">gen</span><span class="p">();</span><span class="w"> </span><span class="c1">// 生成 0 到 1 之间的随机数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">randomNum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">loseProb</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">money</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">loseValue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">money</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">winValue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxValue</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">maxValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">money</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">maxValue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">average</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">f64</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">f64</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;n = </span><span class="si">{}</span><span class="se">\t</span><span class="s">initMoney(a) = </span><span class="si">{}</span><span class="se">\t</span><span class="s">loseProb(t) = </span><span class="si">{}</span><span class="se">\t</span><span class="s">winValue(m) = </span><span class="si">{}</span><span class="s"> </span><span class="se">\t</span><span class="s">loseValue = </span><span class="si">{}</span><span class="se">\t</span><span class="s">expected = </span><span class="si">{:.4}</span><span class="se">\t</span><span class="s">average = </span><span class="si">{}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">initMoney</span><span class="p">,</span><span class="w"> </span><span class="n">loseProb</span><span class="p">,</span><span class="w"> </span><span class="n">winValue</span><span class="p">,</span><span class="w"> </span><span class="n">loseValue</span><span class="p">,</span><span class="w"> </span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="n">average</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">simulate</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mf">0.505</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="计算公式">计算公式</h3>
+<p>$m=1$ 时使用 $(1)$ 计算期望，$m&gt;1$ 时使用 $(3)$ 计算期望</p>
+<h3 id="结果分析">结果分析</h3>
+<details>
+<summary>运行结果</summary>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">n = 10000       initMoney(a) = 1        loseProb(t) = 0.55      winValue(m) = 1         expected = -0.1000      average = 2.4201
+</span></span><span class="line"><span class="cl">n = 10000       initMoney(a) = 1        loseProb(t) = 0.505     winValue(m) = 1         expected = -0.0100      average = 4.7507
+</span></span><span class="line"><span class="cl">n = 10000       initMoney(a) = 1        loseProb(t) = 0.5005    winValue(m) = 1         expected = -0.0010      average = 6.6379
+</span></span><span class="line"><span class="cl">n = 10000       initMoney(a) = 1        loseProb(t) = 0.50005   winValue(m) = 1         expected = -0.0001      average = 9.31
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">n = 10000       initMoney(a) = 1        loseProb(t) = 0.505     winValue(m) = 1         expected = -0.0100      average = 4.4791
+</span></span><span class="line"><span class="cl">n = 10000       initMoney(a) = 10       loseProb(t) = 0.505     winValue(m) = 1         expected = -0.0100      average = 28.6915
+</span></span><span class="line"><span class="cl">n = 10000       initMoney(a) = 100      loseProb(t) = 0.505     winValue(m) = 1         expected = -0.0100      average = 145.958
+</span></span><span class="line"><span class="cl">n = 10000       initMoney(a) = 1000     loseProb(t) = 0.505     winValue(m) = 1         expected = -0.0100      average = 1049.2985
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">n = 10000000    initMoney(a) = 1        loseProb(t) = 0.505     winValue(m) = 1         expected = -0.0100      average = 4.5408291
+</span></span><span class="line"><span class="cl">n = 10000000    initMoney(a) = 1        loseProb(t) = 0.901     winValue(m) = 9         expected = -0.0100      average = 5.4323858
+</span></span><span class="line"><span class="cl">n = 10000000    initMoney(a) = 1        loseProb(t) = 0.9901    winValue(m) = 99        expected = -0.0100      average = 5.5748435
+</span></span><span class="line"><span class="cl">n = 10000000    initMoney(a) = 1        loseProb(t) = 0.99901   winValue(m) = 999       expected = -0.0100      average = 5.665609
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">n = 10000000    initMoney(a) = 10       loseProb(t) = 0.505     winValue(m) = 1         expected = -0.0100      average = 28.4152255
+</span></span><span class="line"><span class="cl">n = 10000000    initMoney(a) = 10       loseProb(t) = 0.901     winValue(m) = 9         expected = -0.0100      average = 45.6279621
+</span></span><span class="line"><span class="cl">n = 10000000    initMoney(a) = 10       loseProb(t) = 0.9901    winValue(m) = 99        expected = -0.0100      average = 54.6321773
+</span></span><span class="line"><span class="cl">n = 10000000    initMoney(a) = 10       loseProb(t) = 0.99901   winValue(m) = 999       expected = -0.0100      average = 55.3056739
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">n = 100000      initMoney(a) = 100      loseProb(t) = 0.505     winValue(m) = 1         expected = -0.0100      average = 145.93686
+</span></span><span class="line"><span class="cl">n = 100000      initMoney(a) = 100      loseProb(t) = 0.901     winValue(m) = 9         expected = -0.0100      average = 278.31953
+</span></span><span class="line"><span class="cl">n = 100000      initMoney(a) = 100      loseProb(t) = 0.9901    winValue(m) = 99        expected = -0.0100      average = 463.56179
+</span></span><span class="line"><span class="cl">n = 100000      initMoney(a) = 100      loseProb(t) = 0.99901   winValue(m) = 999       expected = -0.0100      average = 560.83374
+</span></span></code></pre></td></tr></table>
+</div>
+</div></details>
+<table>
+<thead>
+<tr>
+<th>初始金额 a</th>
+<th><strong>每局期望</strong> E</th>
+<th>步长 m</th>
+<th>计算结果</th>
+<th>代码结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>-0.1</td>
+<td>1</td>
+<td>2.4730</td>
+<td>2.4201</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-0.01</td>
+<td>1</td>
+<td>4.5394</td>
+<td>4.7507</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-0.001</td>
+<td>1</td>
+<td>6.7991</td>
+<td>6.6379</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-0.0001</td>
+<td>1</td>
+<td>9.0954</td>
+<td>9.31</td>
+</tr>
+</tbody>
+</table>
+<p>最大值期望和 $\ln E$ 呈线性关系</p>
+<table>
+<thead>
+<tr>
+<th><strong>初始金额</strong> a</th>
+<th>每局期望 E</th>
+<th>步长 m</th>
+<th>计算结果</th>
+<th>代码结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>-0.01</td>
+<td>1</td>
+<td>4.5394</td>
+<td>4.54082</td>
+</tr>
+<tr>
+<td>10</td>
+<td>-0.01</td>
+<td>1</td>
+<td>28.414</td>
+<td>28.4152</td>
+</tr>
+<tr>
+<td>100</td>
+<td>-0.01</td>
+<td>1</td>
+<td>145.95</td>
+<td>145.958</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>-0.01</td>
+<td>1</td>
+<td>1049.5</td>
+<td>1049.29</td>
+</tr>
+</tbody>
+</table>
+<p>最大值期望在 $a$ 较小时是线性的，但是在 $a$ 较大时，增长速度减慢</p>
+<table>
+<thead>
+<tr>
+<th><strong>初始金额</strong> a</th>
+<th>每局期望 E</th>
+<th><strong>步长</strong> m</th>
+<th>计算结果</th>
+<th>代码结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>-0.01</td>
+<td>1</td>
+<td><strong>4.549</strong></td>
+<td>4.54082</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-0.01</td>
+<td>9</td>
+<td>6.6956</td>
+<td>5.43239</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-0.01</td>
+<td>99</td>
+<td>9.0854</td>
+<td>5.57484</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-0.01</td>
+<td>999</td>
+<td>11.396</td>
+<td>5.66561</td>
+</tr>
+<tr>
+<td>10</td>
+<td>-0.01</td>
+<td>1</td>
+<td><strong>28.4943</strong></td>
+<td>28.4152</td>
+</tr>
+<tr>
+<td>10</td>
+<td>-0.01</td>
+<td>9</td>
+<td>48.1239</td>
+<td>45.6280</td>
+</tr>
+<tr>
+<td>10</td>
+<td>-0.01</td>
+<td>99</td>
+<td>71.6277</td>
+<td>54.6322</td>
+</tr>
+<tr>
+<td>10</td>
+<td>-0.01</td>
+<td>999</td>
+<td>94.6799</td>
+<td>55.3057</td>
+</tr>
+<tr>
+<td>100</td>
+<td>-0.01</td>
+<td>1</td>
+<td><strong>146.343</strong></td>
+<td>145.958</td>
+</tr>
+<tr>
+<td>100</td>
+<td>-0.01</td>
+<td>9</td>
+<td>280.231</td>
+<td>278.319</td>
+</tr>
+<tr>
+<td>100</td>
+<td>-0.01</td>
+<td>99</td>
+<td>494.695</td>
+<td>463.562</td>
+</tr>
+<tr>
+<td>100</td>
+<td>-0.01</td>
+<td>999</td>
+<td>721.585</td>
+<td>560.834</td>
+</tr>
+</tbody>
+</table>
+<p>当 $m\leq a$ 时，计算结果较为准确</p>
+<p>这是因为将 $p_n$ 近似成了指数函数，当 $a$ 较小时，近似不准确。</p>
+<p>当 $a=1$ 时，有 $t$ 的概率转移到 $m+1$，$1-t$ 的概率转移到 $0$</p>
+<p>所以先计算一个方向上的最大值的极限</p>
+<p>$$
+\begin{aligned}
+c &amp;= 1 - \frac{2E}{m} \\
+a &amp;= m + 1 \\
+L=\lim_{m\to \infty} \frac{a+E(M)}{a} &amp;= 1 - E + \ln-\frac{1}{2E}
+\end{aligned}
+$$</p>
+<p>一个更严格的上界</p>
+<p>$$
+\begin{aligned}
+\lim_{m\to \infty} E&rsquo;(M) &amp;= \lim_{m\to \infty} \left(\frac {a}{m} L m + \left(1 - \frac{a}{m}\right) a\right) \\
+&amp;= (L+1)a \\
+&amp;= (2 - E + \ln-\frac{1}{2E}) a \\
+\end{aligned} \tag{4}
+$$</p>
+<p>例如当 $E=-\frac{1}{100}$ 时，$E&rsquo;M &lt; 5.92\ a$</p>
+<blockquote>
+<p>其实有不严格的地方，懒得说明 $E&rsquo;M$ 是随 m 单调的了</p>
+</blockquote>
+<h2 id="结论">结论</h2>
+<p>本文讨论了赌徒输光前最大值的期望问题</p>
+<p>对于等概率等步长的情况</p>
+<ul>
+<li>最大值超过本金的 $k$ 倍的概率，$P(M \geq k a) = \frac{1}{k+1}$</li>
+<li>期望是无穷大，$E(M) = \infty$</li>
+</ul>
+<p>分析最大值期望与初始金额、期望、步长之间的关系 $(1)$ $(3)$</p>
+<p>通过代码验证了计算结果。给出了更精确的上界 $(4)$</p>
+<h2 id="后记">后记</h2>
+<p>起因是我之前在 bilibili 上看到了 <a href="https://space.bilibili.com/27492426">戒社</a> 的视频，他的视频里有很多赌狗的自白（在我看来他们就是不懂大数定律，也不懂信息安全），这些人似乎喜欢谈自己曾经赢到过多少。于是想到的这个问题。</p>
+<blockquote>
+<p>彩票公司谨小慎微，避免一切招摇。它的代理人自然都是秘密的：公司源源不断发出的指令同骗子层出不穷的花招没有区别。再说，有谁能自诩为单纯的骗子呢？醉汉心血来潮发出荒唐的命令。做梦的人突然醒来掐死了睡在他身旁的老婆，他们岂非是执行公司的秘密指示？这种默默无声的运转可同上帝的旨意相比，引起各种各样的猜测。有一种猜测恶毒地暗示说公司已经消失了几百年，我们生活中的神圣的混乱纯属遗传和传统；另一种猜测认为公司是永恒的，声称它将持续到最后一位上帝消灭世界之前的最后一个夜晚。还有一种猜测说公司无所不能，但干预一些微不足道的小事：鸟鸣、铁锈和灰尘的颜色、破晓时的迷糊等等。再有一种猜测借异端创始人之口说公司以前没有，以后也不会有。还有一种同样恶劣的说法认为肯定或否认那个诡秘的公司的存在无关紧要，因为巴比伦无非是一场无限的赌博。</p>
+</blockquote>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">GWDx</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2024-06-30
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/cac01616ca234082997443088d29d0dd7ae546d8" title="Create gambling-max-expectation.md">(cac0161)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/compute-bernoulli/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">计算 Bernoulli 数</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/airport-puzzle/">
+            <span class="next-text nav-default">陶哲轩系鞋带</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'eZM94QLAn3n1uIyq9fgV9U3M-MdYXbMMI',
+        appKey: '2l60rnkvKMig2YTvx5OSYETO',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '',
+        visitor:  false ,
+        serverURLs : 'https:\/\/ezm94qla.api.lncldglobal.com',
+    });
+</script>
+
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:gwdx@mail.ustc.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/GWDx" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/442365922" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://gwdx.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>GWDx</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.5c93b1d90d4bc05350a680cf34fca805c5c13041075057bc584fe6d549c6186a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HBL65Q7HB4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-HBL65Q7HB4', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
