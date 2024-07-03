@@ -52,11 +52,11 @@ $$
 \begin{aligned}
 p_b &= 1 \\\
 p_{-a} &= 0 \\\
-p_n &= \frac{p_{n-1} + p_{n+1}}{2}
+p_n &= \frac{p_{n-1} + p_{n+1}}{2}  \qquad -a < n < b
 \end{aligned}
 $$
 
-> 这里应该是用了 Markov 链的某个性质
+> 最后一条是因为 Chapman–Kolmogorov 方程。从 n 出发下一步会转移到 n-1 或 n+1 的概率都是 $\frac{1}{2}$，而从它们出发停在 b 的概率分别是 $p_{n-1}$ 和 $p_{n+1}$
 
 解这个方程，得到
 
@@ -132,7 +132,7 @@ $$
 \begin{aligned}
 p_b &= 1 \\\
 p_{-a} &= 0 \\\
-p_n &= t p_{n-1} + (1-t) p_{n+1}
+p_n &= t p_{n-1} + (1-t) p_{n+1} \qquad -a < n < b
 \end{aligned}
 $$
 
@@ -196,7 +196,7 @@ $$
 \begin{aligned}
 p_n &= t p_{n-1} + (1-t) p_{n-m} \\\
 p_{-a} &= 0 \\\
-p_x &= 1 \quad x \geq b \\\
+p_x &= 1 \qquad x \geq b \\\
 \end{aligned}
 $$
 

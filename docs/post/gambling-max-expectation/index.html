@@ -45,11 +45,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://gwdx.github.io/post/gambling-max-expectation/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2024-04-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-30T18:14:46+08:00" />
+<meta property="article:modified_time" content="2024-07-03T15:52:11+08:00" />
 <meta itemprop="name" content="赌徒输光前最大值的期望">
 <meta itemprop="description" content="计算赌徒在输光前最大值的期望，分析各个因素对期望的影响。"><meta itemprop="datePublished" content="2024-04-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-06-30T18:14:46+08:00" />
-<meta itemprop="wordCount" content="3164">
+<meta itemprop="dateModified" content="2024-07-03T15:52:11+08:00" />
+<meta itemprop="wordCount" content="3241">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="赌徒输光前最大值的期望"/>
 <meta name="twitter:description" content="计算赌徒在输光前最大值的期望，分析各个因素对期望的影响。"/>
@@ -199,11 +199,11 @@
 \begin{aligned}
 p_b &amp;= 1 \\
 p_{-a} &amp;= 0 \\
-p_n &amp;= \frac{p_{n-1} + p_{n+1}}{2}
+p_n &amp;= \frac{p_{n-1} + p_{n+1}}{2}  \qquad -a &lt; n &lt; b
 \end{aligned}
 $$</p>
 <blockquote>
-<p>这里应该是用了 Markov 链的某个性质</p>
+<p>最后一条是因为 Chapman–Kolmogorov 方程。从 n 出发下一步会转移到 n-1 或 n+1 的概率都是 $\frac{1}{2}$，而从它们出发停在 b 的概率分别是 $p_{n-1}$ 和 $p_{n+1}$</p>
 </blockquote>
 <p>解这个方程，得到</p>
 <p>$$
@@ -263,7 +263,7 @@ $$</p>
 \begin{aligned}
 p_b &amp;= 1 \\
 p_{-a} &amp;= 0 \\
-p_n &amp;= t p_{n-1} + (1-t) p_{n+1}
+p_n &amp;= t p_{n-1} + (1-t) p_{n+1} \qquad -a &lt; n &lt; b
 \end{aligned}
 $$</p>
 <p>使用 Z 变换，可以解出</p>
@@ -317,7 +317,7 @@ $$</p>
 \begin{aligned}
 p_n &amp;= t p_{n-1} + (1-t) p_{n-m} \\
 p_{-a} &amp;= 0 \\
-p_x &amp;= 1 \quad x \geq b \\
+p_x &amp;= 1 \qquad x \geq b \\
 \end{aligned}
 $$</p>
 <h3 id="解答-2">解答</h3>
@@ -732,8 +732,8 @@ $$</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2024-06-30
-        <a href="https://github.com/GWDx/GWDx.github.io/commit/cac01616ca234082997443088d29d0dd7ae546d8" title="Create gambling-max-expectation.md">(cac0161)</a>
+        2024-07-03
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/3787b2c73992aae6e9630a1c38a25467c01f407b" title="Update gambling-max-expectation.md">(3787b2c)</a>
     </span>
   </p>
   
