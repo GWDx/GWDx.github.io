@@ -6,7 +6,16 @@
     <description>Recent content on GWDx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 15 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>随机游走到原点的距离的渐近估计</title>
+      <link>http://gwdx.github.io/post/random-walk-distance/</link>
+      <pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://gwdx.github.io/post/random-walk-distance/</guid>
+      <description>&lt;p&gt;估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>计算 Bernoulli 数</title>
       <link>http://gwdx.github.io/post/compute-bernoulli/</link>

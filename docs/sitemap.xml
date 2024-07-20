@@ -3,14 +3,21 @@
   
   <url>
     <loc>http://gwdx.github.io/</loc>
-    <lastmod>2024-07-03T15:52:11+08:00</lastmod>
+    <lastmod>2024-07-20T23:55:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gwdx.github.io/post/</loc>
-    <lastmod>2024-07-03T15:52:11+08:00</lastmod>
+    <lastmod>2024-07-20T23:55:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.github.io/post/random-walk-distance/</loc>
+    <lastmod>2024-07-20T23:55:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

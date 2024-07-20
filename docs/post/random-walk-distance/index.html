@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>随机游走到原点的距离的渐近估计 - GWDx</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GWDx" /><meta name="description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性
+" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.111.3 with theme even" />
+
+
+<link rel="canonical" href="http://gwdx.github.io/post/random-walk-distance/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c29ea812462215a64664d7cc3441ba352b84557e1a6a570ffaf5d74e70242a4.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="随机游走到原点的距离的渐近估计" />
+<meta property="og:description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwdx.github.io/post/random-walk-distance/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-06-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-07-20T23:55:43+08:00" />
+<meta itemprop="name" content="随机游走到原点的距离的渐近估计">
+<meta itemprop="description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性"><meta itemprop="datePublished" content="2024-06-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-07-20T23:55:43+08:00" />
+<meta itemprop="wordCount" content="881">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="随机游走到原点的距离的渐近估计"/>
+<meta name="twitter:description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">GWDx</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">GWDx</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">随机游走到原点的距离的渐近估计</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-06-30 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#高维中心极限定理">高维中心极限定理</a></li>
+    <li><a href="#位置-vecp_n-的近似分布">位置 $\vec{P}_n$ 的近似分布</a></li>
+    <li><a href="#距离-r_kn-的近似分布">距离 $R_{k,n}$ 的近似分布</a></li>
+    <li><a href="#期望距离">期望距离</a></li>
+    <li><a href="#常返性">常返性</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性</p>
+<h2 id="高维中心极限定理">高维中心极限定理</h2>
+<p>先介绍 <a href="https://en.wikipedia.org/wiki/Central_limit_theorem#Multidimensional_CLT">高维中心极限定理</a></p>
+<p>${\vec{A}_1, \cdots, \vec{A}_n}$ 是独立同分布的 k 维随机变量，$\vec{\mu}$ 是均值，$\Sigma$ 是 $\vec{A}$ 服从的分布的协方差矩阵。则</p>
+<p>$$
+\sqrt{n} \left(\frac{1}{n} \sum_{i=1}^{n} \vec{A}_i - \vec{\mu} \right) \xrightarrow{d} N(0, \Sigma)
+$$</p>
+<h2 id="位置-vecp_n-的近似分布">位置 $\vec{P}_n$ 的近似分布</h2>
+<p>对于 k 维空间的随机游走，每次选择 2k 个方向中的一个移动一步。</p>
+<p>假设其中两个方向是 $X$ 和 $Y$，即 $\vec{A} = (X, Y, \cdots)$</p>
+<p>则各有有 $\frac{1}{2k}$ 的概率向 +x 方向、-x 方向、+y 方向、-y 方向移动。</p>
+<p>计算方差：</p>
+<p>$$
+\begin{aligned}
+E(X) &amp;= 0 \\
+E(X^2) &amp;=  \frac{1}{k} \\
+Var(X) &amp;= E(X^2) - E^2(X) = \frac{1}{k} \
+\end{aligned}
+$$</p>
+<p>协方差显然是 0</p>
+<p>$$
+\begin{aligned}
+E(XY) &amp;= 0 \\
+Cov(X, Y) &amp;= E(XY) - E(X)E(Y) = 0
+\end{aligned}
+$$</p>
+<p>协方差矩阵</p>
+<p>$$
+\Sigma = \frac{I}{k}
+$$</p>
+<p>设 n 步后位置为 $\vec{P}_n=\displaystyle\sum _{i=1}^{n} \vec{A}_i$</p>
+<p>位置近似服从正态分布</p>
+<p>$$
+\begin{aligned}
+\frac{\vec{P}_n}{\sqrt{n}} &amp;\xrightarrow{d} N(0, \Sigma) \\
+\sqrt\frac{n}{k} \vec{P}_n &amp;\sim N\left(0, I \right)
+\end{aligned}
+$$</p>
+<h2 id="距离-r_kn-的近似分布">距离 $R_{k,n}$ 的近似分布</h2>
+<p>设 $P_n$ 到原点的距离为 $R_{k,n} = \sqrt{\vec{P}_n \cdot \vec{P}_n}$，简记为 $R_k$</p>
+<p>当 n 较大时，距离（乘上一个常数后）近似服从自由度为 k 的<a href="https://en.wikipedia.org/wiki/Chi_distribution">卡分布</a></p>
+<p>$$
+\sqrt\frac k n R_k \sim \chi_k \
+$$</p>
+<center>
+<img src="chi-distribution-pdf.png" alt="chi-distribution-pdf" width="400"/>
+<p>卡分布的概率密度函数</p>
+</center>
+<h2 id="期望距离">期望距离</h2>
+<p>$$
+\begin{align*}
+E(\chi_k) &amp;= \sqrt 2 \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \\
+E(R_k) &amp;\approx \sqrt\frac n k E(\chi_k) =\sqrt \frac {2} k \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \sqrt n
+\end{align*}
+$$</p>
+<p>对于前几个维度，</p>
+<p>$$
+\begin{align*}
+E(R_1) &amp;\approx \sqrt\frac 2 \pi \sqrt n \approx 0.798 \sqrt n \\
+E(R_2) &amp;\approx \frac {\sqrt \pi} 2 \sqrt n \approx 0.886 \sqrt n \\
+E(R_3) &amp;\approx 2 \sqrt\frac 2 {3\pi} \sqrt n \approx 0.921 \sqrt n
+\end{align*}
+$$</p>
+<p>当 $k \to \infty$ 时，前面的系数趋近于 1</p>
+<p>比起平均距离，均方根好看很多</p>
+<p>$$
+\begin{align*}
+E(\chi_k^2) &amp;= k \\
+\sqrt{E(R_k^2)} &amp;\approx \sqrt\frac{n}k \sqrt {E(\chi_k^2)} = \sqrt n
+\end{align*}
+$$</p>
+<blockquote>
+<p>事实上这个式子两边是相等的</p>
+</blockquote>
+<h2 id="常返性">常返性</h2>
+<p>判断到原点的常返性，可以看到达原点的次数的期望是否有限。</p>
+<p>自由度为 k 的卡分布的概率密度函数：</p>
+<p>$$
+\begin{align*}
+f(x) &amp;= \frac{1}{2^{\frac k 2-1}\Gamma\left(\frac k 2\right)} x^{k-1} e^{-\frac{x^2}{2}} \\
+&amp;= C_1 x^{k-1} e^{-\frac{x^2}{2}} \\
+&amp;= C_1 x^{k-1} + O(x^{k+1})
+\end{align*}
+$$</p>
+<p>然后积分估计第 n 步在原点的概率：</p>
+<p>$$
+\begin{align*}
+P\left(\vec A_n=\vec 0\right) \approx P(R_{k,n} &lt; 1) &amp;= \int_0^{\sqrt\frac k n} f(r) dr \\
+&amp;= C_2 r^k + O(r^{k+2}) \Big|_0^{\sqrt\frac k n} \\
+&amp;= C_2 \left(\frac k n\right)^{\frac k 2} + O(n^{-\frac k 2-1}) \\
+&amp;= C_3 n^{-\frac k 2} + O(n^{-\frac k 2-1})
+\end{align*}
+$$</p>
+<p>经过原点次数的期望</p>
+<p>$$
+\begin{align*}
+E(N) &amp;= \sum_{n=1}^\infty P\left(\vec A_n=\vec 0\right) \\
+&amp;\approx C_3 \sum_{n=1}^\infty n^{-\frac k 2} + O
+\end{align*}
+$$</p>
+<ul>
+<li>$k\leq 2$ 时，期望为无穷大，常返</li>
+<li>$k&gt;2$ 时，期望为有限值，不常返</li>
+</ul>
+<p>这个过程有点不严谨。不过可以简单理解：1 维和 2 维的随机游走是常返的，3 维以上的随机游走不常返</p>
+<blockquote>
+<p>就是那个喝醉酒的人可以回到家，喝醉酒的鸟可能回不了家的故事</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<p>使用中心极限定理，可以将 k 维空间中随机游走 n 步后的位置近似为正态分布。到原点的距离近似服从自由度为 k 的卡分布。</p>
+<p>可以利用这一点估计到原点的期望距离，判断 k 维随机游走的常返性</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">GWDx</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2024-07-20
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/9c46f2612c7f7f5bbc93c4880a904591054c1c3a" title="add random-walk-distance">(9c46f26)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/compute-bernoulli/">
+            <span class="next-text nav-default">计算 Bernoulli 数</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'eZM94QLAn3n1uIyq9fgV9U3M-MdYXbMMI',
+        appKey: '2l60rnkvKMig2YTvx5OSYETO',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '',
+        visitor:  false ,
+        serverURLs : 'https:\/\/ezm94qla.api.lncldglobal.com',
+    });
+</script>
+
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:gwdx@mail.ustc.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/GWDx" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/442365922" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://gwdx.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>GWDx</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.5c93b1d90d4bc05350a680cf34fca805c5c13041075057bc584fe6d549c6186a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HBL65Q7HB4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-HBL65Q7HB4', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
