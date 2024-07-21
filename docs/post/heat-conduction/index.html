@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>恒定热源的一维热传导方程 - GWDx</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GWDx" /><meta name="description" content="求解一维热传导方程，左侧是恒定温度的热源的情况
+" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.123.8 with theme even" />
+
+
+<link rel="canonical" href="http://gwdx.github.io/post/heat-conduction/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c29ea812462215a64664d7cc3441ba352b84557e1a6a570ffaf5d74e70242a4.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="恒定热源的一维热传导方程" />
+<meta property="og:description" content="求解一维热传导方程，左侧是恒定温度的热源的情况" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gwdx.github.io/post/heat-conduction/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-05-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-07-21T21:36:58+08:00" />
+
+<meta itemprop="name" content="恒定热源的一维热传导方程">
+<meta itemprop="description" content="求解一维热传导方程，左侧是恒定温度的热源的情况"><meta itemprop="datePublished" content="2024-05-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-07-21T21:36:58+08:00" />
+<meta itemprop="wordCount" content="1043">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="恒定热源的一维热传导方程"/>
+<meta name="twitter:description" content="求解一维热传导方程，左侧是恒定温度的热源的情况"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">GWDx</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">GWDx</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">恒定热源的一维热传导方程</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-05-09 </span>
+        
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>求解一维热传导方程，左侧是恒定温度的热源的情况</p>
+<h2 id="fourier-变换">Fourier 变换</h2>
+<p>后面要用到 Fourier 变换，这里给出符号说明</p>
+<blockquote>
+<p>使用酉变换的形式，好看一些</p>
+</blockquote>
+<p>Fourier 变换、逆变换</p>
+$$
+\begin{aligned}
+\mathcal{F}\{f(x)\} &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} f(x) e^{i\omega x} \, dx \\
+\mathcal{F}^{-1}\{g(\omega)\} &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} g(\omega) e^{-i\omega x} \, d\omega
+\end{aligned}
+$$
+<p>Fourier 余弦变换、逆变换</p>
+$$
+\begin{aligned}
+\mathcal{F}_c\{f(x)\} &= \sqrt{\frac{2}{\pi}} \int_{0}^{\infty} f(x) \cos(\omega x) \, dx \\
+\mathcal{F}_c^{-1}\{g(\omega)\} &= \sqrt{\frac{2}{\pi}} \int_{0}^{\infty} g(\omega) \cos(\omega x) \, d\omega
+\end{aligned}
+$$
+<p>Fourier 正弦变换、逆变换</p>
+$$
+\begin{aligned}
+\mathcal{F}_s\{f(x)\} &= \sqrt{\frac{2}{\pi}} \int_{0}^{\infty} f(x) \sin(\omega x) \, dx \\
+\mathcal{F}_s^{-1}\{g(\omega)\} &= \sqrt{\frac{2}{\pi}} \int_{0}^{\infty} g(\omega) \sin(\omega x) \, d\omega
+\end{aligned}
+$$
+<p>Laplace 变换、逆变换</p>
+$$
+\begin{aligned}
+\mathcal{L}\{f(t)\} &= \int_{0}^{\infty} f(t) e^{-st} \, dt \\
+\mathcal{L}^{-1}\{g(s)\} &= \frac{1}{2\pi i} \int_{\sigma-i\infty}^{\sigma+i\infty} g(s) e^{st} \, ds
+\end{aligned}
+$$
+<h2 id="热传导方程">热传导方程</h2>
+<p>最简单的一维热传导方程是这样的形式：</p>
+$$
+\begin{aligned}
+u_t &= k\ u_{xx} \\
+u(0, x) &= \delta(x)
+\end{aligned} \tag{1}
+$$
+<p>这是一个线性偏微分方程</p>
+<p>先考虑 $k = 1$ 的情况</p>
+<p>使用<strong>分离变量法</strong>，设 $u(t, x) = T(t)X(x)$，代入方程得到</p>
+$$
+\begin{aligned}
+T'X &= TX'' \\
+\frac{T'}{T} &= \frac{X''}{X} = -\lambda
+\end{aligned}
+$$
+<p>若 $\lambda = 0$，则</p>
+$$
+\begin{aligned}
+T(t) &= T_0 \\
+X(x) &= Ax + B
+\end{aligned}
+$$
+<p>若 $\lambda < 0$，则</p>
+$$
+\begin{aligned}
+T(t) &= e^{\sqrt{-\lambda} t} \\
+X(x) &= A\cosh(\sqrt{-\lambda} x) + B\sinh(\sqrt{-\lambda} x)
+\end{aligned}
+$$
+<blockquote>
+<p>这两个解虽然满足方程，但是太奇怪了，$x$ 无穷时是无界的</p>
+<p>合理怀疑后一个和 Laplace 变换有关</p>
+</blockquote>
+<p>若 $\lambda > 0$，则 $T' = -\lambda T$，$X'' = -\lambda X$，解得</p>
+$$
+\begin{aligned}
+T(t) &= e^{-\lambda t} \\
+X(x) &= A\cos(\sqrt{\lambda} x) + B\sin(\sqrt{\lambda} x)
+\end{aligned}
+$$
+<blockquote>
+<p>这个解看起来比较顺眼</p>
+</blockquote>
+<p>相当于把初始条件分解成一系列的正弦波，也就是 <strong>Fourier 变换</strong></p>
+$$
+\mathcal{F}_c\{\delta(x)\} = \frac{1}{\sqrt{2\pi}}
+$$
+<p>这表示所有余弦波叠加起来，就是初始条件 $\delta(x)$</p>
+$$
+\begin{aligned}
+u(0,x)=\delta(x) &= \mathcal{F}_c^{-1}\left\{\frac{1}{\sqrt{2\pi}}\right\} \\
+&= \frac{1}{2\pi} \int_{-\infty}^{\infty} \cos(\omega x) \, d\omega \\
+\end{aligned}
+$$
+<p>然后每个波的振幅随时间有不同程度的衰减（角频率为 $\omega$ 的波，衰减为 $e^{-\omega^2 t}$）。再叠加起来（逆变换），就是方程的解</p>
+$$
+\begin{aligned}
+u(t, x) &= \mathcal{F}_c^{-1}\left\{\frac{e^{-\omega^2 t}}{\sqrt{2\pi}}\right\} \\
+&= \frac{1}{2\pi} \int_{-\infty}^{\infty} e^{-\omega^2 t} \cos(\omega x) \, d\omega \\
+&= \frac{ e^{-\frac{x^2}{4t}} }{2\sqrt{\pi t}}
+\end{aligned}
+$$
+<center><img src="solution1.gif" alt="solution1" width="400" /></center>
+<blockquote>
+<p>如果考虑 k 的话，就是把 $t$ 换成 $kt$</p>
+$$
+u(t, x) = \frac{ e^{-\frac{x^2}{4kt}} }{2\sqrt{\pi kt}} \tag{2}
+$$
+</blockquote>
+<h2 id="恒定热源的热传导方程">恒定热源的热传导方程</h2>
+<p>接下来考虑左侧是恒定热源的一维热传导方程。</p>
+<p>左侧温度恒定为 0，右侧初始温度为 -1</p>
+$$
+\begin{aligned}
+u_t &= \begin{cases}
+u_{xx} & x > 0 \\ 0 & x \le 0
+\end{cases} \\
+u(0, x) &= -\mathrm{unitstep}(x)= \begin{cases}
+-1 & x > 0 \\ 0 & x \le 0
+\end{cases}
+\end{aligned} \tag{3}
+$$
+<p>参考线性齐次的情况，设 $u(t, x) = T(t)X(x)$</p>
+$$
+\begin{aligned}
+T'X &= TX'' \\
+\frac{T'}{T} &= \frac{X''}{X} = -\lambda
+\end{aligned}
+$$
+<p>当 $x>0$ 时</p>
+$$
+\begin{aligned}
+T(t) &= e^{-\lambda t} \\
+X(x) &= A\cos(\sqrt{\lambda} x) + B\sin(\sqrt{\lambda} x)
+\end{aligned}
+$$
+<p>边界条件要求 $u(t, 0) = 0$，所以 $A = 0$</p>
+<p>也就是边界条件要求只能由正弦波组成</p>
+<p>用 Fourier 正弦变换</p>
+$$
+\mathcal{F}_s\{\mathrm{unitstep}(x)\} = \sqrt{\frac{2}{\pi}} \frac{1}{\omega}
+$$
+<p>这表示</p>
+$$
+\begin{aligned}
+u(0, x)=
+-\mathrm{unitstep}(x) &= -\mathcal{F}_s^{-1}\left\{\sqrt{\frac{2}{\pi}} \frac{1}{\omega}\right\} \\
+&=-\frac{2}{\pi} \int_{0}^{\infty} \frac{\sin(\omega x)}{\omega} \, d\omega
+\end{aligned}
+$$
+<p>所以，当 $x>0$ 时，</p>
+$$
+\begin{aligned}
+u(t, x) &= -\mathcal{F}_s^{-1}\left\{ \sqrt{\frac{2}{\pi}} \frac{e^{-\omega^2 t}}{\omega}\right\} \\
+&= -\frac{2}{\pi} \int_{0}^{\infty} \frac{e^{-\omega^2 t}}{\omega} \sin(\omega x) \, d\omega \\
+&= -\mathrm{erf}\left(\frac{x}{2\sqrt{t}}\right)
+\end{aligned}
+$$
+<blockquote>
+<p>计算这个 Fourier 逆变换可以使用积分性质（和 Laplace 变换类似）
+</p>
+$$
+\mathcal{F}^{-1}\left\{\frac{g(\omega)}{\omega}\right\} = -i \int \mathcal{F}^{-1}\{g(\omega)\} \, dx
+$$
+</blockquote>
+<p>所以，原方程的解为</p>
+$$
+u(t, x) = \begin{cases}
+-\mathrm{erf}\left(\frac{x}{2\sqrt{t}}\right) & x > 0 \\
+0 & x \le 0
+\end{cases} \tag{4}
+$$
+<blockquote>
+<p>其中 $\displaystyle\mathrm{erf}(x) = \frac{2}{\sqrt{\pi}} \int_{0}^{x} e^{-t^2} \, dt$ 是误差函数</p>
+</blockquote>
+<center><img src="solution2.gif" alt="solution2" width="400" /></center>
+<h2 id="总结">总结</h2>
+<p>使用分离变量法、Fourier 变换，计算一维均匀热传导方程 $(1)$ 的解 $(2)$，以及恒定热源的热传导方程 $(3)$ 的解 $(4)$</p>
+<blockquote>
+<p>当年 Fourier 发明 Fourier 变换，就是为了求解热传导方程的。</p>
+</blockquote>
+<h2 id="后记">后记</h2>
+<p>观察 $(4)$ 的形式，或许可以得到一些有趣的结论，比如</p>
+<ul>
+<li>穿厚度 2 倍的衣服，保暖效果是 4 倍（只考虑热传导）</li>
+<li>戴 2 层的一次性聚乙烯手套，需要 4 倍的时间才能达到相同的扩散浓度</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">GWDx</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2024-07-21
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/434d1c0ffda335ac4695879f76f393f1ee9f0d52" title="add 热传导方程">(434d1c0)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/compute-bernoulli/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">计算 Bernoulli 数</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/gambling-max-expectation/">
+            <span class="next-text nav-default">赌徒输光前最大值的期望</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'eZM94QLAn3n1uIyq9fgV9U3M-MdYXbMMI',
+        appKey: '2l60rnkvKMig2YTvx5OSYETO',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '',
+        visitor:  false ,
+        serverURLs : 'https:\/\/ezm94qla.api.lncldglobal.com',
+    });
+</script>
+
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:gwdx@mail.ustc.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/GWDx" class="iconfont icon-github" title="github"></a>
+      <a href="https://space.bilibili.com/442365922" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://gwdx.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>GWDx</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.5c93b1d90d4bc05350a680cf34fca805c5c13041075057bc584fe6d549c6186a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HBL65Q7HB4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-HBL65Q7HB4', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
