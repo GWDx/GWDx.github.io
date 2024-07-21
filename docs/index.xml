@@ -6,127 +6,98 @@
     <description>Recent content on GWDx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 30 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://gwdx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jul 2024 23:55:43 +0800</lastBuildDate>
+    <atom:link href="http://gwdx.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>随机游走到原点的距离的渐近估计</title>
       <link>http://gwdx.github.io/post/random-walk-distance/</link>
       <pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/random-walk-distance/</guid>
       <description>&lt;p&gt;估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>计算 Bernoulli 数</title>
       <link>http://gwdx.github.io/post/compute-bernoulli/</link>
       <pubDate>Wed, 15 May 2024 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/compute-bernoulli/</guid>
       <description>&lt;p&gt;FLINT 库是如何用 zeta 函数计算 Bernoulli 数的？&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>赌徒输光前最大值的期望</title>
       <link>http://gwdx.github.io/post/gambling-max-expectation/</link>
       <pubDate>Thu, 11 Apr 2024 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/gambling-max-expectation/</guid>
       <description>&lt;p&gt;计算赌徒在输光前最大值的期望，分析各个因素对期望的影响。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>陶哲轩系鞋带</title>
       <link>http://gwdx.github.io/post/airport-puzzle/</link>
       <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/airport-puzzle/</guid>
-      <description>&lt;p&gt;陶哲轩（Terence Tao）因为要在赶飞机时系鞋带，想到一个简单的数学题——应该在电动步道上系鞋带，还是在普通路段上系鞋带？&lt;/p&gt;
-&lt;p&gt;本文对此问题及其衍生问题进行了代数推导（虽然凭感觉就能得到答案）。&lt;/p&gt;</description>
+      <description>&lt;p&gt;陶哲轩（Terence Tao）因为要在赶飞机时系鞋带，想到一个简单的数学题——应该在电动步道上系鞋带，还是在普通路段上系鞋带？&lt;/p&gt;&#xA;&lt;p&gt;本文对此问题及其衍生问题进行了代数推导（虽然凭感觉就能得到答案）。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>rm -rf 的教训</title>
       <link>http://gwdx.github.io/post/rm-rf/</link>
       <pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/rm-rf/</guid>
-      <description>&lt;p&gt;11 月的时候，我在不清醒的情况下，不小心 &lt;code&gt;rm -rf&lt;/code&gt; 了，ctrl+c 中断后，发现删掉了 300GB 的文件。&lt;/p&gt;
-&lt;p&gt;另外，&lt;code&gt;rsync --delete&lt;/code&gt; 也是个危险的命令。&lt;/p&gt;</description>
+      <description>&lt;p&gt;11 月的时候，我在不清醒的情况下，不小心 &lt;code&gt;rm -rf&lt;/code&gt; 了，ctrl+c 中断后，发现删掉了 300GB 的文件。&lt;/p&gt;&#xA;&lt;p&gt;另外，&lt;code&gt;rsync --delete&lt;/code&gt; 也是个危险的命令。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>GeekGame 2023 题解</title>
       <link>http://gwdx.github.io/post/geekgame2023/</link>
       <pubDate>Sat, 21 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/geekgame2023/</guid>
       <description>&lt;p&gt;第三届北京大学信息安全综合能力竞赛（GeekGame）题解&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>核苷类似物资料整合</title>
       <link>http://gwdx.github.io/post/nucleoside-analogue/</link>
       <pubDate>Mon, 26 Dec 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/nucleoside-analogue/</guid>
-      <description>&lt;p&gt;最近放开了，父母和我都感染了新冠。我提前了解了一些药物的知识，主要是 NSAID 和核苷类似物，虽然没有起到太大作用，但还是想记录一下。&lt;/p&gt;
-&lt;p&gt;本文整合了一些抗病毒药物、核苷类似物的知识，并介绍我使用拉米夫定的经历。&lt;/p&gt;</description>
+      <description>&lt;p&gt;最近放开了，父母和我都感染了新冠。我提前了解了一些药物的知识，主要是 NSAID 和核苷类似物，虽然没有起到太大作用，但还是想记录一下。&lt;/p&gt;&#xA;&lt;p&gt;本文整合了一些抗病毒药物、核苷类似物的知识，并介绍我使用拉米夫定的经历。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>AI 绘画与艺术</title>
       <link>http://gwdx.github.io/post/ai-art/</link>
       <pubDate>Wed, 07 Dec 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/ai-art/</guid>
       <description>&lt;p&gt;探讨艺术的定义，以及 AI 绘画是否是艺术。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>解决 Linux 上 HDMI 无法使用的问题</title>
       <link>http://gwdx.github.io/post/linux-hdmi/</link>
       <pubDate>Sat, 19 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/linux-hdmi/</guid>
       <description>&lt;p&gt;前段时间整了个显示器，Windows, grub 时是正常的，但进 Linux 后就无法使用了。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Hackergame 2022 题解</title>
       <link>http://gwdx.github.io/post/hackergame2022/</link>
       <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/hackergame2022/</guid>
       <description>&lt;p&gt;Hackergame 2022（中科大第九届信息安全大赛）个人题解&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Hackergame 2021 题解</title>
       <link>http://gwdx.github.io/post/hackergame2021/</link>
       <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/hackergame2021/</guid>
-      <description>&lt;p&gt;Hackergame 2021（中科大第八届信息安全大赛）个人题解&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://gwdx.github.io/post/hackergame2021/image/board.png&#34; alt=&#34;board&#34;&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Hackergame 2021（中科大第八届信息安全大赛）个人题解&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://gwdx.github.io/post/hackergame2021/image/board.png&#34; alt=&#34;board&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Web 之旅</title>
       <link>http://gwdx.github.io/post/web-tour/</link>
       <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/post/web-tour/</guid>
       <description>1 月的某一天晚上，忽然兴起想了解一下 JavaScript，感觉风格上和 C 语言挺像的。 2 月初，因为做 slides 接触了 CSS。 3 月，想尝试用 JS 做点东西，</description>
     </item>
-    
     <item>
       <title>关于</title>
       <link>http://gwdx.github.io/about/</link>
       <pubDate>Sat, 19 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gwdx.github.io/about/</guid>
       <description>甘文迪 2023.9 - 现在 中国科学技术大学，信息科学技术学院 2019.9 - 2023.6 中国科学技术大学，计算机科学与技术学院 2016.9 - 2019.6 浙江海盐元济高级中学 Linux 发行版：Debian</description>
     </item>
-    
   </channel>
 </rss>

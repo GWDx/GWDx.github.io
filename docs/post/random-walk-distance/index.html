@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.123.8 with theme even" />
 
 
 <link rel="canonical" href="http://gwdx.github.io/post/random-walk-distance/" />
@@ -46,12 +46,12 @@
 <meta property="og:url" content="http://gwdx.github.io/post/random-walk-distance/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2024-06-30T00:00:00+00:00" />
 <meta property="article:modified_time" content="2024-07-20T23:55:43+08:00" />
+
 <meta itemprop="name" content="随机游走到原点的距离的渐近估计">
 <meta itemprop="description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性"><meta itemprop="datePublished" content="2024-06-30T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-07-20T23:55:43+08:00" />
 <meta itemprop="wordCount" content="881">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="随机游走到原点的距离的渐近估计"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="随机游走到原点的距离的渐近估计"/>
 <meta name="twitter:description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性"/>
 
 <!--[if lte IE 9]>
@@ -144,8 +144,8 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#高维中心极限定理">高维中心极限定理</a></li>
-    <li><a href="#位置-vecp_n-的近似分布">位置 $\vec{P}_n$ 的近似分布</a></li>
-    <li><a href="#距离-r_kn-的近似分布">距离 $R_{k,n}$ 的近似分布</a></li>
+    <li><a href="#位置-vecp_n-的近似分布">位置  的近似分布</a></li>
+    <li><a href="#距离-r_kn-的近似分布">距离  的近似分布</a></li>
     <li><a href="#期望距离">期望距离</a></li>
     <li><a href="#常返性">常返性</a></li>
     <li><a href="#总结">总结</a></li>
@@ -157,106 +157,106 @@
       <p>估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性</p>
 <h2 id="高维中心极限定理">高维中心极限定理</h2>
 <p>先介绍 <a href="https://en.wikipedia.org/wiki/Central_limit_theorem#Multidimensional_CLT">高维中心极限定理</a></p>
-<p>${\vec{A}_1, \cdots, \vec{A}_n}$ 是独立同分布的 k 维随机变量，$\vec{\mu}$ 是均值，$\Sigma$ 是 $\vec{A}$ 服从的分布的协方差矩阵。则</p>
-<p>$$
+<p>$\{\vec{A}_1, \cdots, \vec{A}_n\}$ 是独立同分布的 k 维随机变量，$\vec{\mu}$ 是均值，$\Sigma$ 是 $\vec{A}$ 服从的分布的协方差矩阵。则</p>
+$$
 \sqrt{n} \left(\frac{1}{n} \sum_{i=1}^{n} \vec{A}_i - \vec{\mu} \right) \xrightarrow{d} N(0, \Sigma)
-$$</p>
+$$
 <h2 id="位置-vecp_n-的近似分布">位置 $\vec{P}_n$ 的近似分布</h2>
 <p>对于 k 维空间的随机游走，每次选择 2k 个方向中的一个移动一步。</p>
 <p>假设其中两个方向是 $X$ 和 $Y$，即 $\vec{A} = (X, Y, \cdots)$</p>
 <p>则各有有 $\frac{1}{2k}$ 的概率向 +x 方向、-x 方向、+y 方向、-y 方向移动。</p>
 <p>计算方差：</p>
-<p>$$
+$$
 \begin{aligned}
-E(X) &amp;= 0 \\
-E(X^2) &amp;=  \frac{1}{k} \\
-Var(X) &amp;= E(X^2) - E^2(X) = \frac{1}{k} \
+E(X) &= 0 \\\
+E(X^2) &=  \frac{1}{k} \\\
+Var(X) &= E(X^2) - E^2(X) = \frac{1}{k} \\
 \end{aligned}
-$$</p>
+$$
 <p>协方差显然是 0</p>
-<p>$$
+$$
 \begin{aligned}
-E(XY) &amp;= 0 \\
-Cov(X, Y) &amp;= E(XY) - E(X)E(Y) = 0
+E(XY) &= 0 \\\
+Cov(X, Y) &= E(XY) - E(X)E(Y) = 0
 \end{aligned}
-$$</p>
+$$
 <p>协方差矩阵</p>
-<p>$$
+$$
 \Sigma = \frac{I}{k}
-$$</p>
+$$
 <p>设 n 步后位置为 $\vec{P}_n=\displaystyle\sum _{i=1}^{n} \vec{A}_i$</p>
 <p>位置近似服从正态分布</p>
-<p>$$
+$$
 \begin{aligned}
-\frac{\vec{P}_n}{\sqrt{n}} &amp;\xrightarrow{d} N(0, \Sigma) \\
-\sqrt\frac{n}{k} \vec{P}_n &amp;\sim N\left(0, I \right)
+\frac{\vec{P}_n}{\sqrt{n}} &\xrightarrow{d} N(0, \Sigma) \\\
+\sqrt\frac{n}{k} \vec{P}_n &\sim N\left(0, I \right)
 \end{aligned}
-$$</p>
+$$
 <h2 id="距离-r_kn-的近似分布">距离 $R_{k,n}$ 的近似分布</h2>
 <p>设 $P_n$ 到原点的距离为 $R_{k,n} = \sqrt{\vec{P}_n \cdot \vec{P}_n}$，简记为 $R_k$</p>
 <p>当 n 较大时，距离（乘上一个常数后）近似服从自由度为 k 的<a href="https://en.wikipedia.org/wiki/Chi_distribution">卡分布</a></p>
-<p>$$
-\sqrt\frac k n R_k \sim \chi_k \
-$$</p>
+$$
+\sqrt\frac k n R_k \sim \chi_k \\
+$$
 <center>
 <img src="chi-distribution-pdf.png" alt="chi-distribution-pdf" width="400"/>
 <p>卡分布的概率密度函数</p>
 </center>
 <h2 id="期望距离">期望距离</h2>
-<p>$$
+$$
 \begin{align*}
-E(\chi_k) &amp;= \sqrt 2 \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \\
-E(R_k) &amp;\approx \sqrt\frac n k E(\chi_k) =\sqrt \frac {2} k \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \sqrt n
+E(\chi_k) &= \sqrt 2 \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \\\
+E(R_k) &\approx \sqrt\frac n k E(\chi_k) =\sqrt \frac {2} k \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \sqrt n
 \end{align*}
-$$</p>
+$$
 <p>对于前几个维度，</p>
-<p>$$
+$$
 \begin{align*}
-E(R_1) &amp;\approx \sqrt\frac 2 \pi \sqrt n \approx 0.798 \sqrt n \\
-E(R_2) &amp;\approx \frac {\sqrt \pi} 2 \sqrt n \approx 0.886 \sqrt n \\
-E(R_3) &amp;\approx 2 \sqrt\frac 2 {3\pi} \sqrt n \approx 0.921 \sqrt n
+E(R_1) &\approx \sqrt\frac 2 \pi \sqrt n \approx 0.798 \sqrt n \\\
+E(R_2) &\approx \frac {\sqrt \pi} 2 \sqrt n \approx 0.886 \sqrt n \\\
+E(R_3) &\approx 2 \sqrt\frac 2 {3\pi} \sqrt n \approx 0.921 \sqrt n
 \end{align*}
-$$</p>
+$$
 <p>当 $k \to \infty$ 时，前面的系数趋近于 1</p>
 <p>比起平均距离，均方根好看很多</p>
-<p>$$
+$$
 \begin{align*}
-E(\chi_k^2) &amp;= k \\
-\sqrt{E(R_k^2)} &amp;\approx \sqrt\frac{n}k \sqrt {E(\chi_k^2)} = \sqrt n
+E(\chi_k^2) &= k \\\
+\sqrt{E(R_k^2)} &\approx \sqrt\frac{n}k \sqrt {E(\chi_k^2)} = \sqrt n
 \end{align*}
-$$</p>
+$$
 <blockquote>
 <p>事实上这个式子两边是相等的</p>
 </blockquote>
 <h2 id="常返性">常返性</h2>
 <p>判断到原点的常返性，可以看到达原点的次数的期望是否有限。</p>
 <p>自由度为 k 的卡分布的概率密度函数：</p>
-<p>$$
+$$
 \begin{align*}
-f(x) &amp;= \frac{1}{2^{\frac k 2-1}\Gamma\left(\frac k 2\right)} x^{k-1} e^{-\frac{x^2}{2}} \\
-&amp;= C_1 x^{k-1} e^{-\frac{x^2}{2}} \\
-&amp;= C_1 x^{k-1} + O(x^{k+1})
+f(x) &= \frac{1}{2^{\frac k 2-1}\Gamma\left(\frac k 2\right)} x^{k-1} e^{-\frac{x^2}{2}} \\\
+&= C_1 x^{k-1} e^{-\frac{x^2}{2}} \\\
+&= C_1 x^{k-1} + O(x^{k+1})
 \end{align*}
-$$</p>
+$$
 <p>然后积分估计第 n 步在原点的概率：</p>
-<p>$$
+$$
 \begin{align*}
-P\left(\vec A_n=\vec 0\right) \approx P(R_{k,n} &lt; 1) &amp;= \int_0^{\sqrt\frac k n} f(r) dr \\
-&amp;= C_2 r^k + O(r^{k+2}) \Big|_0^{\sqrt\frac k n} \\
-&amp;= C_2 \left(\frac k n\right)^{\frac k 2} + O(n^{-\frac k 2-1}) \\
-&amp;= C_3 n^{-\frac k 2} + O(n^{-\frac k 2-1})
+P\left(\vec A_n=\vec 0\right) \approx P(R_{k,n} < 1) &= \int_0^{\sqrt\frac k n} f(r) dr \\\
+&= C_2 r^k + O(r^{k+2}) \Big|_0^{\sqrt\frac k n} \\\
+&= C_2 \left(\frac k n\right)^{\frac k 2} + O(n^{-\frac k 2-1}) \\\
+&= C_3 n^{-\frac k 2} + O(n^{-\frac k 2-1})
 \end{align*}
-$$</p>
+$$
 <p>经过原点次数的期望</p>
-<p>$$
+$$
 \begin{align*}
-E(N) &amp;= \sum_{n=1}^\infty P\left(\vec A_n=\vec 0\right) \\
-&amp;\approx C_3 \sum_{n=1}^\infty n^{-\frac k 2} + O
+E(N) &= \sum_{n=1}^\infty P\left(\vec A_n=\vec 0\right) \\\
+&\approx C_3 \sum_{n=1}^\infty n^{-\frac k 2} + O
 \end{align*}
-$$</p>
+$$
 <ul>
 <li>$k\leq 2$ 时，期望为无穷大，常返</li>
-<li>$k&gt;2$ 时，期望为有限值，不常返</li>
+<li>$k>2$ 时，期望为有限值，不常返</li>
 </ul>
 <p>这个过程有点不严谨。不过可以简单理解：1 维和 2 维的随机游走是常返的，3 维以上的随机游走不常返</p>
 <blockquote>

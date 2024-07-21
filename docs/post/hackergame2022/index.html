@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.123.8 with theme even" />
 
 
 <link rel="canonical" href="http://gwdx.github.io/post/hackergame2022/" />
@@ -46,12 +46,12 @@
 <meta property="og:url" content="http://gwdx.github.io/post/hackergame2022/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-10-31T00:00:00+00:00" />
 <meta property="article:modified_time" content="2024-06-28T22:46:41+08:00" />
+
 <meta itemprop="name" content="Hackergame 2022 题解">
 <meta itemprop="description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解"><meta itemprop="datePublished" content="2022-10-31T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-06-28T22:46:41+08:00" />
 <meta itemprop="wordCount" content="7965">
-<meta itemprop="keywords" content="Hackergame,CTF," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hackergame 2022 题解"/>
+<meta itemprop="keywords" content="Hackergame,CTF," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Hackergame 2022 题解"/>
 <meta name="twitter:description" content="Hackergame 2022（中科大第九届信息安全大赛）个人题解"/>
 
 <!--[if lte IE 9]>
@@ -350,11 +350,11 @@
 </span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
 </span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">code</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># find a[(.*)] = (.*)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a\[(.*)\] = (.*)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a\[(.*)\] = (.*)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;a[&#39;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s1">&#39;] = &#39;</span> <span class="o">+</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a\[(.*)\] = (.*)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a\[(.*)\] = (.*)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;a[&#39;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s1">&#39;] = &#39;</span> <span class="o">+</span> <span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -453,11 +453,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">var</span> <span class="n">isLess</span> <span class="o">=</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">.</span><span class="na">number</span> <span class="o">-</span> <span class="n">1e</span><span class="o">-</span><span class="n">6</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">var</span> <span class="n">isMore</span> <span class="o">=</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="k">this</span><span class="o">.</span><span class="na">number</span> <span class="o">+</span> <span class="n">1e</span><span class="o">-</span><span class="n">6</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">var</span> <span class="n">isPassed</span> <span class="o">=</span> <span class="o">!</span><span class="n">isLess</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">isMore</span><span class="o">;</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">var</span><span class="w"> </span><span class="n">isLess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">guess</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">number</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1e</span><span class="o">-</span><span class="n">6</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">var</span><span class="w"> </span><span class="n">isMore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">guess</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">number</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1e</span><span class="o">-</span><span class="n">6</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">var</span><span class="w"> </span><span class="n">isPassed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">isLess</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">isMore</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>不知道为什么 Firefox 的重发有问题，我最后是用 Python 发的。</p>
 <div class="highlight"><div class="chroma">
@@ -1026,13 +1026,13 @@
 <p>加密算法选择 AES，因为明文长度小于 16 字节，可以塞进 AES 的一个块里</p>
 <p>这题选择 CBC，使用字节反转攻击</p>
 <p>CBC 的公式是</p>
-<p>$$
-C_1 = E(K, P_1 \oplus IV) \
-$$</p>
+$$
+C_1 = E(K, P_1 \oplus IV) \\
+$$
 <p>即</p>
-<p>$$
-IV = P_1 \oplus D(K, C_1) \
-$$</p>
+$$
+IV = P_1 \oplus D(K, C_1) \\
+$$
 <p>$C_1 = P_1 = pass$，K 可以随意设置，利用上述公式可以求出 IV</p>
 <details open>
 <summary>代码</summary>
@@ -1176,15 +1176,15 @@ $$</p>
 <h4 id="心软的神">心软的神</h4>
 <p>这题给定一个字符串，可以选择 加密算法 分组模式，每次可以输入不同的 <code>key</code> <code>IV</code>，要求每次的块的加密结果为其自身。</p>
 <p>这题还是选 CBC</p>
-<p>$$
-C_1 = E(K, P_1 \oplus IV) \
-C_{n+1} = E(K, P_{n+1} \oplus C_n) \
-$$</p>
+$$
+C_1 = E(K, P_1 \oplus IV) \\
+C_{n+1} = E(K, P_{n+1} \oplus C_n) \\
+$$
 <p>即</p>
-<p>$$
-C_n = P_{n+1} \oplus D(K, C_{n+1}) \
-IV = P_1 \oplus D(K, C_1) \
-$$</p>
+$$
+C_n = P_{n+1} \oplus D(K, C_{n+1}) \\
+IV = P_1 \oplus D(K, C_1) \\
+$$
 <p>$P_n = C_n$，为给定字符串的一个块，K 可以随意设置，利用上述公式可以求出各个 IV</p>
 <details open>
 <summary>代码</summary>
@@ -1308,14 +1308,14 @@ $$</p>
 <h3 id="19-置换魔群">19. 置换魔群</h3>
 <h4 id="置换群上的-rsa">置换群上的 RSA</h4>
 <p>secret 和 public 的 tuple 数估计是相等的</p>
-<p>$$
-public ^ {public.order()} = 1 \
+$$
+public ^ {public.order()} = 1 \\
 secret ^ e = public
-$$</p>
+$$
 <p>所以求出 e 对于 <code>public.order()</code> 的逆元 d</p>
-<p>$$
+$$
 public ^ d = secret
-$$</p>
+$$
 <details open>
 <summary>代码</summary>
 <div class="highlight"><div class="chroma">
