@@ -47,12 +47,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://gwdx.github.io/post/airport-puzzle/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2024-02-02T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-28T22:46:41+08:00" />
+<meta property="article:modified_time" content="2024-07-21T17:55:49+08:00" />
 
 <meta itemprop="name" content="陶哲轩系鞋带">
 <meta itemprop="description" content="陶哲轩（Terence Tao）因为要在赶飞机时系鞋带，想到一个简单的数学题——应该在电动步道上系鞋带，还是在普通路段上系鞋带？
 本文对此问题及其衍生问题进行了代数推导（虽然凭感觉就能得到答案）。"><meta itemprop="datePublished" content="2024-02-02T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-06-28T22:46:41+08:00" />
+<meta itemprop="dateModified" content="2024-07-21T17:55:49+08:00" />
 <meta itemprop="wordCount" content="802">
 <meta itemprop="keywords" content="数学," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="陶哲轩系鞋带"/>
 <meta name="twitter:description" content="陶哲轩（Terence Tao）因为要在赶飞机时系鞋带，想到一个简单的数学题——应该在电动步道上系鞋带，还是在普通路段上系鞋带？
@@ -184,8 +184,8 @@
 <p>设 $s_1$ 表示普通路段的长度，$s_2$ 表示电动步道路段的长度，$u$ 表示电动步道的速度，$v$ 表示行人的速度，$\Delta{t}$ 表示暂停的时间。</p>
 $$
 \begin{aligned}
-t_A&=\frac{s_1}{v}+\Delta{t}+\frac{s_2}{u+v} \\\
-t_B&=\frac{s_1}{v}+\frac{s_2-u\Delta{t}}{u+v}+\Delta{t} \\\
+t_A&=\frac{s_1}{v}+\Delta{t}+\frac{s_2}{u+v} \\
+t_B&=\frac{s_1}{v}+\frac{s_2-u\Delta{t}}{u+v}+\Delta{t} \\
 t_A-t_B &=\frac{u\,\Delta{t}}{u+v} > 0
 \end{aligned}
 $$
@@ -195,8 +195,8 @@ $$
 <p>设 $\Delta{t}$ 表示跑步的时间，$v_2$ 表示跑步后的速度（$v_2>v$）</p>
 $$
 \begin{aligned}
-t_A &=\frac{s_1-v_2\,\Delta{t}}{v}+\Delta{t}+\frac{s_2}{u+v} \\\
-t_B &=\frac{s_1}{v}+\frac{s_2-u\,\Delta{t}}{u+v}+\Delta{t} \\\
+t_A &=\frac{s_1-v_2\,\Delta{t}}{v}+\Delta{t}+\frac{s_2}{u+v} \\
+t_B &=\frac{s_1}{v}+\frac{s_2-u\,\Delta{t}}{u+v}+\Delta{t} \\
 t_A-t_B&=\frac{u\,\Delta{t}\,(v-v_2)}{v(u+v)} < 0
 \end{aligned}
 $$
@@ -215,8 +215,8 @@ $$
 <p>两种选择的时间：</p>
 $$
 \begin{aligned}
-t_A &=\frac{s_1}{v}+\Delta{t}+\frac{s_2}{u\oplus v} \\\
-t_B&=\frac{s_1}{v}+\frac{s_2-u\,\Delta{t}\,\gamma(u)}{u\oplus v}+\Delta{t}\,\gamma(u) \\\
+t_A &=\frac{s_1}{v}+\Delta{t}+\frac{s_2}{u\oplus v} \\
+t_B&=\frac{s_1}{v}+\frac{s_2-u\,\Delta{t}\,\gamma(u)}{u\oplus v}+\Delta{t}\,\gamma(u) \\
 t_A-t_B&=\frac{\left(u+v-\sqrt{1-\frac{u^2}{c^2}}\,v\right)\,\Delta{t}}{u+v} > 0
 \end{aligned}
 $$
@@ -226,8 +226,8 @@ $$
 <p>同样，消耗相同的能量，认为跑步的时间是相同</p>
 $$
 \begin{aligned}
-t_A&=\frac{s_1-v_2\,\Delta{t}}{v}+\Delta{t}+\frac{s_2}{u\oplus v} \\\
-t_B&=\frac{s_1}{v}+\frac{s_2-(u\oplus v_2)\,\Delta{t}\,\gamma(u)}{u\oplus v}+\Delta{t}\,\gamma(u) \\\
+t_A&=\frac{s_1-v_2\,\Delta{t}}{v}+\Delta{t}+\frac{s_2}{u\oplus v} \\
+t_B&=\frac{s_1}{v}+\frac{s_2-(u\oplus v_2)\,\Delta{t}\,\gamma(u)}{u\oplus v}+\Delta{t}\,\gamma(u) \\
 t_A-t_B&=\frac{\left(v-v_2\right) \left(c^2 (u+v-v \sqrt{1-\frac{u^2}{c^2}})+u \, v_2 (u+v)\right)}{v (u+v) \left(c^2+u \,v_2\right)} < 0
 \end{aligned}
 $$
@@ -258,8 +258,8 @@ $$
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2024-06-28
-        <a href="https://github.com/GWDx/GWDx.github.io/commit/d7fee4f71facd8080da8dc9eb2c32e23d78e9177" title="启用评论">(d7fee4f)</a>
+        2024-07-21
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/e232e662b0705c55963b057bcba166516f6f16d1" title="update 数学">(e232e66)</a>
     </span>
   </p>
   

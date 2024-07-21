@@ -45,12 +45,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://gwdx.github.io/post/random-walk-distance/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2024-06-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-07-20T23:55:43+08:00" />
+<meta property="article:modified_time" content="2024-07-21T17:55:49+08:00" />
 
 <meta itemprop="name" content="随机游走到原点的距离的渐近估计">
 <meta itemprop="description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性"><meta itemprop="datePublished" content="2024-06-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-07-20T23:55:43+08:00" />
-<meta itemprop="wordCount" content="881">
+<meta itemprop="dateModified" content="2024-07-21T17:55:49+08:00" />
+<meta itemprop="wordCount" content="880">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="随机游走到原点的距离的渐近估计"/>
 <meta name="twitter:description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性"/>
 
@@ -168,15 +168,15 @@ $$
 <p>计算方差：</p>
 $$
 \begin{aligned}
-E(X) &= 0 \\\
-E(X^2) &=  \frac{1}{k} \\\
+E(X) &= 0 \\
+E(X^2) &=  \frac{1}{k} \\
 Var(X) &= E(X^2) - E^2(X) = \frac{1}{k} \\
 \end{aligned}
 $$
 <p>协方差显然是 0</p>
 $$
 \begin{aligned}
-E(XY) &= 0 \\\
+E(XY) &= 0 \\
 Cov(X, Y) &= E(XY) - E(X)E(Y) = 0
 \end{aligned}
 $$
@@ -184,11 +184,11 @@ $$
 $$
 \Sigma = \frac{I}{k}
 $$
-<p>设 n 步后位置为 $\vec{P}_n=\displaystyle\sum _{i=1}^{n} \vec{A}_i$</p>
+<p>设 n 步后位置为 $\vec{P}_n=\displaystyle\sum_{i=1}^{n} \vec{A}_i$</p>
 <p>位置近似服从正态分布</p>
 $$
 \begin{aligned}
-\frac{\vec{P}_n}{\sqrt{n}} &\xrightarrow{d} N(0, \Sigma) \\\
+\frac{\vec{P}_n}{\sqrt{n}} &\xrightarrow{d} N(0, \Sigma) \\
 \sqrt\frac{n}{k} \vec{P}_n &\sim N\left(0, I \right)
 \end{aligned}
 $$
@@ -205,15 +205,15 @@ $$
 <h2 id="期望距离">期望距离</h2>
 $$
 \begin{align*}
-E(\chi_k) &= \sqrt 2 \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \\\
+E(\chi_k) &= \sqrt 2 \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \\
 E(R_k) &\approx \sqrt\frac n k E(\chi_k) =\sqrt \frac {2} k \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \sqrt n
 \end{align*}
 $$
 <p>对于前几个维度，</p>
 $$
 \begin{align*}
-E(R_1) &\approx \sqrt\frac 2 \pi \sqrt n \approx 0.798 \sqrt n \\\
-E(R_2) &\approx \frac {\sqrt \pi} 2 \sqrt n \approx 0.886 \sqrt n \\\
+E(R_1) &\approx \sqrt\frac 2 \pi \sqrt n \approx 0.798 \sqrt n \\
+E(R_2) &\approx \frac {\sqrt \pi} 2 \sqrt n \approx 0.886 \sqrt n \\
 E(R_3) &\approx 2 \sqrt\frac 2 {3\pi} \sqrt n \approx 0.921 \sqrt n
 \end{align*}
 $$
@@ -221,7 +221,7 @@ $$
 <p>比起平均距离，均方根好看很多</p>
 $$
 \begin{align*}
-E(\chi_k^2) &= k \\\
+E(\chi_k^2) &= k \\
 \sqrt{E(R_k^2)} &\approx \sqrt\frac{n}k \sqrt {E(\chi_k^2)} = \sqrt n
 \end{align*}
 $$
@@ -233,24 +233,24 @@ $$
 <p>自由度为 k 的卡分布的概率密度函数：</p>
 $$
 \begin{align*}
-f(x) &= \frac{1}{2^{\frac k 2-1}\Gamma\left(\frac k 2\right)} x^{k-1} e^{-\frac{x^2}{2}} \\\
-&= C_1 x^{k-1} e^{-\frac{x^2}{2}} \\\
+f(x) &= \frac{1}{2^{\frac k 2-1}\Gamma\left(\frac k 2\right)} x^{k-1} e^{-\frac{x^2}{2}} \\
+&= C_1 x^{k-1} e^{-\frac{x^2}{2}} \\
 &= C_1 x^{k-1} + O(x^{k+1})
 \end{align*}
 $$
 <p>然后积分估计第 n 步在原点的概率：</p>
 $$
 \begin{align*}
-P\left(\vec A_n=\vec 0\right) \approx P(R_{k,n} < 1) &= \int_0^{\sqrt\frac k n} f(r) dr \\\
-&= C_2 r^k + O(r^{k+2}) \Big|_0^{\sqrt\frac k n} \\\
-&= C_2 \left(\frac k n\right)^{\frac k 2} + O(n^{-\frac k 2-1}) \\\
+P\left(\vec A_n=\vec 0\right) \approx P(R_{k,n} < 1) &= \int_0^{\sqrt\frac k n} f(r) dr \\
+&= C_2 r^k + O(r^{k+2}) \Big|_0^{\sqrt\frac k n} \\
+&= C_2 \left(\frac k n\right)^{\frac k 2} + O(n^{-\frac k 2-1}) \\
 &= C_3 n^{-\frac k 2} + O(n^{-\frac k 2-1})
 \end{align*}
 $$
 <p>经过原点次数的期望</p>
 $$
 \begin{align*}
-E(N) &= \sum_{n=1}^\infty P\left(\vec A_n=\vec 0\right) \\\
+E(N) &= \sum_{n=1}^\infty P\left(\vec A_n=\vec 0\right) \\
 &\approx C_3 \sum_{n=1}^\infty n^{-\frac k 2} + O
 \end{align*}
 $$
@@ -275,8 +275,8 @@ $$
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2024-07-20
-        <a href="https://github.com/GWDx/GWDx.github.io/commit/9c46f2612c7f7f5bbc93c4880a904591054c1c3a" title="add random-walk-distance">(9c46f26)</a>
+        2024-07-21
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/e232e662b0705c55963b057bcba166516f6f16d1" title="update 数学">(e232e66)</a>
     </span>
   </p>
   

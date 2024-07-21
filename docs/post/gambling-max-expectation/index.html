@@ -45,11 +45,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://gwdx.github.io/post/gambling-max-expectation/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2024-04-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-07-03T15:52:11+08:00" />
+<meta property="article:modified_time" content="2024-07-21T17:55:49+08:00" />
 
 <meta itemprop="name" content="赌徒输光前最大值的期望">
 <meta itemprop="description" content="计算赌徒在输光前最大值的期望，分析各个因素对期望的影响。"><meta itemprop="datePublished" content="2024-04-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-07-03T15:52:11+08:00" />
+<meta itemprop="dateModified" content="2024-07-21T17:55:49+08:00" />
 <meta itemprop="wordCount" content="3229">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="赌徒输光前最大值的期望"/>
 <meta name="twitter:description" content="计算赌徒在输光前最大值的期望，分析各个因素对期望的影响。"/>
@@ -197,8 +197,8 @@
 <p>设 $p_n$ 是从 n 出发停在 b 的概率，那么有如下递推关系</p>
 $$
 \begin{aligned}
-p_b &= 1 \\\
-p_{-a} &= 0 \\\
+p_b &= 1 \\
+p_{-a} &= 0 \\
 p_n &= \frac{p_{n-1} + p_{n+1}}{2}  \qquad -a < n < b
 \end{aligned}
 $$
@@ -215,15 +215,15 @@ $$
 <p>上面的问题的结果相当于 $P(M \geq b) = \frac{a}{b+a}$</p>
 $$
 \begin{aligned}
-P(M = b) &= P(M \geq b) - P(M \geq b+1) \\\
- &= \frac{b}{b+a} - \frac{b+1}{b+a+1} \\\
+P(M = b) &= P(M \geq b) - P(M \geq b+1) \\
+ &= \frac{b}{b+a} - \frac{b+1}{b+a+1} \\
  & = \frac{a}{(b+a)(b+a+1)}
 \end{aligned}
 $$
 <p>所以期望</p>
 $$
 \begin{aligned}
-E(M) &= \sum_{b=0}^{\infty} b \cdot P(M = b) \\\
+E(M) &= \sum_{b=0}^{\infty} b \cdot P(M = b) \\
 &= \sum_{b=0}^{\infty} \frac{a b}{(b+a)(b+a+1)}
 \end{aligned}
 $$
@@ -249,8 +249,8 @@ $$
 </div><p>也可以用生存函数（survival function）来计算期望</p>
 $$
 \begin{aligned}
-\mathrm{SF}(b) &= P(M > b) \\\
-&= \frac{a}{b+a+1} \\\
+\mathrm{SF}(b) &= P(M > b) \\
+&= \frac{a}{b+a+1} \\
 E(M) &= \sum_{b=0}^{\infty} \mathrm{SF}(b)= \infty
 \end{aligned}
 $$
@@ -261,8 +261,8 @@ $$
 <p>设 $p_n$ 是从 n 出发停在 b 的概率，那么有如下递推关系</p>
 $$
 \begin{aligned}
-p_b &= 1 \\\
-p_{-a} &= 0 \\\
+p_b &= 1 \\
+p_{-a} &= 0 \\
 p_n &= t p_{n-1} + (1-t) p_{n+1} \qquad -a < n < b
 \end{aligned}
 $$
@@ -277,9 +277,9 @@ $$
 <p>当 $t>\frac{1}{2}$ 时（每局的期望小于 0），$c>1$</p>
 $$
 \begin{aligned}
-\mathrm{SF}(b) &= P(M > b) = \frac{c^a - 1}{c^{a+b+1} - 1} \\\
-E(M) &= \sum_{b=0}^{\infty} \mathrm{SF}(b) \\\
-&= \sum_{b=1}^{\infty} \frac{c^{a+n}-1}{c^{a+b}-1}\\\
+\mathrm{SF}(b) &= P(M > b) = \frac{c^a - 1}{c^{a+b+1} - 1} \\
+E(M) &= \sum_{b=0}^{\infty} \mathrm{SF}(b) \\
+&= \sum_{b=1}^{\infty} \frac{c^{a+n}-1}{c^{a+b}-1}\\
 &= \frac{c^a - 1}{2 \ln c} \left( - 2 \ln (c-1) +(2a+1) \ln c - 2 \psi_c(1+a) \right)
 \end{aligned} \tag{1}
 $$
@@ -315,9 +315,9 @@ $$
 <p>一个赌徒有 a 元钱，每次有 t 的概率输一元，剩余的概率赢 m 元。求输光前最大值的期望</p>
 $$
 \begin{aligned}
-p_n &= t p_{n-1} + (1-t) p_{n-m} \\\
-p_{-a} &= 0 \\\
-p_x &= 1 \qquad x \geq b \\\
+p_n &= t p_{n-1} + (1-t) p_{n-m} \\
+p_{-a} &= 0 \\
+p_x &= 1 \qquad x \geq b \\
 \end{aligned}
 $$
 <h3 id="解答-2">解答</h3>
@@ -338,18 +338,18 @@ $$
 <p>所以转换成关于 $t$ 的表达式，然后展开</p>
 $$
 \begin{aligned}
-t &= \frac{c(c^m-1)}{c^{m+1}-1} \\\
-&=  \frac{m}{1+m} + \frac{m}{2(1+m)} \Delta + O(\Delta^2) \\\
-E &= (1-t)m -t \\\
-\Delta &= -\frac{2 E}{m} \\\
+t &= \frac{c(c^m-1)}{c^{m+1}-1} \\
+&=  \frac{m}{1+m} + \frac{m}{2(1+m)} \Delta + O(\Delta^2) \\
+E &= (1-t)m -t \\
+\Delta &= -\frac{2 E}{m} \\
 \end{aligned}
 $$
 <p>得到估计上界的公式</p>
 $$
 \begin{aligned}
-c &= 1 - \frac{2 E}{m} \\\
+c &= 1 - \frac{2 E}{m} \\
 E(M)
-&= \frac{c^a - 1}{2 \ln c} \left( - 2 \ln (c-1) +(2a+1) \ln c - 2 \psi_c(1+a) \right)  \\\
+&= \frac{c^a - 1}{2 \ln c} \left( - 2 \ln (c-1) +(2a+1) \ln c - 2 \psi_c(1+a) \right)  \\
 \end{aligned}\tag{3}
 $$
 <h2 id="代码验证">代码验证</h2>
@@ -691,17 +691,17 @@ $$
 <p>所以先计算一个方向上的最大值的极限</p>
 $$
 \begin{aligned}
-c &= 1 - \frac{2E}{m} \\\
-a &= m + 1 \\\
+c &= 1 - \frac{2E}{m} \\
+a &= m + 1 \\
 L=\lim_{m\to \infty} \frac{a+E(M)}{a} &= 1 - E + \ln-\frac{1}{2E}
 \end{aligned}
 $$
 <p>一个更严格的上界</p>
 $$
 \begin{aligned}
-\lim_{m\to \infty} E'(M) &= \lim_{m\to \infty} \left(\frac {a}{m} L m + \left(1 - \frac{a}{m}\right) a\right) \\\
-&= (L+1)a \\\
-&= (2 - E + \ln-\frac{1}{2E}) a \\\
+\lim_{m\to \infty} E'(M) &= \lim_{m\to \infty} \left(\frac {a}{m} L m + \left(1 - \frac{a}{m}\right) a\right) \\
+&= (L+1)a \\
+&= (2 - E + \ln-\frac{1}{2E}) a \\
 \end{aligned} \tag{4}
 $$
 <p>例如当 $E=-\frac{1}{100}$ 时，$E'M < 5.92\ a$</p>
@@ -732,8 +732,8 @@ $$
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2024-07-03
-        <a href="https://github.com/GWDx/GWDx.github.io/commit/3787b2c73992aae6e9630a1c38a25467c01f407b" title="Update gambling-max-expectation.md">(3787b2c)</a>
+        2024-07-21
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/e232e662b0705c55963b057bcba166516f6f16d1" title="update 数学">(e232e66)</a>
     </span>
   </p>
   

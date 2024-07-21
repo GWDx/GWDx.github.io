@@ -44,8 +44,8 @@ $$
 
 $$
 \begin{aligned}
-E(X) &= 0 \\\
-E(X^2) &=  \frac{1}{k} \\\
+E(X) &= 0 \\
+E(X^2) &=  \frac{1}{k} \\
 Var(X) &= E(X^2) - E^2(X) = \frac{1}{k} \\
 \end{aligned}
 $$
@@ -54,7 +54,7 @@ $$
 
 $$
 \begin{aligned}
-E(XY) &= 0 \\\
+E(XY) &= 0 \\
 Cov(X, Y) &= E(XY) - E(X)E(Y) = 0
 \end{aligned}
 $$
@@ -65,13 +65,13 @@ $$
 \Sigma = \frac{I}{k}
 $$
 
-设 n 步后位置为 $\vec{P}_n=\displaystyle\sum _{i=1}^{n} \vec{A}_i$
+设 n 步后位置为 $\vec{P}_n=\displaystyle\sum_{i=1}^{n} \vec{A}_i$
 
 位置近似服从正态分布
 
 $$
 \begin{aligned}
-\frac{\vec{P}_n}{\sqrt{n}} &\xrightarrow{d} N(0, \Sigma) \\\
+\frac{\vec{P}_n}{\sqrt{n}} &\xrightarrow{d} N(0, \Sigma) \\
 \sqrt\frac{n}{k} \vec{P}_n &\sim N\left(0, I \right)
 \end{aligned}
 $$
@@ -98,7 +98,7 @@ $$
 
 $$
 \begin{align*}
-E(\chi_k) &= \sqrt 2 \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \\\
+E(\chi_k) &= \sqrt 2 \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \\
 E(R_k) &\approx \sqrt\frac n k E(\chi_k) =\sqrt \frac {2} k \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \sqrt n
 \end{align*}
 $$
@@ -107,8 +107,8 @@ $$
 
 $$
 \begin{align*}
-E(R_1) &\approx \sqrt\frac 2 \pi \sqrt n \approx 0.798 \sqrt n \\\
-E(R_2) &\approx \frac {\sqrt \pi} 2 \sqrt n \approx 0.886 \sqrt n \\\
+E(R_1) &\approx \sqrt\frac 2 \pi \sqrt n \approx 0.798 \sqrt n \\
+E(R_2) &\approx \frac {\sqrt \pi} 2 \sqrt n \approx 0.886 \sqrt n \\
 E(R_3) &\approx 2 \sqrt\frac 2 {3\pi} \sqrt n \approx 0.921 \sqrt n
 \end{align*}
 $$
@@ -120,7 +120,7 @@ $$
 
 $$
 \begin{align*}
-E(\chi_k^2) &= k \\\
+E(\chi_k^2) &= k \\
 \sqrt{E(R_k^2)} &\approx \sqrt\frac{n}k \sqrt {E(\chi_k^2)} = \sqrt n
 \end{align*}
 $$
@@ -135,8 +135,8 @@ $$
 
 $$
 \begin{align*}
-f(x) &= \frac{1}{2^{\frac k 2-1}\Gamma\left(\frac k 2\right)} x^{k-1} e^{-\frac{x^2}{2}} \\\
-&= C_1 x^{k-1} e^{-\frac{x^2}{2}} \\\
+f(x) &= \frac{1}{2^{\frac k 2-1}\Gamma\left(\frac k 2\right)} x^{k-1} e^{-\frac{x^2}{2}} \\
+&= C_1 x^{k-1} e^{-\frac{x^2}{2}} \\
 &= C_1 x^{k-1} + O(x^{k+1})
 \end{align*}
 $$
@@ -146,9 +146,9 @@ $$
 
 $$
 \begin{align*}
-P\left(\vec A_n=\vec 0\right) \approx P(R_{k,n} < 1) &= \int_0^{\sqrt\frac k n} f(r) dr \\\
-&= C_2 r^k + O(r^{k+2}) \Big|_0^{\sqrt\frac k n} \\\
-&= C_2 \left(\frac k n\right)^{\frac k 2} + O(n^{-\frac k 2-1}) \\\
+P\left(\vec A_n=\vec 0\right) \approx P(R_{k,n} < 1) &= \int_0^{\sqrt\frac k n} f(r) dr \\
+&= C_2 r^k + O(r^{k+2}) \Big|_0^{\sqrt\frac k n} \\
+&= C_2 \left(\frac k n\right)^{\frac k 2} + O(n^{-\frac k 2-1}) \\
 &= C_3 n^{-\frac k 2} + O(n^{-\frac k 2-1})
 \end{align*}
 $$
@@ -157,7 +157,7 @@ $$
 
 $$
 \begin{align*}
-E(N) &= \sum_{n=1}^\infty P\left(\vec A_n=\vec 0\right) \\\
+E(N) &= \sum_{n=1}^\infty P\left(\vec A_n=\vec 0\right) \\
 &\approx C_3 \sum_{n=1}^\infty n^{-\frac k 2} + O
 \end{align*}
 $$

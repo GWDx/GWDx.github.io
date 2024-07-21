@@ -50,8 +50,8 @@ mathjax: true
 
 $$
 \begin{aligned}
-p_b &= 1 \\\
-p_{-a} &= 0 \\\
+p_b &= 1 \\
+p_{-a} &= 0 \\
 p_n &= \frac{p_{n-1} + p_{n+1}}{2}  \qquad -a < n < b
 \end{aligned}
 $$
@@ -74,8 +74,8 @@ $$
 
 $$
 \begin{aligned}
-P(M = b) &= P(M \geq b) - P(M \geq b+1) \\\
- &= \frac{b}{b+a} - \frac{b+1}{b+a+1} \\\
+P(M = b) &= P(M \geq b) - P(M \geq b+1) \\
+ &= \frac{b}{b+a} - \frac{b+1}{b+a+1} \\
  & = \frac{a}{(b+a)(b+a+1)}
 \end{aligned}
 $$
@@ -84,7 +84,7 @@ $$
 
 $$
 \begin{aligned}
-E(M) &= \sum_{b=0}^{\infty} b \cdot P(M = b) \\\
+E(M) &= \sum_{b=0}^{\infty} b \cdot P(M = b) \\
 &= \sum_{b=0}^{\infty} \frac{a b}{(b+a)(b+a+1)}
 \end{aligned}
 $$
@@ -106,8 +106,8 @@ Sum[b P[a, b], {b, 0, \[Infinity]}]
 
 $$
 \begin{aligned}
-\mathrm{SF}(b) &= P(M > b) \\\
-&= \frac{a}{b+a+1} \\\
+\mathrm{SF}(b) &= P(M > b) \\
+&= \frac{a}{b+a+1} \\
 E(M) &= \sum_{b=0}^{\infty} \mathrm{SF}(b)= \infty
 \end{aligned}
 $$
@@ -130,8 +130,8 @@ $$
 
 $$
 \begin{aligned}
-p_b &= 1 \\\
-p_{-a} &= 0 \\\
+p_b &= 1 \\
+p_{-a} &= 0 \\
 p_n &= t p_{n-1} + (1-t) p_{n+1} \qquad -a < n < b
 \end{aligned}
 $$
@@ -154,9 +154,9 @@ $$
 
 $$
 \begin{aligned}
-\mathrm{SF}(b) &= P(M > b) = \frac{c^a - 1}{c^{a+b+1} - 1} \\\
-E(M) &= \sum_{b=0}^{\infty} \mathrm{SF}(b) \\\
-&= \sum_{b=1}^{\infty} \frac{c^{a+n}-1}{c^{a+b}-1}\\\
+\mathrm{SF}(b) &= P(M > b) = \frac{c^a - 1}{c^{a+b+1} - 1} \\
+E(M) &= \sum_{b=0}^{\infty} \mathrm{SF}(b) \\
+&= \sum_{b=1}^{\infty} \frac{c^{a+n}-1}{c^{a+b}-1}\\
 &= \frac{c^a - 1}{2 \ln c} \left( - 2 \ln (c-1) +(2a+1) \ln c - 2 \psi_c(1+a) \right)
 \end{aligned} \tag{1}
 $$
@@ -194,9 +194,9 @@ $E(M)$ 在 $c\in(1, \infty)$ 上递减，在 $a\in[0, \infty)$ 上递增
 
 $$
 \begin{aligned}
-p_n &= t p_{n-1} + (1-t) p_{n-m} \\\
-p_{-a} &= 0 \\\
-p_x &= 1 \qquad x \geq b \\\
+p_n &= t p_{n-1} + (1-t) p_{n-m} \\
+p_{-a} &= 0 \\
+p_x &= 1 \qquad x \geq b \\
 \end{aligned}
 $$
 
@@ -227,10 +227,10 @@ $$
 
 $$
 \begin{aligned}
-t &= \frac{c(c^m-1)}{c^{m+1}-1} \\\
-&=  \frac{m}{1+m} + \frac{m}{2(1+m)} \Delta + O(\Delta^2) \\\
-E &= (1-t)m -t \\\
-\Delta &= -\frac{2 E}{m} \\\
+t &= \frac{c(c^m-1)}{c^{m+1}-1} \\
+&=  \frac{m}{1+m} + \frac{m}{2(1+m)} \Delta + O(\Delta^2) \\
+E &= (1-t)m -t \\
+\Delta &= -\frac{2 E}{m} \\
 \end{aligned}
 $$
 
@@ -238,9 +238,9 @@ $$
 
 $$
 \begin{aligned}
-c &= 1 - \frac{2 E}{m} \\\
+c &= 1 - \frac{2 E}{m} \\
 E(M)
-&= \frac{c^a - 1}{2 \ln c} \left( - 2 \ln (c-1) +(2a+1) \ln c - 2 \psi_c(1+a) \right)  \\\
+&= \frac{c^a - 1}{2 \ln c} \left( - 2 \ln (c-1) +(2a+1) \ln c - 2 \psi_c(1+a) \right)  \\
 \end{aligned}\tag{3}
 $$
 
@@ -379,8 +379,8 @@ n = 100000      initMoney(a) = 100      loseProb(t) = 0.99901   winValue(m) = 99
 
 $$
 \begin{aligned}
-c &= 1 - \frac{2E}{m} \\\
-a &= m + 1 \\\
+c &= 1 - \frac{2E}{m} \\
+a &= m + 1 \\
 L=\lim_{m\to \infty} \frac{a+E(M)}{a} &= 1 - E + \ln-\frac{1}{2E}
 \end{aligned}
 $$
@@ -389,9 +389,9 @@ $$
 
 $$
 \begin{aligned}
-\lim_{m\to \infty} E'(M) &= \lim_{m\to \infty} \left(\frac {a}{m} L m + \left(1 - \frac{a}{m}\right) a\right) \\\
-&= (L+1)a \\\
-&= (2 - E + \ln-\frac{1}{2E}) a \\\
+\lim_{m\to \infty} E'(M) &= \lim_{m\to \infty} \left(\frac {a}{m} L m + \left(1 - \frac{a}{m}\right) a\right) \\
+&= (L+1)a \\
+&= (2 - E + \ln-\frac{1}{2E}) a \\
 \end{aligned} \tag{4}
 $$
 
