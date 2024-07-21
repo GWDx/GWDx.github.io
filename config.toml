@@ -22,6 +22,16 @@ googleAnalytics = "G-HBL65Q7HB4"      # UA-XXXXXXXX-X
 
 publishDir = 'docs'
 
+
+
+
+[markup.goldmark.extensions.passthrough]
+    enable = true
+[markup.goldmark.extensions.passthrough.delimiters]
+    block = [['$$', '$$']]
+    inline = [['$', '$']]
+
+
 [markup.goldmark.renderer]
     unsafe = true
 
@@ -63,6 +73,7 @@ publishDir = 'docs'
 [params]
     version = "4.x"           # Used to give a friendly message when you have an incompatible update
     debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
+    author.name = "GWDx"
 
     since = "2022"            # Site creation time          # 站点建立时间
     # use public git repo url to link lastmod git commit, enableGitInfo should be true.
