@@ -33,9 +33,7 @@ $$
 Bernoulli 数和多项式求和有关
 
 $$
-\begin{aligned}
-\sum_{i=0}^{n} i^k &= \frac{1}{n+1} \sum_{i=0}^{k} (-1)^i \binom{n+1}{i} B_{k-i} n^{k+1-i} \\\
-\end{aligned}
+\sum_{i=0}^{n} i^k = \frac{1}{n+1} \sum_{i=0}^{k} (-1)^i \binom{n+1}{i} B_{k-i} n^{k+1-i} \\
 $$
 
 前几个 Bernoulli 数为
@@ -43,17 +41,17 @@ $$
 $$
 \begin{aligned}
 B_0 &= 1 &
-B_1 &= -\frac{1}{2} \\\
+B_1 &= -\frac{1}{2} \\
 B_2 &= \frac{1}{6} &
-B_3 &= 0 \\\
+B_3 &= 0 \\
 B_4 &= -\frac{1}{30} &
-B_5 &= 0 \\\
+B_5 &= 0 \\
 B_6 &= \frac{1}{42} &
-B_7 &= 0 \\\
+B_7 &= 0 \\
 B_8 &= -\frac{1}{30} &
-B_9 &= 0 \\\
+B_9 &= 0 \\
 B_{10} &= \frac{5}{66} &
-B_{11} &= 0 \\\
+B_{11} &= 0 \\
 \end{aligned}
 $$
 
@@ -61,8 +59,8 @@ $$
 
 $$
 \begin{aligned}
-B_0 &= 1 \\\
-B_1 &= -\frac{1}{2} \\\
+B_0 &= 1 \\
+B_1 &= -\frac{1}{2} \\
 \sum_{k=0}^{n} \binom{n+1}{k} B_k &= 0, \quad n \ge 2
 \end{aligned}
 $$
@@ -74,7 +72,7 @@ $$
 
 $$
 D_n = \prod_{\substack{
-    p \text{ prime} \\\
+    p \text{ prime} \\
     p-1 \mid n
 }} p \tag{1}
 $$
@@ -101,9 +99,9 @@ $$
 
 $$
 \begin{aligned}
-\zeta(2) &= 1 + \frac{1}{2^2} + \frac{1}{3^2} + \cdots = \frac{\pi^2}{6} \\\
-\zeta(4) &= 1 + \frac{1}{2^4} + \frac{1}{3^4} + \cdots = \frac{\pi^4}{90} \\\
-\zeta(6) &= 1 + \frac{1}{2^6} + \frac{1}{3^6} + \cdots = \frac{\pi^6}{945} \\\
+\zeta(2) &= 1 + \frac{1}{2^2} + \frac{1}{3^2} + \cdots = \frac{\pi^2}{6} \\
+\zeta(4) &= 1 + \frac{1}{2^4} + \frac{1}{3^4} + \cdots = \frac{\pi^4}{90} \\
+\zeta(6) &= 1 + \frac{1}{2^6} + \frac{1}{3^6} + \cdots = \frac{\pi^6}{945} \\
 \end{aligned}
 $$
 

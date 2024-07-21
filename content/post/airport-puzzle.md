@@ -50,8 +50,8 @@ mathjax: true
 
 $$
 \begin{aligned}
-t_A&=\frac{s_1}{v}+\Delta{t}+\frac{s_2}{u+v} \\\
-t_B&=\frac{s_1}{v}+\frac{s_2-u\Delta{t}}{u+v}+\Delta{t} \\\
+t_A&=\frac{s_1}{v}+\Delta{t}+\frac{s_2}{u+v} \\
+t_B&=\frac{s_1}{v}+\frac{s_2-u\Delta{t}}{u+v}+\Delta{t} \\
 t_A-t_B &=\frac{u\,\Delta{t}}{u+v} > 0
 \end{aligned}
 $$
@@ -67,8 +67,8 @@ $t_A>t_B$，所以在电动步道上停下来系鞋带会花费更少的时间�
 
 $$
 \begin{aligned}
-t_A &=\frac{s_1-v_2\,\Delta{t}}{v}+\Delta{t}+\frac{s_2}{u+v} \\\
-t_B &=\frac{s_1}{v}+\frac{s_2-u\,\Delta{t}}{u+v}+\Delta{t} \\\
+t_A &=\frac{s_1-v_2\,\Delta{t}}{v}+\Delta{t}+\frac{s_2}{u+v} \\
+t_B &=\frac{s_1}{v}+\frac{s_2-u\,\Delta{t}}{u+v}+\Delta{t} \\
 t_A-t_B&=\frac{u\,\Delta{t}\,(v-v_2)}{v(u+v)} < 0
 \end{aligned}
 $$
@@ -97,8 +97,8 @@ $$
 
 $$
 \begin{aligned}
-t_A &=\frac{s_1}{v}+\Delta{t}+\frac{s_2}{u\oplus v} \\\
-t_B&=\frac{s_1}{v}+\frac{s_2-u\,\Delta{t}\,\gamma(u)}{u\oplus v}+\Delta{t}\,\gamma(u) \\\
+t_A &=\frac{s_1}{v}+\Delta{t}+\frac{s_2}{u\oplus v} \\
+t_B&=\frac{s_1}{v}+\frac{s_2-u\,\Delta{t}\,\gamma(u)}{u\oplus v}+\Delta{t}\,\gamma(u) \\
 t_A-t_B&=\frac{\left(u+v-\sqrt{1-\frac{u^2}{c^2}}\,v\right)\,\Delta{t}}{u+v} > 0
 \end{aligned}
 $$
@@ -113,8 +113,8 @@ $$
 
 $$
 \begin{aligned}
-t_A&=\frac{s_1-v_2\,\Delta{t}}{v}+\Delta{t}+\frac{s_2}{u\oplus v} \\\
-t_B&=\frac{s_1}{v}+\frac{s_2-(u\oplus v_2)\,\Delta{t}\,\gamma(u)}{u\oplus v}+\Delta{t}\,\gamma(u) \\\
+t_A&=\frac{s_1-v_2\,\Delta{t}}{v}+\Delta{t}+\frac{s_2}{u\oplus v} \\
+t_B&=\frac{s_1}{v}+\frac{s_2-(u\oplus v_2)\,\Delta{t}\,\gamma(u)}{u\oplus v}+\Delta{t}\,\gamma(u) \\
 t_A-t_B&=\frac{\left(v-v_2\right) \left(c^2 (u+v-v \sqrt{1-\frac{u^2}{c^2}})+u \, v_2 (u+v)\right)}{v (u+v) \left(c^2+u \,v_2\right)} < 0
 \end{aligned}
 $$
