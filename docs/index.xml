@@ -6,7 +6,7 @@
     <description>Recent content on GWDx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 21 Jul 2024 17:55:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jul 2024 21:36:58 +0800</lastBuildDate>
     <atom:link href="http://gwdx.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>随机游走到原点的距离的渐近估计</title>
@@ -21,6 +21,13 @@
       <pubDate>Wed, 15 May 2024 00:00:00 +0000</pubDate>
       <guid>http://gwdx.github.io/post/compute-bernoulli/</guid>
       <description>&lt;p&gt;FLINT 库是如何用 zeta 函数计算 Bernoulli 数的？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>恒定热源的一维热传导方程</title>
+      <link>http://gwdx.github.io/post/heat-conduction/</link>
+      <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://gwdx.github.io/post/heat-conduction/</guid>
+      <description>&lt;p&gt;求解一维热传导方程，左侧是恒定温度的热源的情况&lt;/p&gt;</description>
     </item>
     <item>
       <title>赌徒输光前最大值的期望</title>
