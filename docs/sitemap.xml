@@ -3,14 +3,14 @@
   
   <url>
     <loc>http://gwdx.github.io/</loc>
-    <lastmod>2024-07-21T21:36:58+08:00</lastmod>
+    <lastmod>2024-07-28T09:44:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gwdx.github.io/post/</loc>
-    <lastmod>2024-07-21T21:36:58+08:00</lastmod>
+    <lastmod>2024-07-28T09:44:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18,6 +18,13 @@
   <url>
     <loc>http://gwdx.github.io/post/random-walk-distance/</loc>
     <lastmod>2024-07-21T17:55:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.github.io/post/fix-okular-unicode-normalization/</loc>
+    <lastmod>2024-07-28T09:44:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
