@@ -129,4 +129,5 @@ publishDir = 'docs'
 [params.social]                                         # 社交链接
     a-email = "mailto:gwdx@mail.ustc.edu.cn"
     g-github = "https://github.com/GWDx"
+    i-zhihu = "https://www.zhihu.com/people/gan-wen-di"
     o-bilibili = "https://space.bilibili.com/442365922"

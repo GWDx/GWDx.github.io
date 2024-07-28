@@ -6,7 +6,7 @@
     <description>Recent content in Posts on GWDx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 28 Jul 2024 09:44:41 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jul 2024 22:39:54 +0800</lastBuildDate>
     <atom:link href="http://gwdx.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>随机游走到原点的距离的渐近估计</title>
@@ -20,7 +20,7 @@
       <link>http://gwdx.github.io/post/fix-okular-unicode-normalization/</link>
       <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate>
       <guid>http://gwdx.github.io/post/fix-okular-unicode-normalization/</guid>
-      <description>&lt;p&gt;修复 PDF 阅读器 Okular 久远的 bug——中文标点复制出来是英文标点的问题。&lt;/p&gt;</description>
+      <description>&lt;p&gt;修复 PDF 阅读器 Okular 久远的 bug——中文标点复制出来是英文标点的问题。&lt;/p&gt;&#xA;&lt;p&gt;第一次给开源项目贡献代码。&lt;/p&gt;</description>
     </item>
     <item>
       <title>计算 Bernoulli 数</title>
