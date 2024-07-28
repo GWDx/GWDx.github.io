@@ -18,6 +18,8 @@ mathjax: false
 
 修复 PDF 阅读器 Okular 久远的 bug——中文标点复制出来是英文标点的问题。
 
+第一次给开源项目贡献代码。
+
 <!--more-->
 
 ## 问题描述
@@ -96,89 +98,6 @@ rbreak ^Poppler::Page::
 ```
 
 Okular 调用 Poppler 中的 `Poppler::Document::page`，然后依次调用 `Poppler::Page::Page`、`Poppler::Document::page`、`Catalog::getPage`、`Catalog::cachePageTree`、`Page::Page`……
-
-<!-- <details>
-<summary>调用栈</summary>
-
-```
-#0  0x00007fff932ef2d0 in Page::Page(PDFDoc*, int, Object&&, Ref, PageAttrs*, Form*)@plt ()
-   from /home/gwd/文档/GitHub/okular-copy/poppler/build/libpoppler.so.126
-#1  0x00007fff9335e946 in std::make_unique<Page, PDFDoc*&, unsigned long, Object, Ref, PageAttrs*&, Form*&> ()
-    at /usr/include/c++/10/bits/unique_ptr.h:962
-#2  0x00007fff9335991c in Catalog::cachePageTree (this=0x555555b0f090, page=1)
-    at /home/gwd/文档/GitHub/okular-copy/poppler/poppler/Catalog.cc:317
-#3  0x00007fff93358fb7 in Catalog::getPage (this=0x555555b0f090, i=1)
-    at /home/gwd/文档/GitHub/okular-copy/poppler/poppler/Catalog.cc:200
-#4  0x00007fff9343a1dc in PDFDoc::getPage (this=0x55555572a6a0, page=1)
-    at /home/gwd/文档/GitHub/okular-copy/poppler/poppler/PDFDoc.cc:2145
-#5  0x00007fffabf4add9 in Poppler::Page::Page (this=0x555555aaf2f0, doc=0x555555b02bf0, index=0)
-    at /home/gwd/文档/GitHub/okular-copy/poppler/qt5/src/poppler-page.cc:422
-#6  0x00007fffabf29474 in Poppler::Document::page (this=0x555555c4adf0, index=0)
-    at /home/gwd/文档/GitHub/okular-copy/poppler/qt5/src/poppler-document.cc:118
-#7  0x00007fffc0038b8b in PDFGenerator::loadPages (this=0x555555c329c0, pagesVector=..., rotation=0, clear=false)
-    at /home/gwd/文档/GitHub/okular-copy/okular/generators/poppler/generator_pdf.cpp:784
-#8  0x00007fffc0038734 in PDFGenerator::init (this=0x555555c329c0, pagesVector=..., password=...)
-    at /home/gwd/文档/GitHub/okular-copy/okular/generators/poppler/generator_pdf.cpp:715
-#9  0x00007fffc003830a in PDFGenerator::loadDocumentWithPassword (this=0x555555c329c0, filePath=..., pagesVector=..., password=...)
-    at /home/gwd/文档/GitHub/okular-copy/okular/generators/poppler/generator_pdf.cpp:657
-#10 0x00007fffea32edd0 in Okular::DocumentPrivate::openDocumentInternal (this=0x555555859ed0, offer=..., isstdin=isstdin@entry=false,
-    docFile=..., filedata=..., password=...) at ./core/document.cpp:937
-#11 0x00007fffea32f470 in Okular::Document::openDocument (this=this@entry=0x555555859e50, docFile=..., url=..., _mime=..., password=...)
-    at ./core/document.cpp:2452
-#12 0x00007fffe86dfc72 in Okular::Part::doOpenFile (this=this@entry=0x555555857090, mimeA=..., fileNameToOpenA=...,
-    isCompressedFile=isCompressedFile@entry=0x7fffffffcda7) at ./part/part.cpp:1471
-#13 0x00007fffe86e0a34 in Okular::Part::openFile (this=0x555555857090) at ./part/part.cpp:1605
-#14 0x00007ffff7f47785 in ?? () from /lib/x86_64-linux-gnu/libKF5Parts.so.5
-#15 0x00007ffff7f4887e in KParts::ReadOnlyPart::openUrl(QUrl const&) () from /lib/x86_64-linux-gnu/libKF5Parts.so.5
-#16 0x00007fffe86d023b in Okular::Part::openUrl (this=<optimized out>, _url=..., swapInsteadOfOpening=<optimized out>)
-    at ./part/part.cpp:1831
-#17 0x000055555557017e in Shell::openUrl (this=<optimized out>, url=..., serializedOptions=...) at ./shell/shell.cpp:321
-#18 0x000055555557256d in operator() (__closure=<optimized out>, url=...) at ./shell/shell.cpp:106
-#19 QtPrivate::FunctorCall<QtPrivate::IndexesList<0>, QtPrivate::List<const QUrl&>, void, Shell::Shell(const QString&)::<lambda(const QUrl&)> >::call (arg=<optimized out>, f=...) at /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h:146
-#20 QtPrivate::Functor<Shell::Shell(const QString&)::<lambda(const QUrl&)>, 1>::call<QtPrivate::List<QUrl const&>, void> (
-    arg=<optimized out>, f=...) at /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h:256
-#21 QtPrivate::QFunctorSlotObject<Shell::Shell(const QString&)::<lambda(const QUrl&)>, 1, QtPrivate::List<const QUrl&>, void>::impl(int, QtPrivate::QSlotObjectBase *, QObject *, void **, bool *) (which=<optimized out>, this_=<optimized out>, r=<optimized out>,
-    a=<optimized out>, ret=<optimized out>) at /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h:443
-#22 0x00007ffff64e8f8f in ?? () from /lib/x86_64-linux-gnu/libQt5Core.so.5
-#23 0x0000555555567445 in WelcomeScreen::recentItemClicked (this=<optimized out>, _t1=...)
-    at ./obj-x86_64-linux-gnu/shell/okular_autogen/EWIEGA46WW/moc_welcomescreen.cpp:207
-#24 0x00007ffff64e8f8f in ?? () from /lib/x86_64-linux-gnu/libQt5Core.so.5
-#25 0x00007ffff73cee15 in QAbstractItemView::activated(QModelIndex const&) () from /lib/x86_64-linux-gnu/libQt5Widgets.so.5
-#26 0x00007ffff73d2e55 in QAbstractItemView::mouseReleaseEvent(QMouseEvent*) () from /lib/x86_64-linux-gnu/libQt5Widgets.so.5
-#27 0x00007ffff741a84f in QListView::mouseReleaseEvent(QMouseEvent*) () from /lib/x86_64-linux-gnu/libQt5Widgets.so.5
-#28 0x00007ffff71a4db8 in QWidget::event(QEvent*) () from /lib/x86_64-linux-gnu/libQt5Widgets.so.5
-#29 0x00007ffff725048e in QFrame::event(QEvent*) () from /lib/x86_64-linux-gnu/libQt5Widgets.so.5
-#30 0x00007ffff64b14bb in QCoreApplicationPrivate::sendThroughObjectEventFilters(QObject*, QEvent*) ()
-   from /lib/x86_64-linux-gnu/libQt5Core.so.5
-#31 0x00007ffff7162f9e in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /lib/x86_64-linux-gnu/libQt5Widgets.so.5
-#32 0x00007ffff716b552 in QApplication::notify(QObject*, QEvent*) () from /lib/x86_64-linux-gnu/libQt5Widgets.so.5
-#33 0x00007ffff64b1738 in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /lib/x86_64-linux-gnu/libQt5Core.so.5
-#34 0x00007ffff716965e in QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool, bool) () from /lib/x86_64-linux-gnu/libQt5Widgets.so.5
-#35 0x00007ffff71bdbd8 in ?? () from /lib/x86_64-linux-gnu/libQt5Widgets.so.5
-#36 0x00007ffff71c0f60 in ?? () from /lib/x86_64-linux-gnu/libQt5Widgets.so.5
-#37 0x00007ffff7162fae in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /lib/x86_64-linux-gnu/libQt5Widgets.so.5
-#38 0x00007ffff64b1738 in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /lib/x86_64-linux-gnu/libQt5Core.so.5
-#39 0x00007ffff693d42d in QGuiApplicationPrivate::processMouseEvent(QWindowSystemInterfacePrivate::MouseEvent*) ()
-   from /lib/x86_64-linux-gnu/libQt5Gui.so.5
-#40 0x00007ffff6911cec in QWindowSystemInterface::sendWindowSystemEvents(QFlags<QEventLoop::ProcessEventsFlag>) ()
-   from /lib/x86_64-linux-gnu/libQt5Gui.so.5
-#41 0x00007ffff12fbeca in ?? () from /lib/x86_64-linux-gnu/libQt5XcbQpa.so.5
-#42 0x00007ffff4a627a9 in g_main_context_dispatch () from /lib/x86_64-linux-gnu/libglib-2.0.so.0
-#43 0x00007ffff4a62a38 in ?? () from /lib/x86_64-linux-gnu/libglib-2.0.so.0
-#44 0x00007ffff4a62acc in g_main_context_iteration () from /lib/x86_64-linux-gnu/libglib-2.0.so.0
-#45 0x00007ffff6509876 in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) ()
-   from /lib/x86_64-linux-gnu/libQt5Core.so.5
-#46 0x00007ffff64b01bb in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /lib/x86_64-linux-gnu/libQt5Core.so.5
-#47 0x00007ffff64b8316 in QCoreApplication::exec() () from /lib/x86_64-linux-gnu/libQt5Core.so.5
-#48 0x0000555555566215 in main (argc=<optimized out>, argc@entry=1, argv=argv@entry=0x7fffffffe218) at ./shell/main.cpp:111
-#49 0x00007ffff604624a in __libc_start_call_main (main=main@entry=0x555555565a50 <main(int, char**)>, argc=argc@entry=1,
-    argv=argv@entry=0x7fffffffe218) at ../sysdeps/nptl/libc_start_call_main.h:58
-#50 0x00007ffff6046305 in __libc_start_main_impl (main=0x555555565a50 <main(int, char**)>, argc=1, argv=0x7fffffffe218,
-    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffffffe208) at ../csu/libc-start.c:360
-#51 0x00005555555671f1 in _start ()
-```
-
-</details> -->
 
 这样查下去没完没了了，而且这里好像只是初始化。
 
