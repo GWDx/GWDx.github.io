@@ -73,7 +73,7 @@ t_A-t_B&=\frac{u\,\Delta{t}\,(v-v_2)}{v(u+v)} < 0
 \end{aligned}
 $$
 
-$t_A<t_B$，所以在普通路段跑步会花费更少的时间。
+$t_A< t_B$，所以在普通路段跑步会花费更少的时间。
 
 ### 3. 考虑狭义相对论，重新计算上述问题
 
@@ -119,7 +119,7 @@ t_A-t_B&=\frac{\left(v-v_2\right) \left(c^2 (u+v-v \sqrt{1-\frac{u^2}{c^2}})+u \
 \end{aligned}
 $$
 
-由于 $v<v_2$，所以 $t_A<t_B$。
+由于 $v< v_2$，所以 $t_A< t_B$。
 
 在普通路段跑步会花费更少的时间。
 
