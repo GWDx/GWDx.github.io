@@ -17,7 +17,7 @@ reward: false
 mathjax: true
 ---
 
-FLINT 库是如何用 zeta 函数计算 Bernoulli 数的？
+FLINT（快速数论函数库）是如何用 zeta 函数计算 Bernoulli 数的？
 
 <!--more-->
 
@@ -119,7 +119,7 @@ sagemath 罗列了[几种算法](https://doc.sagemath.org/html/en/reference/ring
 >
 > - `'default'` – use 'flint' for n <= 20000, then 'arb' for n <= 300000 and 'bernmm' for larger values (this is just a heuristic, and not guaranteed to be optimal on all hardware)
 
-[FLINT](https://github.com/flintlib/flint) (Fast Library for Number Theory) 库是一个数论计算库。
+[FLINT](https://github.com/flintlib/flint) 库是一个数论计算库。
 
 它使用 `_bernoulli_fmpq_ui` 给出 bernoulli 数，这个函数输入整数 $n$，输出 Bernoulli 数的分子和分母。
 

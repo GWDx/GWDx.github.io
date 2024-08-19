@@ -1,5 +1,5 @@
 ---
-title: "修复 Okular 的中文标点复制问题"
+title: "修复 Okular 中文标点复制的问题"
 date: 2024-05-28
 keywords: []
 description: ""
