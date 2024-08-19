@@ -6,17 +6,17 @@
     <description>Recent content on GWDx</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Aug 2024 22:15:45 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2024 22:34:38 +0800</lastBuildDate>
     <atom:link href="http://gwdx.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>随机游走到原点的距离的渐近估计</title>
       <link>http://gwdx.github.io/post/random-walk-distance/</link>
       <pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate>
       <guid>http://gwdx.github.io/post/random-walk-distance/</guid>
-      <description>&lt;p&gt;估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性&lt;/p&gt;</description>
+      <description>&lt;p&gt;用中心极限定理估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。&lt;/p&gt;&#xA;&lt;p&gt;这个结论可以用来判断 k 维随机游走的常返性。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>修复 Okular 的中文标点复制问题</title>
+      <title>修复 Okular 中文标点复制的问题</title>
       <link>http://gwdx.github.io/post/fix-okular-unicode-normalization/</link>
       <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate>
       <guid>http://gwdx.github.io/post/fix-okular-unicode-normalization/</guid>
@@ -27,21 +27,21 @@
       <link>http://gwdx.github.io/post/compute-bernoulli/</link>
       <pubDate>Wed, 15 May 2024 00:00:00 +0000</pubDate>
       <guid>http://gwdx.github.io/post/compute-bernoulli/</guid>
-      <description>&lt;p&gt;FLINT 库是如何用 zeta 函数计算 Bernoulli 数的？&lt;/p&gt;</description>
+      <description>&lt;p&gt;FLINT（快速数论函数库）是如何用 zeta 函数计算 Bernoulli 数的？&lt;/p&gt;</description>
     </item>
     <item>
       <title>恒定热源的一维热传导方程</title>
       <link>http://gwdx.github.io/post/heat-conduction/</link>
       <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
       <guid>http://gwdx.github.io/post/heat-conduction/</guid>
-      <description>&lt;p&gt;求解一维热传导方程，左侧是恒定温度的热源的情况&lt;/p&gt;</description>
+      <description>&lt;p&gt;用分离变量法、Fourier 变换求解左侧是恒定温度的热源的一维热传导方程&lt;/p&gt;</description>
     </item>
     <item>
       <title>赌徒输光前最大值的期望</title>
       <link>http://gwdx.github.io/post/gambling-max-expectation/</link>
       <pubDate>Thu, 11 Apr 2024 00:00:00 +0000</pubDate>
       <guid>http://gwdx.github.io/post/gambling-max-expectation/</guid>
-      <description>&lt;p&gt;计算赌徒在输光前最大值的期望，分析各个因素对期望的影响。&lt;/p&gt;</description>
+      <description>&lt;p&gt;一个赌徒有 a 元钱，每次有一半的概率输一元，一半的概率赢一元。求输光前最大值的期望。&lt;/p&gt;&#xA;&lt;p&gt;计算此问题及拓展问题，分析本金、转移概率、步长对期望的影响。&lt;/p&gt;</description>
     </item>
     <item>
       <title>陶哲轩系鞋带</title>
