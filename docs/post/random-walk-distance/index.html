@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.123.8 with theme even" />
+<meta name="generator" content="Hugo 0.133.0 with theme even" />
 
 
 <link rel="canonical" href="http://gwdx.github.io/post/random-walk-distance/" />
@@ -40,19 +40,24 @@
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
-<meta property="og:title" content="随机游走到原点的距离的渐近估计" />
-<meta property="og:description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://gwdx.github.io/post/random-walk-distance/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2024-06-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-07-21T17:55:49+08:00" />
+<meta property="og:url" content="http://gwdx.github.io/post/random-walk-distance/">
+  <meta property="og:site_name" content="GWDx">
+  <meta property="og:title" content="随机游走到原点的距离的渐近估计">
+  <meta property="og:description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-06-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-21T17:55:49+08:00">
 
-<meta itemprop="name" content="随机游走到原点的距离的渐近估计">
-<meta itemprop="description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性"><meta itemprop="datePublished" content="2024-06-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-07-21T17:55:49+08:00" />
-<meta itemprop="wordCount" content="880">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="随机游走到原点的距离的渐近估计"/>
-<meta name="twitter:description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性"/>
+  <meta itemprop="name" content="随机游走到原点的距离的渐近估计">
+  <meta itemprop="description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性">
+  <meta itemprop="datePublished" content="2024-06-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-07-21T17:55:49+08:00">
+  <meta itemprop="wordCount" content="889">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="随机游走到原点的距离的渐近估计">
+  <meta name="twitter:description" content="估计 k 维空间中随机游走 n 步后到原点的距离服从的分布。判断 k 维随机游走的常返性">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -160,8 +165,7 @@
 <p>$\{\vec{A}_1, \cdots, \vec{A}_n\}$ 是独立同分布的 k 维随机变量，$\vec{\mu}$ 是均值，$\Sigma$ 是 $\vec{A}$ 服从的分布的协方差矩阵。则</p>
 $$
 \sqrt{n} \left(\frac{1}{n} \sum_{i=1}^{n} \vec{A}_i - \vec{\mu} \right) \xrightarrow{d} N(0, \Sigma)
-$$
-<h2 id="位置-vecp_n-的近似分布">位置 $\vec{P}_n$ 的近似分布</h2>
+$$<h2 id="位置-vecp_n-的近似分布">位置 $\vec{P}_n$ 的近似分布</h2>
 <p>对于 k 维空间的随机游走，每次选择 2k 个方向中的一个移动一步。</p>
 <p>假设其中两个方向是 $X$ 和 $Y$，即 $\vec{A} = (X, Y, \cdots)$</p>
 <p>则各有有 $\frac{1}{2k}$ 的概率向 +x 方向、-x 方向、+y 方向、-y 方向移动。</p>
@@ -172,33 +176,28 @@ E(X) &= 0 \\
 E(X^2) &=  \frac{1}{k} \\
 Var(X) &= E(X^2) - E^2(X) = \frac{1}{k} \\
 \end{aligned}
-$$
-<p>协方差显然是 0</p>
+$$<p>协方差显然是 0</p>
 $$
 \begin{aligned}
 E(XY) &= 0 \\
 Cov(X, Y) &= E(XY) - E(X)E(Y) = 0
 \end{aligned}
-$$
-<p>协方差矩阵</p>
+$$<p>协方差矩阵</p>
 $$
 \Sigma = \frac{I}{k}
-$$
-<p>设 n 步后位置为 $\vec{P}_n=\displaystyle\sum_{i=1}^{n} \vec{A}_i$</p>
+$$<p>设 n 步后位置为 $\vec{P}_n=\displaystyle\sum_{i=1}^{n} \vec{A}_i$</p>
 <p>位置近似服从正态分布</p>
 $$
 \begin{aligned}
 \frac{\vec{P}_n}{\sqrt{n}} &\xrightarrow{d} N(0, \Sigma) \\
 \sqrt\frac{n}{k} \vec{P}_n &\sim N\left(0, I \right)
 \end{aligned}
-$$
-<h2 id="距离-r_kn-的近似分布">距离 $R_{k,n}$ 的近似分布</h2>
+$$<h2 id="距离-r_kn-的近似分布">距离 $R_{k,n}$ 的近似分布</h2>
 <p>设 $P_n$ 到原点的距离为 $R_{k,n} = \sqrt{\vec{P}_n \cdot \vec{P}_n}$，简记为 $R_k$</p>
 <p>当 n 较大时，距离（乘上一个常数后）近似服从自由度为 k 的<a href="https://en.wikipedia.org/wiki/Chi_distribution">卡分布</a></p>
 $$
 \sqrt\frac k n R_k \sim \chi_k \\
-$$
-<center>
+$$<center>
 <img src="chi-distribution-pdf.png" alt="chi-distribution-pdf" width="400"/>
 <p>卡分布的概率密度函数</p>
 </center>
@@ -208,24 +207,21 @@ $$
 E(\chi_k) &= \sqrt 2 \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \\
 E(R_k) &\approx \sqrt\frac n k E(\chi_k) =\sqrt \frac {2} k \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac k 2\right)} \sqrt n
 \end{align*}
-$$
-<p>对于前几个维度，</p>
+$$<p>对于前几个维度，</p>
 $$
 \begin{align*}
 E(R_1) &\approx \sqrt\frac 2 \pi \sqrt n \approx 0.798 \sqrt n \\
 E(R_2) &\approx \frac {\sqrt \pi} 2 \sqrt n \approx 0.886 \sqrt n \\
 E(R_3) &\approx 2 \sqrt\frac 2 {3\pi} \sqrt n \approx 0.921 \sqrt n
 \end{align*}
-$$
-<p>当 $k \to \infty$ 时，前面的系数趋近于 1</p>
+$$<p>当 $k \to \infty$ 时，前面的系数趋近于 1</p>
 <p>比起平均距离，均方根好看很多</p>
 $$
 \begin{align*}
 E(\chi_k^2) &= k \\
 \sqrt{E(R_k^2)} &\approx \sqrt\frac{n}k \sqrt {E(\chi_k^2)} = \sqrt n
 \end{align*}
-$$
-<blockquote>
+$$<blockquote>
 <p>事实上这个式子两边是相等的</p>
 </blockquote>
 <h2 id="常返性">常返性</h2>
@@ -237,8 +233,7 @@ f(x) &= \frac{1}{2^{\frac k 2-1}\Gamma\left(\frac k 2\right)} x^{k-1} e^{-\frac{
 &= C_1 x^{k-1} e^{-\frac{x^2}{2}} \\
 &= C_1 x^{k-1} + O(x^{k+1})
 \end{align*}
-$$
-<p>然后积分估计第 n 步在原点的概率：</p>
+$$<p>然后积分估计第 n 步在原点的概率：</p>
 $$
 \begin{align*}
 P\left(\vec A_n=\vec 0\right) \approx P(R_{k,n} < 1) &= \int_0^{\sqrt\frac k n} f(r) dr \\
@@ -246,15 +241,13 @@ P\left(\vec A_n=\vec 0\right) \approx P(R_{k,n} < 1) &= \int_0^{\sqrt\frac k n} 
 &= C_2 \left(\frac k n\right)^{\frac k 2} + O(n^{-\frac k 2-1}) \\
 &= C_3 n^{-\frac k 2} + O(n^{-\frac k 2-1})
 \end{align*}
-$$
-<p>经过原点次数的期望</p>
+$$<p>经过原点次数的期望</p>
 $$
 \begin{align*}
 E(N) &= \sum_{n=1}^\infty P\left(\vec A_n=\vec 0\right) \\
 &\approx C_3 \sum_{n=1}^\infty n^{-\frac k 2} + O
 \end{align*}
-$$
-<ul>
+$$<ul>
 <li>$k\leq 2$ 时，期望为无穷大，常返</li>
 <li>$k>2$ 时，期望为有限值，不常返</li>
 </ul>
@@ -326,7 +319,7 @@ $$
       <a href="https://github.com/GWDx" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/gan-wen-di" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/442365922" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://gwdx.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">
@@ -335,15 +328,15 @@ $$
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    Theme -
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
   
 
   <span class="copyright-year">
-    &copy; 
-    2022 - 
+    &copy;
+    2022 -
     2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>GWDx</span>
   </span>
 </div>
@@ -371,16 +364,25 @@ $$
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HBL65Q7HB4"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-HBL65Q7HB4', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-HBL65Q7HB4"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-HBL65Q7HB4');
+        }
+      </script>
+    
+  
+
 
 
 

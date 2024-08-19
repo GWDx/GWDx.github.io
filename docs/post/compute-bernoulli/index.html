@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.123.8 with theme even" />
+<meta name="generator" content="Hugo 0.133.0 with theme even" />
 
 
 <link rel="canonical" href="http://gwdx.github.io/post/compute-bernoulli/" />
@@ -40,19 +40,24 @@
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
-<meta property="og:title" content="计算 Bernoulli 数" />
-<meta property="og:description" content="FLINT 库是如何用 zeta 函数计算 Bernoulli 数的？" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://gwdx.github.io/post/compute-bernoulli/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2024-05-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-07-21T17:55:49+08:00" />
+<meta property="og:url" content="http://gwdx.github.io/post/compute-bernoulli/">
+  <meta property="og:site_name" content="GWDx">
+  <meta property="og:title" content="计算 Bernoulli 数">
+  <meta property="og:description" content="FLINT 库是如何用 zeta 函数计算 Bernoulli 数的？">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-05-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-21T17:55:49+08:00">
 
-<meta itemprop="name" content="计算 Bernoulli 数">
-<meta itemprop="description" content="FLINT 库是如何用 zeta 函数计算 Bernoulli 数的？"><meta itemprop="datePublished" content="2024-05-15T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-07-21T17:55:49+08:00" />
-<meta itemprop="wordCount" content="966">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="计算 Bernoulli 数"/>
-<meta name="twitter:description" content="FLINT 库是如何用 zeta 函数计算 Bernoulli 数的？"/>
+  <meta itemprop="name" content="计算 Bernoulli 数">
+  <meta itemprop="description" content="FLINT 库是如何用 zeta 函数计算 Bernoulli 数的？">
+  <meta itemprop="datePublished" content="2024-05-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-07-21T17:55:49+08:00">
+  <meta itemprop="wordCount" content="971">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="计算 Bernoulli 数">
+  <meta name="twitter:description" content="FLINT 库是如何用 zeta 函数计算 Bernoulli 数的？">
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -145,12 +150,10 @@
 <p>Bernoulli 数 $B_n$ 可以用一个函数的指数生成函数（EGF）展开来定义</p>
 $$
 \frac{x}{e^x - 1} = \sum_{n=0}^{\infty} \frac{B_n}{n!} x^n
-$$
-<p>Bernoulli 数和多项式求和有关</p>
+$$<p>Bernoulli 数和多项式求和有关</p>
 $$
 \sum_{i=0}^{n} i^k = \frac{1}{n+1} \sum_{i=0}^{k} (-1)^i \binom{n+1}{i} B_{k-i} n^{k+1-i} \\
-$$
-<p>前几个 Bernoulli 数为</p>
+$$<p>前几个 Bernoulli 数为</p>
 $$
 \begin{aligned}
 B_0 &= 1 &
@@ -166,45 +169,38 @@ B_9 &= 0 \\
 B_{10} &= \frac{5}{66} &
 B_{11} &= 0 \\
 \end{aligned}
-$$
-<p>可以用递推公式计算 Bernoulli 数，但是这样计算效率不高</p>
+$$<p>可以用递推公式计算 Bernoulli 数，但是这样计算效率不高</p>
 $$
 \begin{aligned}
 B_0 &= 1 \\
 B_1 &= -\frac{1}{2} \\
 \sum_{k=0}^{n} \binom{n+1}{k} B_k &= 0, \quad n \ge 2
 \end{aligned}
-$$
-<p>根据 <a href="https://en.wikipedia.org/wiki/Von_Staudt%E2%80%93Clausen_theorem">von Staudt–Clausen 定理</a>，Bernoulli 数的分母可以比较容易地计算出来：</p>
+$$<p>根据 <a href="https://en.wikipedia.org/wiki/Von_Staudt%E2%80%93Clausen_theorem">von Staudt–Clausen 定理</a>，Bernoulli 数的分母可以比较容易地计算出来：</p>
 $$
 D_n = \prod_{\substack{
     p \text{ prime} \\
     p-1 \mid n
 }} p \tag{1}
-$$
-<p>例如，$D_{10} = 2 \times 3 \times 11 = 66$。</p>
+$$<p>例如，$D_{10} = 2 \times 3 \times 11 = 66$。</p>
 <h2 id="zeta-函数">$\zeta$ 函数</h2>
 <p>黎曼 $\zeta$ 函数在 $(1, \infty)$ 上的定义是</p>
 $$
 \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} \tag{2}
-$$
-<p>欧拉乘积公式将 $\zeta$ 函数与素数联系起来：</p>
+$$<p>欧拉乘积公式将 $\zeta$ 函数与素数联系起来：</p>
 $$
 \zeta(s) = \prod_{p \text{ prime}} \frac{1}{1 - p^{-s}} \tag{3}
-$$
-<p>在偶数时，$\zeta$ 函数有特殊的取值：</p>
+$$<p>在偶数时，$\zeta$ 函数有特殊的取值：</p>
 $$
 \begin{aligned}
 \zeta(2) &= 1 + \frac{1}{2^2} + \frac{1}{3^2} + \cdots = \frac{\pi^2}{6} \\
 \zeta(4) &= 1 + \frac{1}{2^4} + \frac{1}{3^4} + \cdots = \frac{\pi^4}{90} \\
 \zeta(6) &= 1 + \frac{1}{2^6} + \frac{1}{3^6} + \cdots = \frac{\pi^6}{945} \\
 \end{aligned}
-$$
-<p>Bernoulli 数和 $\zeta$ 函数有以下关系：</p>
+$$<p>Bernoulli 数和 $\zeta$ 函数有以下关系：</p>
 $$
 \zeta(2n) = (-1)^{n+1} \frac{2 \pi^{2n}}{(2n)!} B_{2n} \tag{4}
-$$
-<h2 id="计算-bernoulli-数">计算 Bernoulli 数</h2>
+$$<h2 id="计算-bernoulli-数">计算 Bernoulli 数</h2>
 <p>sagemath 罗列了<a href="https://doc.sagemath.org/html/en/reference/rings_standard/sage/arith/misc.html#sage.arith.misc.bernoulli">几种算法</a>，默认使用的是 FLINT 库</p>
 <blockquote>
 <p><code>algorithm</code>:</p>
@@ -395,7 +391,7 @@ $$
       <a href="https://github.com/GWDx" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/gan-wen-di" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/442365922" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://gwdx.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">
@@ -404,15 +400,15 @@ $$
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    Theme -
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
   
 
   <span class="copyright-year">
-    &copy; 
-    2022 - 
+    &copy;
+    2022 -
     2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>GWDx</span>
   </span>
 </div>
@@ -440,16 +436,25 @@ $$
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HBL65Q7HB4"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-HBL65Q7HB4', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-HBL65Q7HB4"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-HBL65Q7HB4');
+        }
+      </script>
+    
+  
+
 
 
 
