@@ -22,7 +22,7 @@ mathjax: true
 
 得分 1955，排名 93
 
-> 题目及其余题解在 [PKU-GeekGame/geekgame-4th](https://github.com/PKU-GeekGame/geekgame-3rd) 中查看
+> 题目及其余题解在 [PKU-GeekGame/geekgame-4th](https://github.com/PKU-GeekGame/geekgame-4th) 中查看
 >
 > 去年的题解：[GeekGame 2023 题解 - GWDx](https://gwdx.github.io/post/geekgame2023/)
 
@@ -33,7 +33,7 @@ mathjax: true
 
 ## Tutorial
 
-### 签到（囯内）
+### 1. 签到（囯内）
 
 每个压缩包里面套了三个压缩包或者文本文件。一共有 81 个文本文件，只有一个里面有 flag。
 
@@ -61,7 +61,7 @@ grep -R flag
 
 ## Misc
 
-### 大模型模型虎视眈眈
+### 3. 大模型模型虎视眈眈
 
 #### 50% 4.0，50% 0.0
 
@@ -77,7 +77,7 @@ grep -R flag
 
 <br>
 
-### 熙熙攘攘我们的天才吧（部分）
+### 5. 熙熙攘攘我们的天才吧（部分）
 
 #### Magic Keyboard
 
@@ -249,7 +249,7 @@ for key, count in allKeys:
 
 ## Web
 
-### 验证码（部分）
+### 7. 验证码（部分）
 
 #### Hard
 
@@ -269,7 +269,7 @@ for key, count in allKeys:
 
 ## Binary
 
-### 从零开始学Python（部分）
+### 13. 从零开始学Python（部分）
 
 #### 源码中遗留的隐藏信息
 
@@ -290,7 +290,7 @@ flag2 = flag{wElc0me_tO_THe_w0RlD_OF_pYtHON}
 
 <br>
 
-### 大整数类
+### 15. 大整数类
 
 #### Flag 1（一血）
 
@@ -514,7 +514,7 @@ FromCharacterCode@IntegerDigits[message, 128]
 
 ## Algorithm
 
-### 打破复杂度
+### 17. 打破复杂度
 
 #### SPFA
 
@@ -634,7 +634,7 @@ with open('in.txt', 'w') as f:
 
 <br>
 
-### 随机数生成器
+### 19. 随机数生成器
 
 #### C++
 
@@ -967,19 +967,19 @@ with open("partition.sh", "w") as f:
 
 <br>
 
-### 神秘计算器
+### 21. 神秘计算器
 
 #### 素数判断函数
 
 使用费马小定理：
 
-> 已知 $p$ 为素数，$a$ 为整数，则
+> 已知 $p$ 为素数，$a$ 为整数且 $a$ 与 $p$ 互素，则
 >
 > $$
 a^{p-1} \equiv 1 \pmod{p}
 $$
 
-可以用这个公式判断 $p$ 是否为素数。但也存在伪素数，比如 341。需要排除 $p$ 以及伪素数。
+可以用这个公式判断 $p$ 是否为素数。但也存在伪素数，比如 341。对于 $a=p$ 和伪素数需要特殊处理。
 
 判断逻辑大致是这样：
 
