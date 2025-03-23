@@ -74,7 +74,7 @@ $$
 $$
 \begin{aligned}
 \frac{\vec{P}_n}{\sqrt{n}} &\xrightarrow{d} N(0, \Sigma) \\
-\sqrt\frac{n}{k} \vec{P}_n &\sim N\left(0, I \right)
+\sqrt\frac{k}{n} \vec{P}_n &\sim N\left(0, I \right)
 \end{aligned}
 $$
 
