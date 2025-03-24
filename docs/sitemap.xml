@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://gwdx.github.io/</loc>
+    <lastmod>2025-03-25T01:20:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.github.io/post/</loc>
+    <lastmod>2025-03-25T01:20:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gwdx.github.io/post/nucleoside-analogue-2/</loc>
+    <lastmod>2025-03-25T01:20:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://gwdx.github.io/post/geekgame2024/</loc>
     <lastmod>2024-11-18T01:52:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -9,22 +30,8 @@
   </url>
   
   <url>
-    <loc>http://gwdx.github.io/</loc>
-    <lastmod>2024-11-18T01:52:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gwdx.github.io/post/</loc>
-    <lastmod>2024-11-18T01:52:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://gwdx.github.io/post/random-walk-distance/</loc>
-    <lastmod>2024-08-19T22:34:38+08:00</lastmod>
+    <lastmod>2025-03-23T12:32:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
