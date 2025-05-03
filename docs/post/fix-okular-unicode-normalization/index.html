@@ -50,14 +50,14 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
     <meta property="article:published_time" content="2024-05-28T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-19T22:34:38+08:00">
+    <meta property="article:modified_time" content="2025-05-03T23:09:05+08:00">
 
   <meta itemprop="name" content="修复 Okular 中文标点复制的问题">
   <meta itemprop="description" content="修复 PDF 阅读器 Okular 久远的 bug——中文标点复制出来是英文标点的问题。
 第一次给开源项目贡献代码。">
   <meta itemprop="datePublished" content="2024-05-28T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-08-19T22:34:38+08:00">
-  <meta itemprop="wordCount" content="2702">
+  <meta itemprop="dateModified" content="2025-05-03T23:09:05+08:00">
+  <meta itemprop="wordCount" content="2708">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="修复 Okular 中文标点复制的问题">
   <meta name="twitter:description" content="修复 PDF 阅读器 Okular 久远的 bug——中文标点复制出来是英文标点的问题。
@@ -665,7 +665,7 @@
 <p>于是找了两个相关的 issue：<a href="https://bugs.kde.org/show_bug.cgi?id=466521">bug 466521</a> 和 <a href="https://bugs.kde.org/show_bug.cgi?id=473495">bug 473495</a>。提交了一个 <a href="https://invent.kde.org/graphics/okular/-/merge_requests/941">Merge Request 941</a></p>
 <h3 id="查找时使用-nfkc">查找时使用 NFKC</h3>
 <p>但是这种简单的改法不能查找到变音符号，例如用 <code>ff</code> 查找 <code>ﬀ</code>。</p>
-<p>所以需要动动脑子，在查找函数中相比于之前的版本做两处修改：</p>
+<p>所以需要动动脑子，对于 <code>findTextInternalForward</code> 和 <code>findTextInternalBackward</code> 两个查找函数，相比于之前的版本做以下修改：</p>
 <ul>
 <li>用 NFKC 处理查找的 <code>query</code></li>
 <li>因为前面的修改使得待查找的文本 <code>str</code> 以 NFC 的形式存储，在查找前需要经过一个 NFKC</li>
@@ -738,8 +738,8 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2024-08-19
-        <a href="https://github.com/GWDx/GWDx.github.io/commit/98b99d50004b71c915f94954eced71db7db275d8" title="update 概述">(98b99d5)</a>
+        2025-05-03
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/e242e394539403a9d302a010fa54c648608ddcc6" title="update okular and HDMI">(e242e39)</a>
     </span>
   </p>
   

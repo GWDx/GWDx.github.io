@@ -318,7 +318,7 @@ Okular 里共使用了 10 次 NFKC：
 
 但是这种简单的改法不能查找到变音符号，例如用 `ff` 查找 `ﬀ`。
 
-所以需要动动脑子，在查找函数中相比于之前的版本做两处修改：
+所以需要动动脑子，对于 `findTextInternalForward` 和 `findTextInternalBackward` 两个查找函数，相比于之前的版本做以下修改：
 
 - 用 NFKC 处理查找的 `query`
 - 因为前面的修改使得待查找的文本 `str` 以 NFC 的形式存储，在查找前需要经过一个 NFKC
