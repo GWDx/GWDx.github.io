@@ -22,7 +22,11 @@ katex: false
 
 ## 问题描述
 
-> 环境：Debian 12
+环境：
+
+- CPU：Intel i5-12500H
+- 操作系统：Debian 12
+
 
 `xrandr` 会显示
 
