@@ -6,8 +6,15 @@
     <description>Recent content on GWDx</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 03 May 2025 23:09:05 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 Aug 2025 00:57:41 +0800</lastBuildDate>
     <atom:link href="http://gwdx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>红绿色觉异常机制简介</title>
+      <link>http://gwdx.github.io/post/red-green-color-vision-deficiency/</link>
+      <pubDate>Thu, 14 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://gwdx.github.io/post/red-green-color-vision-deficiency/</guid>
+      <description>&lt;p&gt;再来一篇生物相关的。&lt;/p&gt;&#xA;&lt;p&gt;道尔顿会混淆猩红色和绿色，粉色和蓝色，起初被认为是红色盲；但现代分子生物学研究表明他缺失 OPN1MW 基因，是绿色盲。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>再谈核苷类似物</title>
       <link>http://gwdx.github.io/post/nucleoside-analogue-2/</link>

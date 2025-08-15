@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>红绿色觉异常机制简介 - GWDx</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GWDx" /><meta name="description" content="再来一篇生物相关的。
+道尔顿会混淆猩红色和绿色，粉色和蓝色，起初被认为是红色盲；但现代分子生物学研究表明他缺失 OPN1MW 基因，是绿色盲。
+" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.133.0 with theme even" />
+
+
+<link rel="canonical" href="http://gwdx.github.io/post/red-green-color-vision-deficiency/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c29ea812462215a64664d7cc3441ba352b84557e1a6a570ffaf5d74e70242a4.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:url" content="http://gwdx.github.io/post/red-green-color-vision-deficiency/">
+  <meta property="og:site_name" content="GWDx">
+  <meta property="og:title" content="红绿色觉异常机制简介">
+  <meta property="og:description" content="再来一篇生物相关的。
+道尔顿会混淆猩红色和绿色，粉色和蓝色，起初被认为是红色盲；但现代分子生物学研究表明他缺失 OPN1MW 基因，是绿色盲。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-08-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-16T00:57:41+08:00">
+
+  <meta itemprop="name" content="红绿色觉异常机制简介">
+  <meta itemprop="description" content="再来一篇生物相关的。
+道尔顿会混淆猩红色和绿色，粉色和蓝色，起初被认为是红色盲；但现代分子生物学研究表明他缺失 OPN1MW 基因，是绿色盲。">
+  <meta itemprop="datePublished" content="2025-08-14T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-08-16T00:57:41+08:00">
+  <meta itemprop="wordCount" content="2611">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="红绿色觉异常机制简介">
+  <meta name="twitter:description" content="再来一篇生物相关的。
+道尔顿会混淆猩红色和绿色，粉色和蓝色，起初被认为是红色盲；但现代分子生物学研究表明他缺失 OPN1MW 基因，是绿色盲。">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">GWDx</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">GWDx</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">红绿色觉异常机制简介</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2025-08-14 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前置知识">前置知识</a>
+      <ul>
+        <li><a href="#交叉互换">交叉互换</a></li>
+        <li><a href="#转录翻译">转录、翻译</a></li>
+      </ul>
+    </li>
+    <li><a href="#红绿色觉异常的机制">红绿色觉异常的机制</a>
+      <ul>
+        <li><a href="#流行病学分类">流行病学、分类</a></li>
+        <li><a href="#基因">基因</a></li>
+        <li><a href="#交叉互换产生异常基因">交叉互换产生异常基因</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#杂谈">杂谈</a></li>
+    <li><a href="#后记">后记</a></li>
+    <li><a href="#时间">时间</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>再来一篇生物相关的。</p>
+<p>道尔顿会混淆猩红色和绿色，粉色和蓝色，起初被认为是红色盲；但现代分子生物学研究表明他缺失 OPN1MW 基因，是绿色盲。</p>
+<blockquote>
+<p>[1] <a href="https://www.science.org/doi/10.1126/science.7863342">The Chemistry of John Dalton&rsquo;s Color Blindness</a></p>
+</blockquote>
+<h2 id="前置知识">前置知识</h2>
+<h3 id="交叉互换">交叉互换</h3>
+<p><strong>TLDR</strong>：在减数分裂I 的前期，同源染色体配对、联会并发生<strong>交叉互换</strong>。</p>
+<center>
+<img src="Synapsis_during_Meiosis.png" alt="Synapsis_during_Meiosis.png" style="zoom:50%;" />
+</center>
+<h4 id="细胞周期">细胞周期</h4>
+<p>细胞周期可以分为 G0, G1, S, G2, M 期。
+减数分裂（meiosis）分为减数分裂I 和减数分裂II。每个阶段又可以分为前期、中期、后期、末期（prophase, metaphase, anaphase, telophase）。</p>
+<center>
+<img src="meiosis-mitosis.webp" alt="meiosis-mitosis.webp" style="zoom:50%;" />
+</center>
+<h4 id="减数分裂i-中的基因重组">减数分裂I 中的基因重组</h4>
+<p>在减数分裂前期I，</p>
+<ul>
+<li>同源染色体联会对齐。</li>
+<li>Spo11 蛋白在一条 DNA 双链上制造双链断裂（DSB, Double-strand break）。</li>
+<li>然后 5&rsquo; → 3&rsquo; 核酸外切酶切除部分 5&rsquo; 端。</li>
+<li>单链入侵（strand invasion）：3&rsquo; 单链尾入侵同源染色单体的一条 DNA 链，形成 D-loop。</li>
+</ul>
+<center>
+<img src="homologous-recombination.svg" alt="homologous-recombination.svg" style="zoom:50%;" />
+</center>
+<p>减数分裂前期I 中的基因重组主要通过 SDSA 和 DHJ（双Holliday交叉） 机制进行。</p>
+<ul>
+<li>SDSA 机制：3&rsquo;单链进行 DNA 合成后与原链相连，伴随基因转换（Gene conversion）。</li>
+<li>DHJ 机制：形成双Holliday交叉；对于双Holliday交叉，如果一边横着切，另一边从另一个方向切割，就会达到<a href="https://en.wikipedia.org/wiki/Chromosomal_crossover"><strong>交叉互换</strong></a>（crossover）的效果。</li>
+</ul>
+<center>
+<img src="holliday-cleavage.webp" alt="holliday-cleavage.webp" style="zoom:50%;" />
+<p>单个Holliday交叉的切割</p>
+</center>
+<br>
+<h3 id="转录翻译">转录、翻译</h3>
+<p>中心法则：DNA 序列转录成 RNA，然后 RNA 翻译成蛋白质。</p>
+<center>
+<img src="CentralDogma.png" alt="CentralDogma.png" style="zoom:50%;" />
+</center>
+<p>其中，在 RNA 翻译前，需要进行 RNA 剪接。在此过程中，外显子（exon）被合并，内含子被移除。</p>
+<center>
+<img src="Pre-mRNA_to_mRNA_zh.png" alt="Pre-mRNA_to_mRNA_zh.png" style="zoom:50%;" />
+</center>
+<br>
+<h2 id="红绿色觉异常的机制">红绿色觉异常的机制</h2>
+<h3 id="流行病学分类">流行病学、分类</h3>
+<p>先天性红绿色觉异常（congenital red–green color vision deficiency）大约影响 8% 的男性和 0.4% 的女性。</p>
+<p>按照受影响的视锥细胞种类（L, M）和严重程度（二色色盲、三色色觉异常）可以分为四种：</p>
+<ul>
+<li>红色盲 protanopia</li>
+<li>红色弱 protanomaly</li>
+<li>绿色盲 deuteranopia</li>
+<li>绿色弱 deuteranomaly</li>
+</ul>
+<h3 id="基因">基因</h3>
+<p>感光细胞分为视杆细胞和视锥细胞。人的视锥细胞有三种感光蛋白：OPN1LW, OPN1MW, OPN1SW。其中，<strong>OPN1LW</strong> 和 <strong>OPN1MW</strong> 都位于 X 染色体的 Xq28 band 上，并且相邻：
+<a href="https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&amp;lastVirtModeType=default&amp;lastVirtModeExtraState=&amp;virtModeType=default&amp;virtMode=0&amp;nonVirtPosition=&amp;position=chrX%3A154121252%2D154292443&amp;hgsid=2903703568_2Iz6bpBNKMOwqZUig6LCfKXvpBIg">Human hg38 chrX:154121252-154292443 UCSC Genome Browser v485</a>。</p>
+<p>正常情况下，人拥有一个 OPN1LW，一个或多个 OPN1MW；不过 OPSIN-LCR 只表达 OPN1LW 和第一个 OPN1MW，多余的 OPN1MW 基因并不表达。OPN1LW 和 OPN1MW 基因的序列相似度超过 98%，这可能是因为这两个基因曾经是等位基因（部分其他灵长类动物的 X 染色体上只有 OPN1LW 或 OPN1MW 中的一个）。</p>
+<blockquote>
+<p>以下简称 OPN1LW 为 L，OPN1MW 为 M。</p>
+</blockquote>
+<p>L 蛋白的最大吸收波长约为 560 nm，M 蛋白约为 530 nm：</p>
+<p><img src="wavelength.jpg" alt="wavelength.jpg"></p>
+<blockquote>
+<p>对于单色光，视蛋白会按各自吸收曲线的敏感度被激活。</p>
+<p>对于混合光，感光信号可以近似看成不同波长的光强度线性相加的效果。</p>
+</blockquote>
+<p>L 基因和 M 基因均由六个外显子组成。其中<strong>外显子 5</strong> 上 277 和 285 位点的差异造成了 20 nm 的吸收波长差异；而外显子 2, 3, 4 上一些位点也会影响吸收波长。</p>
+<p><img src="exon.jpg" alt="exon.jpg"></p>
+<blockquote>
+<p>蛋白质、氨基酸的基础知识见 <a href="https://gwdx.github.io/post/nucleoside-analogue-2/#11-%E8%9B%8B%E7%99%BD%E8%B4%A8">上一篇 blog</a></p>
+</blockquote>
+<br>
+<h3 id="交叉互换产生异常基因">交叉互换产生异常基因</h3>
+<p>如果在 OPN1LW/OPN1MW 区段上发生了交叉互换，可能导致这几个基因的重排，导致后代编码的某种视蛋白的吸收波长发生变化，表现为色觉异常。</p>
+<p>下面是一些交叉互换导致基因重排产生异常基因的示例。</p>
+<blockquote>
+<p>这几个例子中默认考虑男性后代。</p>
+</blockquote>
+<h4 id="示例-a">示例 A</h4>
+<p>假设正常女性的两条 X 染色体上 L 和 M 基因的排列分别为：</p>
+<ul>
+<li><strong>L</strong> | M</li>
+<li><strong>L</strong>  M |</li>
+</ul>
+<p>如果同源染色体在联会时发生了错位（misalignment），第一个染色单体的 L 错误地与第二个染色体的 M 配对，两个染色单体在这两个基因之后的位置发生交叉互换。会形成以下两个染色单体：</p>
+<ul>
+<li><strong>L</strong>  M  M</li>
+<li><strong>L</strong></li>
+</ul>
+<p>说明：</p>
+<ul>
+<li>形成的的第一个染色体是<strong>正常</strong>的</li>
+<li>而第二个染色体没有 M 基因，如果与 Y 染色体结合，生下的男孩是<strong>绿色盲</strong>。</li>
+</ul>
+<center>
+<img src="example-A.jpg" alt="example-A.jpg" style="zoom:100%;" />
+</center>
+<br>
+<h4 id="示例-b">示例 B</h4>
+<p>前一种情况是在外显子 5 后面交换的，而如果在外显子 5 的前面交换是不一样的情况。</p>
+<p>假设正常女性的两条 X 染色体上 L 和 M 的外显子顺序分别是：</p>
+<ul>
+<li>LM: <strong>1234</strong> | <strong>56</strong>  123456</li>
+<li>LM: <strong>123456</strong>  1234 | 56</li>
+</ul>
+<p>互换后：</p>
+<ul>
+<li>L*: <strong>1234</strong>56</li>
+<li>LM*M: <strong>123456</strong>  1234<strong>56</strong> 123456</li>
+</ul>
+<p>说明：</p>
+<ul>
+<li>第一个染色体有 L* 基因，其外显子 5 是 M 基因的，所以对应<strong>红色盲</strong>。</li>
+<li>第二个染色体的前两个基因（L 和 M*）表达，当前情况下为<strong>绿色弱</strong>。如果两者是在其他位置交换，例如在外显子 1 后面换的，那么 L 和 M* 的吸收波长没有差异，为<strong>绿色盲</strong>。统称为<strong>绿色色觉异常</strong>。</li>
+</ul>
+<blockquote>
+<p>M* 基因表示外显子 5 发生了突变的 M 基因，对应的吸收波长与 L 基因更接近（而不是 M 基因）。
+L* 基因同理。</p>
+</blockquote>
+<center>
+<img src="example-B.jpg" alt="example-B.jpg" style="zoom:100%;" />
+</center>
+<br>
+<h4 id="示例-c">示例 C</h4>
+<p>如果一个染色体上有两个 M 基因，那更有可能发生错位联会：</p>
+<ul>
+<li>LM: <strong>1234</strong> | <strong>56</strong>  123456</li>
+<li>LMM: <strong>123456</strong>  1234 | 56 123456</li>
+</ul>
+<p>互换后：</p>
+<ul>
+<li>L*M: <strong>1234</strong>56  123456</li>
+<li>LM*M: <strong>123456</strong>  1234<strong>56</strong>  123456</li>
+</ul>
+<p>说明：</p>
+<ul>
+<li>第一个对应<strong>红色色觉异常</strong>。</li>
+<li>第二个对应<strong>绿色色觉异常</strong>。</li>
+</ul>
+<center>
+<img src="example-C.jpg" alt="example-C.jpg" style="zoom:100%;" />
+</center>
+<br>
+<h4 id="性别差异">性别差异</h4>
+<ul>
+<li>男性如果携带异常基因时（LM* Y）会表现为红绿色觉异常。</li>
+<li>杂合女性（LM LM*）中，由于 X 染色体随机失活（X-inactivation），不同的视锥细胞表达不同的 OPN1LW 或 OPN1MW 基因，此人具有三色视觉；少数情况下可能表现为四色视觉。</li>
+</ul>
+<blockquote>
+<p><strong>[2]</strong> <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3075382">The genetics of normal and defective color vision</a> <br>
+[3] <a href="https://en.wikipedia.org/wiki/Color_blindness">Color blindness - Wikipedia</a>  <br>
+[4] <a href="https://en.wikipedia.org/wiki/Congenital_red%E2%80%93green_color_blindness#Mechanism">Congenital red–green color blindness - Wikipedia</a> <br>
+[5] <a href="https://en.wikipedia.org/wiki/OPN1LW">OPN1LW - Wikipedia</a></p>
+</blockquote>
+<br>
+<h2 id="总结">总结</h2>
+<p>OPN1LW 与 OPN1MW 位于 X 染色体上，彼此相邻，且序列高度同源。所以在减数分裂的过程中容易发生<strong>错位交换</strong>，产生重排的基因。如果重排后的基因遗传到后代，就可能导致后代红绿色觉异常。</p>
+<center>
+<img src="opsin-crossover.jpg" alt="opsin-crossover.jpg" style="zoom:75%;" />
+</center>
+<p>不同于单核苷酸多态性（SNP）引起的基因突变，红绿色觉异常的机制是<strong>错位联会和交叉互换</strong>所导致的基因重排，这种机制解释了其高发生率。</p>
+<blockquote>
+<p>[6] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5017313/">Genetic Testing as a New Standard for Clinical Diagnosis of Color Vision Deficiencies</a></p>
+</blockquote>
+<br>
+<h2 id="杂谈">杂谈</h2>
+<p>我自己应该算红色色觉异常（protan），正如 <a href="https://en.wikipedia.org/wiki/Color_blindness#Red%E2%80%93green_color_blindness">wiki</a> 上说的，有点分不清青色和白色，还有红色和黑色。</p>
+<ul>
+<li>小学时体检，我就看不出石原氏色盲检测图。</li>
+<li>初中一节语文课，当时讲的是《湖心亭看雪》，我被老师叫起来，不能从 PPT 的黑字中分清楚红字，那天受到了一些同学言语上的排斥。初中时还因为普通话不标准在公交车上被其他班的同学嘲笑过。那段时间恰好读到《窗后的少年》（Liar &amp; Spy），里面的主人公因为潜在的味觉异常被同学欺负。</li>
+<li>当得知大学录取的是第四志愿化学的时候，我第一反应是担心因为 CVD 被退学。</li>
+<li>大一做无机化学实验时，pH 试纸看着犯迷糊。后来因为不擅长化学实验、更喜欢写代码等原因，去了计算机学院。</li>
+</ul>
+<p>日常生活中，偶尔会造成一些不便，我最讨厌的是在黑色段落中用红色标注的文字。</p>
+<h2 id="后记">后记</h2>
+<p>相比于其他遗传病（例如 G6PDD、地中海贫血），先天性红绿色觉异常确实算是很轻的遗传病了。</p>
+<p>因为要写这篇 blog，去看了《声之形》。显然，西宫硝子因为听力障碍受到的影响远在我之上，无论是生活上的不便，或者是受到的欺凌。</p>
+<blockquote>
+<p>或许是某种巧合，我的生日（MMDD）恰好和西宫硝子一样。</p>
+</blockquote>
+<center>
+<img src="Shouko-Nishimiya.jpg" alt="Shouko-Nishimiya.jpg" style="zoom:75%;" />
+</center>
+<blockquote>
+<p>插画：<a href="https://www.pixiv.net/artworks/59031459">聲の形</a></p>
+</blockquote>
+<p>如果读者是软件从业人员，希望以后在做 UI 设计的时候可以考虑到这个占人口 4% 的群体，例如<a href="https://en.wikipedia.org/wiki/Color_blindness#Digital_design">避免使用容易混淆的颜色标注关键信息</a>。当然，其他身心障碍的群体也需要被关注。</p>
+<h2 id="时间">时间</h2>
+<ul>
+<li>生物化学：2024 年 8 月</li>
+<li>发布：2025 年 8 月</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">GWDx</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2025-08-16
+        <a href="https://github.com/GWDx/GWDx.github.io/commit/799265c22babaec6feb9f2dfac4f6bfe4befbfb3" title="add red-green-color-vision-deficiency">(799265c)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/nucleoside-analogue-2/">
+            <span class="next-text nav-default">再谈核苷类似物</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'eZM94QLAn3n1uIyq9fgV9U3M-MdYXbMMI',
+        appKey: '2l60rnkvKMig2YTvx5OSYETO',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '',
+        visitor:  false ,
+        serverURLs : 'https:\/\/ezm94qla.api.lncldglobal.com',
+    });
+</script>
+
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:gwdx@mail.ustc.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/GWDx" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/gan-wen-di" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/442365922" class="iconfont icon-bilibili" title="bilibili"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy;
+    2022 -
+    2025<span class="heart"><i class="iconfont icon-heart"></i></span><span>GWDx</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.5c93b1d90d4bc05350a680cf34fca805c5c13041075057bc584fe6d549c6186a.js"></script>
+
+
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-HBL65Q7HB4"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-HBL65Q7HB4');
+        }
+      </script>
+    
+  
+
+
+
+
+
+
+
+
+</body>
+</html>
