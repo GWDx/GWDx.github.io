@@ -440,17 +440,27 @@ HIV RT M184V 突变后 Kp/Kd 显著减小，对 (-)-3TC (-)-FTC 的亲和力显�
 ## 4. 循证医学
 
 至于 Lamivudine、TDF 对于 COVID 临床是否有效，需要循证医学。 \
-现有的指南没有提到这两种药物，所以需要查综述、RCT。
+现有的指南没有提到这两种药物，所以需要查综述（系统评价、荟萃分析），看 RCT（随机对照实验）。
 
-综述说可能有用。
+综述说 Lamivudine 和 Tenofovir 可能有用。
 
 > [17] [Effectiveness of Drug Repurposing and Natural Products Against SARS-CoV-2: A Comprehensive Review](https://www.tandfonline.com/doi/full/10.2147/CPAA.S429064) \
 > [18] [Navigating the COVID-19 Therapeutic Landscape: Unveiling Novel Perspectives on FDA-Approved Medications, Vaccination Targets, and Emerging Novel Strategies](https://www.mdpi.com/1420-3049/29/23/5564)
 
-我不太会看 RCT，感觉就是有的说在某些情况下有效果，有的说不显著。
+我不太会看 RCT，感觉就是有的说 Tenofovir 在某些情况下有效果，有的说不显著。具体而言，一个 RCT 说 TDF/FTC、秋水仙碱、瑞舒伐他汀联合用药有治疗效果 [19]，另一个说 TDF/FTC 对于预防 COVID 效果不显著 [20]。
 
-> [19] [Daily tenofovir disoproxil fumarate/emtricitabine and hydroxychloroquine for pre-exposure prophylaxis of COVID-19: a double-blind placebo-controlled randomized trial in healthcare workers](https://www.sciencedirect.com/science/article/pii/S1198743X22003706) \
-> [20] [Effectiveness of rosuvastatin plus colchicine, emtricitabine/tenofovir and combinations thereof in hospitalized patients with COVID-19: a pragmatic, open-label randomized trial](https://pmc.ncbi.nlm.nih.gov/articles/PMC8686571/)
+> [19] [Effectiveness of rosuvastatin plus colchicine, emtricitabine/tenofovir and combinations thereof in hospitalized patients with COVID-19: a pragmatic, open-label randomized trial](https://pmc.ncbi.nlm.nih.gov/articles/PMC8686571/) \
+> [20] [Daily tenofovir disoproxil fumarate/emtricitabine and hydroxychloroquine for pre-exposure prophylaxis of COVID-19: a double-blind placebo-controlled randomized trial in healthcare workers](https://www.sciencedirect.com/science/article/pii/S1198743X22003706)
+
+
+
+**2025-11 更新：**
+
+找到一篇新的系统评价，得出了相近的结论：关于使用 Tenofovir 对 COVID 的治疗，仅筛选出 3 项 RCT，且结果相互冲突；现有证据不支持将 Tenofovir 用于 COVID-19 的常规治疗，仍需更多高质量 RCT [21]。
+
+> [21] [Efficacy of tenofovir on clinical outcomes of COVID-19 patients: a systematic review](https://pmc.ncbi.nlm.nih.gov/articles/PMC12312381/)
+
+
 
 <br>
 
@@ -572,7 +582,7 @@ HIV RT M184V 突变后 Kp/Kd 显著减小，对 (-)-3TC (-)-FTC 的亲和力显�
 
 > 插画：[morphine-chan is working](https://www.pixiv.net/artworks/126454072)
 >
-> [21] [Molecular recognition of morphine and fentanyl by the human μ-opioid receptor](https://www.cell.com/cell/fulltext/S0092-8674(22)01260-0)
+> [22] [Molecular recognition of morphine and fentanyl by the human μ-opioid receptor](https://www.cell.com/cell/fulltext/S0092-8674(22)01260-0)
 
 <br>
 
