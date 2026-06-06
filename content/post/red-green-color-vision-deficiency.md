@@ -62,7 +62,7 @@ mathjax: false
 减数分裂I 的前期中，基因重组主要通过 SDSA 和 DHJ（双Holliday交叉） 机制进行。
 
 - SDSA 机制：3'单链进行 DNA 合成后与原链相连，伴随基因转换（Gene conversion）。
-- DHJ 机制：形成双Holliday交叉；对于双Holliday交叉，如果一边横着切，另一边从另一个方向切割，就会达到[**交叉互换**](https://en.wikipedia.org/wiki/Chromosomal_crossover)（crossover）的效果。
+- DHJ 机制：形成双Holliday交叉；对于双Holliday交叉，如果一边横着切，另一边从另一个方向切割，就会达到[**交叉互换**](https://en.wikipedia.org/wiki/Chromosomal_crossover)（crossover）的效果。如果两边都横着切，或者两边都竖着切，就会形成非交叉互换（non-crossover）。
 
 
 <center>
@@ -77,11 +77,15 @@ mathjax: false
 
 中心法则：DNA 序列转录成 RNA，然后 RNA 翻译成蛋白质。
 
-
 <center>
 <img src="CentralDogma.png" alt="CentralDogma.png" style="zoom:50%;" />
 </center>
 
+<center>
+<img src="mRNA.jpg" alt="mRNA.jpg" style="zoom:50%;" />
+</center>
+
+> 插画：[messenger RNA](https://www.pixiv.net/artworks/92289284)
 
 其中，在 RNA 翻译前，需要进行 RNA 剪接。在此过程中，外显子（exon）被合并，内含子被移除。
 
